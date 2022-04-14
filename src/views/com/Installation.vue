@@ -6,46 +6,39 @@
  * @FilePath: \yhht-ui\src\views\com\Installation.vue
 -->
 <template>
-  <div class="installation">
+  <div class="installation pages">
     <h2>安装</h2>
+    <p>本节将介绍如何在项目中使用 Yhht Plus。</p>
     <h3>npm 安装</h3>
     <p>
-      推荐使用 npm 的方式安装，它能更好地和
-      <a href="https://webpack.js.org/">webpack</a> 打包工具配合使用。
+      推荐使用 npm 的方式安装
     </p>
-    <div class="codes"><code-light text="npm i yhht-ui -S"></code-light></div>
-
+    <div class="codes">
+      <code-light text="npm i yhht-plus -S" codeType=""></code-light>
+    </div>
     <h2>快速使用</h2>
     <h3>引入 yhht-ui</h3>
     <p>你可以引入整个 yhht-ui 。</p>
     <h4>完整引入</h4>
     <p>在 main.js 中写入以下内容：</p>
+    <code-light wrapClass="codes" text="// main.ts
+import { createApp } from 'vue'
+import YhhtPlus from 'element-plus'
+import 'yhht-plus/lib/theme/index.css'
+import App from './App.vue'
 
-      <code-light
-      wrapClass="codes"
-        text="import Vue from'vue';
-import yhhtUi from 'yhht-ui';
-import 'yhht-ui/lib/theme/index.css';
-import App from './App.vue';
-  
-Vue.use(yhhtUi);
+const app = createApp(App)
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-});"
-      >
-      </code-light>
+app.use(YhhtPlus)
+app.mount('#app')">
+    </code-light>
 
-    <p>以上代码便完成了 yhht-ui 的引入。需要注意的是，样式文件需要单独引入。</p>
+    <p>以上代码便完成了 yhht-plus 的引入。需要注意的是，样式文件需要单独引入。</p>
   </div>
 </template>
 <script setup lang="ts">
-// export default {
-//   name: "installation",
-// };
+
 </script>
 <style lang="scss" scoped>
-.installation {
-}
+.installation {}
 </style>

@@ -12,29 +12,34 @@ import Menu from './Menu.vue'
 <style scoped lang='scss'>
 .page-content {
     width: 100%;
-    min-height: 100%;
+    // height: 100%;
     overflow-y: scroll;
     padding-top: 60px;
-    padding-left: calc((100% - var(--vp-screen-max-width)) / 2 + var(  --menu-width));
-    &::-webkit-scrollbar {
-        width: 6px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: #0003;
-        border-radius: 10px;
-        transition: all .2s ease-in-out;
-    }
+    padding-right: 300px;
+    box-sizing: border-box;
+}
 
-    &::-webkit-scrollbar-track {
-        border-radius: 10px;
+@media screen and (min-width: 1200px) {
+    
+    .page-content {
+        padding-left: var(--menu-width);
+    }
+}
+@media screen and (min-width: 960px) and (max-width:1200px) {
+    .page-content {
+        padding-right: 0;
+         padding-left: var(--menu-width);
     }
 }
 
-@media screen and (min-width:960px) and(max-width:1340px) {
-
-     .page-content{
-      padding-left: var(  --menu-width) ;
+@media screen and (max-width:960px) {
+    
+    .page-content {
+        padding-left: 0px;
+        padding-right: 0;
     }
-
+    .pages {
+        padding: 12px 6px 48px 12px;
+    }
 }
 </style>

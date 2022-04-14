@@ -5,7 +5,6 @@ import externalGlobals from "rollup-plugin-external-globals";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(),
-
   ],
   publicDir: "public",
   base : './',

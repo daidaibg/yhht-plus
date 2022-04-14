@@ -2,7 +2,7 @@
   <div class="menu_mask" v-if="!phoneMenuCol" @click="phoneMenuCol = !phoneMenuCol"></div>
 
   <div class="menu" :class="{ phoneMenuColIn: phoneMenuCol }">
-    <div class="menu_Stretch" @click="phoneMenuCol = !phoneMenuCol">
+    <div class="menu_Stretch flex justify-center items-center" @click="phoneMenuCol = !phoneMenuCol">
       <i class="yh-icons-s-fold" v-show="!phoneMenuCol"></i>
       <i class="yh-icons-s-unfold" v-show="phoneMenuCol"></i>
     </div>
@@ -21,10 +21,15 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref, Ref } from 'vue'
-const active: Ref = ref('')
+import { reactive, ref, Ref ,computed} from 'vue'
+import { useRoute, useRouter } from 'vue-router';
+const route = useRoute()
+const active= computed(() => {
+      return route.path
+})
 const menuList: Ref = ref([])
 const phoneMenuCol: Ref = ref(true)
+console.log(route);
 menuList.value= [
     {
           title: "开发指南",
@@ -41,14 +46,14 @@ menuList.value= [
           title: "组件",
           tip: "Basic",
           sub: [
-            // {
-            //   name: "icon",
-            //   url: "/components/icon",
-            // },
-            // {
-            //   name: "按钮button",
-            //   url: "/components/buttons",
-            // },
+            {
+              name: "Icon图标",
+              url: "/components/icon",
+            },
+            {
+              name: "Button按钮",
+              url: "/components/buttons",
+            },
             // {
             //   name: "加载状态",
             //   url: "/components/loading",
@@ -88,28 +93,12 @@ menuList.value= [
         // },
 
       ]
-// export default {
-//   data() {
-//     return {
-//       phoneMenuCol: true, //手机大小时侧边栏是否缩起来
 
-//     };
-//   },
-//   mounted() {
-//     // console.log(this.$route)
-//     // this.active = this.$route.path;
-//   },
-//   computed: {
-//     active() {
-//       return this.$route.path;
-//     },
-//   },
-//   methods: {},
-// };
 </script>
 
 <style lang="scss" scoped>
 .menu {
+  text-indent: 1em;
   width: var( --menu-width);
   box-sizing: border-box;
   overflow-y: hidden;
@@ -119,31 +108,31 @@ menuList.value= [
   background: var(--yh-bg-color-container);
   z-index: 999;
   left: calc((100% - var(--vp-screen-max-width)) / 2);
-  padding-left: 10px;
+  padding:0 16px;
 
   &:hover {
     overflow-y: auto;
   }
 
-  &::-webkit-scrollbar {
-    /*滚动条整体样式*/
-    width: 6px;
-    /*高宽分别对应横竖滚动条的尺寸*/
-    height: 1px;
-  }
+  // &::-webkit-scrollbar {
+  //   /*滚动条整体样式*/
+  //   width: 6px;
+  //   /*高宽分别对应横竖滚动条的尺寸*/
+  //   height: 1px;
+  // }
 
-  &::-webkit-scrollbar-thumb {
-    /*滚动条里面小方块*/
-    border-radius: 10px;
-    box-shadow: transparent;
-    background: rgba(144, 147, 153, 0.3);
-  }
+  // &::-webkit-scrollbar-thumb {
+  //   /*滚动条里面小方块*/
+  //   border-radius: 10px;
+  //   box-shadow: transparent;
+  //   background: rgba(144, 147, 153, 0.3);
+  // }
 
-  &::-webkit-scrollbar-track {
-    /*滚动条里面轨道*/
-    border-radius: 6px;
-    background: transparent;
-  }
+  // &::-webkit-scrollbar-track {
+  //   /*滚动条里面轨道*/
+  //   border-radius: 6px;
+  //   background: transparent;
+  // }
 
   >ul {
     padding: 44px 0;
@@ -167,6 +156,7 @@ menuList.value= [
   }
 
   .nav_item {
+    margin-top: 4px;
     a {
       display: block;
       height: 40px;
@@ -178,13 +168,17 @@ menuList.value= [
       white-space: nowrap;
       text-overflow: ellipsis;
       font-weight: 400;
+      transition: all 0.2s linear 0s;
       &:hover {
-        color: var(--yh-brand-color-8);
+        color: var( --text-primary);
+       background: var(--yh-bg-color-container-hover);
       }
     }
 
     a.active {
-      color: var(--yh-brand-color-8);
+      color: #FFF;
+      background-color: var(--menu-active-bg-color);
+      border-radius: 4px;
     }
   }
 
@@ -193,7 +187,6 @@ menuList.value= [
     box-shadow: rgba(0, 0, 0, 0.26) 2px 0px 8px;
     width: 40px;
     height: 40px;
-    line-height: 40px;
     align-items: center;
     justify-content: center;
     background: var(--yh-bg-color-container);
@@ -206,6 +199,7 @@ menuList.value= [
     color: var(--yh-text-color-primary);
     cursor: pointer;
     display: none;
+    text-indent: 0;
   }
 }
 

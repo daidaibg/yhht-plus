@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw ,createWebHistory} from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -24,6 +24,22 @@ const routes: Array<RouteRecordRaw> = [
                 type: 'com'
               }
             },
+            {
+              path: '/components/icon',
+              name: 'icon',
+              component: () => import(/* webpackChunkName: "Components" */ '../views/com/Icon/Icon.vue'),
+              meta: {
+                type: 'com'
+              }
+            },
+            {
+              path: '/components/buttons',
+              name: 'buttons',
+              component: () => import(/* webpackChunkName: "Components" */ '../views/com/button/button.vue'),
+              meta: {
+                type: 'com'
+              }
+            },
           ]
         }
     ]
@@ -31,7 +47,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

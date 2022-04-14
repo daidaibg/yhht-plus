@@ -72,6 +72,9 @@ import Header from './Header.vue'
 @media screen and (max-width: 960px) {
   .header_wrap {
     height: 44px;
+    .headers{
+      padding: 0 8px;
+    }
   }
   :deep(.headers) {
     .logo {

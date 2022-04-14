@@ -113,13 +113,15 @@ const command = (type: string) => {
 .headers {
   flex: 1;
   width: var(--vp-screen-max-width);
+  width: 100%;
   margin: 0 auto;
   border-bottom: 1px solid var(--header-bottom-color);
   display: flex;
   justify-content: space-between;
   height: 100%;
   box-sizing: border-box;
-  padding:0 10px;
+  padding:0 24px;
+  background: var(--yh-bg-color-container);
   .logo {
     display: flex;
     align-items: center;
