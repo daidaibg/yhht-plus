@@ -1,3 +1,4 @@
+/* not([theme-mode=dark]) */
 :root{
     --yh-brand-color-1: #ECFEFF;
     --yh-brand-color-2: #D4F8FB;

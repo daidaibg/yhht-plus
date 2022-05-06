@@ -33,7 +33,7 @@ import Header from './Header.vue'
 .header_wrap {
   position: fixed;
   top: 0;
-  left: 0;
+  // left: 0;
   width: 100%;
   height: 60px;
   z-index: 990;
@@ -43,8 +43,7 @@ import Header from './Header.vue'
     .headers{
       width: auto ;
     }
- 
- 
+
 }
 @media screen and (min-width: 960px) {
 
@@ -66,10 +65,12 @@ import Header from './Header.vue'
   :deep(.headers) {
     width: 100%;
   }
-
+  
 }
 
 @media screen and (max-width: 960px) {
+  
+ 
   .header_wrap {
     height: 44px;
     .headers{

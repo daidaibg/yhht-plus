@@ -1,0 +1,11 @@
+{
+    "header": {
+        "language": "中文",
+        "components":"组件"
+    },
+    "menu":{
+        "install":"安装",
+        "DevelopmentGuide":"开发指南",
+        "components":"组件"
+    }
+}

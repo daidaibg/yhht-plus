@@ -1,0 +1,25 @@
+/*
+ * @Author: wei
+ * @description: 修改element主题和变量
+ * @LastEditTime: 2022-05-06 16:24:10
+ */
+// https://github.dev/element-plus/unplugin-element-plus
+
+// @forward 'element-plus/theme-chalk/src/common/var.scss' with (
+//   $colors: (
+//     'primary': (
+//       'base': #018E9A,
+//     )
+//   )
+// );
+
+:root{
+
+}
+
+:root[theme-mode=dark] {
+    --el-bg-color-overlay: #1d1e1f;
+    --el-border-color-light: #414243;
+    --el-text-color-regular: #CFD3DC;
+    --el-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, .72);
+}

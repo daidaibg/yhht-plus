@@ -1,0 +1,11 @@
+{
+    "header": {
+        "language": "English",
+        "components":"COMPONENTS"
+    },
+    "menu":{
+        "install":"install",
+        "DevelopmentGuide":"development guide",
+        "components":"components"
+    }
+}

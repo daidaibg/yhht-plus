@@ -1,8 +1,8 @@
 /*
  * @Author: daidai
  * @Date: 2022-03-04 16:25:50
- * @LastEditors: daidai
- * @LastEditTime: 2022-03-04 16:39:16
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-04-28 17:25:16
  * @FilePath: \yhht-ui\yhht-ui\src\util\ripple.js
  */
 /**
@@ -11,13 +11,13 @@
  * 固定色值 v-ripple="动画条的背景色" eg: v-ripple="#808080"
  * 动态色值(推荐) v-ripple="true" data.ripple="rippleColor"
  */
-
+ import type { App } from "vue";
  import setStyle from './td/set-style';
  import { prefix } from '../config';
  const Ripple = {
    startTimeId: null,
    finishTimeId: null ,
-   inserted(el, binding) {
+   mounted(el: any, binding: { value: any; }) {
      const period = 200;
      const defaultBg = 'rgba(0, 0, 0, 0.35)';
      let bg = typeof binding.value === 'boolean' || binding.value == null ? defaultBg : binding.value;

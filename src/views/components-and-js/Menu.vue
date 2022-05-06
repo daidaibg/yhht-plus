@@ -8,11 +8,11 @@
     </div>
     <ul class="menuinner">
       <li v-for="(item, i) in menuList" :key="i">
-        <h3 style="margin: 0" v-if="item.title">{{ item.title }}</h3>
+        <h3 style="margin: 0" v-if="item.title">{{  $t( "menu."+item.title)  }}</h3>
         <ul class="menType">
           <div class="nav_title" v-if="item.tip">{{ item.tip }}</div>
           <li class="nav_item" v-for="subItem in item.sub" :key="subItem.url">
-            <router-link :to="{ path: subItem.url }" :class="{ active: active == subItem.url }">{{ subItem.name }}
+            <router-link :to="{ path: subItem.url }" :class="{ active: active == subItem.url }">{{ subItem.isTranslate?subItem.default() :subItem.name }}
             </router-link>
           </li>
         </ul>
@@ -23,27 +23,34 @@
 <script lang="ts" setup>
 import { reactive, ref, Ref ,computed} from 'vue'
 import { useRoute, useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const route = useRoute()
 const active= computed(() => {
       return route.path
 })
 const menuList: Ref = ref([])
 const phoneMenuCol: Ref = ref(true)
-console.log(route);
 menuList.value= [
     {
-          title: "开发指南",
+          title: "DevelopmentGuide",
+          content: "开发指南",
+          isTranslate:true,
           // tip: "Basic",
           sub: [
             {
               name: "安装",
+              default:()=>t('menu.install'),
+              isTranslate:true,
               url: "/components/installation",
             },
          
           ],
         },
         {
-          title: "组件",
+          title: "components",
+          content: "组件",
+          isTranslate:true,
           tip: "Basic",
           sub: [
             {

@@ -11,7 +11,8 @@ export default function setHighlight(app: App) {
       let blocks = el.querySelectorAll('pre code');
       for (let i = 0; i < blocks.length; i++) {
         let item = blocks[i]
-        hljs.highlightBlock(item)
+        hljs.highlightElement(item)
+
       }
     },
     // called after the containing component's VNode and the VNodes of its children // have updated
@@ -22,7 +23,8 @@ export default function setHighlight(app: App) {
         if (typeof binding.value === 'string') {
           target.textContent = binding.value;
         }
-        hljs.highlightBlock(target);
+        hljs.highlightElement(target);
+
       }
     }
   })

@@ -1,12 +1,19 @@
 import { createStore } from 'vuex'
+import langStore from './modules/lang-store'
+import themeStore from './modules/theme/theme-store'
 
 export default createStore({
-  state: {
+  modules:{
+    langStore,
+    themeStore
+  },
+
+  state:{
+
   },
   mutations: {
   },
   actions: {
   },
-  modules: {
-  }
+  
 })

@@ -6,7 +6,12 @@ pre code.hljs {
     overflow-x: auto;
     padding: 1em
 }
-
+.hljs-tag{
+    color:#a8a9cc
+}
+.vue{
+    color: #303133;
+}
 code.hljs {
     padding: 3px 5px
 }
@@ -33,7 +38,8 @@ code.hljs {
 .hljs-section,
 .hljs-selector-tag,
 .hljs-subst {
-    color: #e45649
+    // color: #e45649;
+    color: #3182bd;
 }
 
 .hljs-literal {
@@ -45,7 +51,8 @@ code.hljs {
 .hljs-meta .hljs-string,
 .hljs-regexp,
 .hljs-string {
-    color: #50a14f
+    // color: #50a14f;
+    color: #0b8235;
 }
 
 .hljs-attr,

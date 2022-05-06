@@ -1,8 +1,8 @@
 /*
  * @Author: daidai
  * @Date: 2021-07-12 09:26:26
- * @LastEditors: daidai
- * @LastEditTime: 2022-03-04 14:29:47
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-04-28 17:11:49
  * @FilePath: \yhht-ui\yhht-ui\src\index.js
  */
 
@@ -27,5 +27,4 @@ export default {
 
 export {
   YhButton
-
 }

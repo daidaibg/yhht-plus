@@ -2,12 +2,20 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
 import externalGlobals from "rollup-plugin-external-globals";
+import vueI18n from '@intlify/vite-plugin-vue-i18n'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(),
+    vueI18n({
+      // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+      // compositionOnly: false,
+
+      // you need to set i18n resource including paths !
+      include: resolve(__dirname, './src/i18n/language')
+    })
   ],
   publicDir: "public",
-  base : './',
+  base : '/yhht-plus/',
   server: {
     host: '0.0.0.0',
     port: 8006,
@@ -35,14 +43,16 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "./src"),
       "@components": resolve(__dirname, "./src/components"),
+
     },
   },
   // css: {
   //   // css预处理器
   //   preprocessorOptions: {
   //     scss: {
-  //       charset: false,
-  //       additionalData: '@import "./src/assets/css/variable.scss";',
+  //       // charset: false,
+  //       // additionalData: '@import "./src/assets/css/variable.scss";',
+  //       additionalData: `@use "./src/assets/css/element/index.scss" as *;`,
   //     },
   //   },
   // },

@@ -18,17 +18,21 @@ import Menu from './Menu.vue'
     padding-right: 300px;
     box-sizing: border-box;
 }
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1560px) {
     
+    .page-content {
+        padding-right: 400px;
+    }
+}
+@media screen and (min-width: 1360px) {
     .page-content {
         padding-left: var(--menu-width);
     }
 }
-@media screen and (min-width: 960px) and (max-width:1200px) {
+@media screen and (min-width: 960px) and (max-width:1360px) {
     .page-content {
         padding-right: 0;
-         padding-left: var(--menu-width);
+        padding-left: var(--menu-width);
     }
 }
 

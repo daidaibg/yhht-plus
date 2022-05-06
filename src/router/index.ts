@@ -47,7 +47,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/yhht-plus/'),
+  // history: createWebHashHistory(),
   routes
 })
 

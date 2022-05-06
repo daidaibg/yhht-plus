@@ -1,47 +1,49 @@
 /*
  * @Author: daidai
  * @Date: 2022-03-04 16:46:05
- * @LastEditors: daidai
- * @LastEditTime: 2022-03-30 18:24:05
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-06 15:29:28
  * @FilePath: \yhht-ui\src\views\com\button\button.js
  */
 
-let text:object ={
-    text:`<div class="row">
-    <yh-button>默认按钮</yh-button>
-    <yh-button theme="primary">主要按钮</yh-button>
-    <yh-button theme="danger">危险按钮</yh-button>
-    <yh-button theme="warning">警告按钮</yh-button>
-    <yh-button theme="success">成功按钮</yh-button>
-</div>
-<div class="row">
-    <yh-button disabled shape="round">禁用按钮</yh-button>
-    <yh-button theme="primary" disabled shape="round">禁用主要</yh-button>
-    <yh-button theme="danger" disabled shape="round">禁用危险</yh-button>
-    <yh-button theme="warning" disabled shape="round">禁用警告</yh-button>
-    <yh-button theme="success" disabled shape="round">禁用成功</yh-button>
-</div>
-<div class="row">
-    <yh-button loading>默认按钮</yh-button>
-    <yh-button theme="primary" loading>主要按钮</yh-button>
-    <yh-button theme="danger" loading>危险按钮</yh-button>
-    <yh-button theme="warning" loading>警告按钮</yh-button>
-    <yh-button theme="success" loading>成功按钮</yh-button>
-</div>
-<div class="row">
-    <yh-button variant="text">文字按钮</yh-button>
-    <yh-button theme="primary" variant="text">禁用主要</yh-button>
-    <yh-button theme="danger" variant="text">禁用危险</yh-button>
-    <yh-button theme="warning" variant="text">禁用警告</yh-button>
-    <yh-button theme="success" variant="text">禁用成功</yh-button>
-</div>
-<div class="row">
-    <yh-button variant="text" disabled>文字按钮</yh-button>
-    <yh-button theme="primary" variant="text" disabled>禁用主要</yh-button>
-    <yh-button theme="danger" variant="text" disabled>禁用危险</yh-button>
-    <yh-button theme="warning" variant="text" disabled>禁用警告</yh-button>
-    <yh-button theme="success" variant="text" disabled>禁用成功</yh-button>
-</div>
+let textObj:object ={
+    text:`<template>
+    <div class="row">
+        <yh-button>默认按钮</yh-button>
+        <yh-button theme="primary">主要按钮</yh-button>
+        <yh-button theme="danger">危险按钮</yh-button>
+        <yh-button theme="warning">警告按钮</yh-button>
+        <yh-button theme="success">成功按钮</yh-button>
+    </div>
+    <div class="row">
+        <yh-button disabled shape="round">禁用按钮</yh-button>
+        <yh-button theme="primary" disabled shape="round">禁用主要</yh-button>
+        <yh-button theme="danger" disabled shape="round">禁用危险</yh-button>
+        <yh-button theme="warning" disabled shape="round">禁用警告</yh-button>
+        <yh-button theme="success" disabled shape="round">禁用成功</yh-button>
+    </div>
+    <div class="row">
+        <yh-button loading>默认按钮</yh-button>
+        <yh-button theme="primary" loading>主要按钮</yh-button>
+        <yh-button theme="danger" loading>危险按钮</yh-button>
+        <yh-button theme="warning" loading>警告按钮</yh-button>
+        <yh-button theme="success" loading>成功按钮</yh-button>
+    </div>
+    <div class="row">
+        <yh-button variant="text">文字按钮</yh-button>
+        <yh-button theme="primary" variant="text">禁用主要</yh-button>
+        <yh-button theme="danger" variant="text">禁用危险</yh-button>
+        <yh-button theme="warning" variant="text">禁用警告</yh-button>
+        <yh-button theme="success" variant="text">禁用成功</yh-button>
+    </div>
+    <div class="row">
+        <yh-button variant="text" disabled>文字按钮</yh-button>
+        <yh-button theme="primary" variant="text" disabled>禁用主要</yh-button>
+        <yh-button theme="danger" variant="text" disabled>禁用危险</yh-button>
+        <yh-button theme="warning" variant="text" disabled>禁用警告</yh-button>
+        <yh-button theme="success" variant="text" disabled>禁用成功</yh-button>
+    </div>
+</template>
 `,
 sharpSize:` <div class="row">
     <yh-button size="small">小按钮</yh-button>
@@ -105,4 +107,4 @@ block:` <div class="block_wrap">
 }
 `
 }
-export default text
+export default textObj
