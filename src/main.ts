@@ -18,6 +18,7 @@ const app=createApp(App)
 // 注册所有自定义指令
 setDirectives(app);
 // console.log(YhPlus);
+// 注册自定义组件
 app.component('code-light',CodeLight)
 app.component('code-wrap',CodeWrap)
 app.component("TableParam",TableParam)

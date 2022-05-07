@@ -8,14 +8,16 @@ export default defineConfig({
   plugins: [vue(),
     vueI18n({
       // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
-      // compositionOnly: false,
+      compositionOnly: false,
 
       // you need to set i18n resource including paths !
+      runtimeOnly: false,
       include: resolve(__dirname, './src/i18n/language')
     })
   ],
   publicDir: "public",
   base : '/yhht-plus/',
+  // base : './',
   server: {
     host: '0.0.0.0',
     port: 8006,

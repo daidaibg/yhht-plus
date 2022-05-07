@@ -7,6 +7,10 @@
 - 🛠️从一组受限的原始实用程序构建复杂的组件tailwindcss![tailwindcss](https://img.shields.io/badge/tailwindcss-2-green)
 - 💡 Instant Server Start![vite](https://img.shields.io/badge/vite-2-blue)
 
+## 预览地址
+
+[yhht-plus](http://www.eheretop.com:18080/yhht-plus)
+
 ## 自己项目中经常遇到组件等功能
 
 ## 可以拿此框架加直接做后台开发

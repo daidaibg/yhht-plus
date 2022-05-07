@@ -8,7 +8,7 @@
     </div>
     <ul class="menuinner">
       <li v-for="(item, i) in menuList" :key="i">
-        <h3 style="margin: 0" v-if="item.title">{{  $t( "menu."+item.title)  }}</h3>
+        <h3 style="margin: 0" v-if="item.title">{{ item.isTranslate?  $t( "menu."+item.title) :item.title }}  </h3>
         <ul class="menType">
           <div class="nav_title" v-if="item.tip">{{ item.tip }}</div>
           <li class="nav_item" v-for="subItem in item.sub" :key="subItem.url">
@@ -29,6 +29,7 @@ const route = useRoute()
 const active= computed(() => {
       return route.path
 })
+
 const menuList: Ref = ref([])
 const phoneMenuCol: Ref = ref(true)
 menuList.value= [
@@ -100,7 +101,6 @@ menuList.value= [
         // },
 
       ]
-
 </script>
 
 <style lang="scss" scoped>
