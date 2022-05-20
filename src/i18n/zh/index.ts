@@ -1,5 +1,7 @@
 import zh from '../language/zh.json'
 import button from './button'
+import install from "./install"
+import icon from "./icon"
 const global = {
   // 头部
   doc: '说明文档',
@@ -12,5 +14,7 @@ const global = {
 export default {
   global,
   ...zh,
-  button
+  button,
+  install,
+  icon
 }

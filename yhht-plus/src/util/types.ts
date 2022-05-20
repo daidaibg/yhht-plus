@@ -29,3 +29,4 @@ export const isElement = (e: unknown): e is Element => {
 export const isPropAbsent = (prop: unknown): prop is null | undefined => {
   return isNil(prop)
 }
+

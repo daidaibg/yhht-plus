@@ -1,19 +1,19 @@
 <!--
  * @Author: daidai
  * @Date: 2021-10-09 09:41:04
- * @LastEditors: daidai
- * @LastEditTime: 2022-02-25 10:17:55
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-19 14:52:22
  * @FilePath: \yhht-ui\src\views\com\Icon\Icon.vue
 -->
 
 <template>
-  <div class="icon pages">
-    <h2 id="icon-tu-biao">Icon 图标</h2>
-    <p>提供了一套常用的图标集合。</p>
-    <h3 id="shi-yong-fang-fa">使用方法</h3>
+  <div class="icon ">
+    <h2 id="icon-tu-biao">{{$t('icon.name')}}</h2>
+    <p>{{$t('icon.tips')}}</p>
+    <h3 id="shi-yong-fang-fa">{{$t('icon.use.name')}}</h3>
     <p>
-      直接通过设置类名为
-      <span class="codelit">yh-icons-delete-solid</span> 来使用即可。例如：
+      {{$t('icon.use.tip')}}
+      <span class="codelit">yh-icons-delete-solid</span>   {{$t('icon.use.tip2')}}
     </p>
 
     <div class="demo_wrap">
@@ -30,11 +30,11 @@
       </div>
     </div>
     <p>
-      直接通过class名字改变样式
+       {{$t('icon.use.tipend')}}
       <span class="codelit">.yh-icons-delete-solid{color:red;font-size:18px;}</span>
-      来使用即可。→<span class="yh-icons-delete-solid" style="color: red; font-size: 18px"></span>
+      {{$t('icon.use.tipend2')}}→<span class="yh-icons-delete-solid" style="color: red; font-size: 18px"></span>
     </p>
-    <h2 id="icon-tu-biao">图标集合</h2>
+    <h2 id="icon-tu-biao"> {{$t('icon.all')}}</h2>
     <div>
       <YhIconsCom />
     </div>

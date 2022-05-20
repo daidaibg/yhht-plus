@@ -79,8 +79,8 @@ body {
 
 .pages {
   box-sizing: border-box;
-  padding: 64px 48px 120px;
-  max-width: 1168px;
+  padding: 64px 48px 80px;
+  max-width: 1100px;
   margin: 0 auto;
 
   a {
@@ -160,8 +160,23 @@ body {
     width: 100%;
     height: 100%;
   }
-
+  .success {
+    padding: 8px 16px;
+    background-color: var(--yh-success-color-1);
+    border-radius: 4px;
+    border-left: 5px solid var(--yh-success-color-5);
+    ;
+    margin: 20px 0;
+  }
   .warning {
+    padding: 8px 16px;
+    background-color: var(--yh-warning-color-1);
+    border-radius: 4px;
+    border-left: 5px solid var(--yh-warning-color-5);
+    ;
+    margin: 20px 0;
+  }
+  .error {
     padding: 8px 16px;
     background-color: var(--yh-error-color-1);
     border-radius: 4px;
@@ -169,7 +184,6 @@ body {
     ;
     margin: 20px 0;
   }
-
   .tipdefault {
     padding: 8px 16px;
     background-color: var(--yh-remind-color-2);

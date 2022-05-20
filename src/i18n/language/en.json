@@ -5,7 +5,9 @@
     },
     "menu":{
         "install":"install",
-        "DevelopmentGuide":"development guide",
-        "components":"components"
+        "DevelopmentGuide":"Development Guide",
+        "components":"Components",
+        "toolLibrary":"Tool Library",
+        "directives":"Directives"
     }
 }

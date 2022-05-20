@@ -2,10 +2,10 @@
  * @Author: daidai
  * @Date: 2021-09-09 17:19:05
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-06 15:58:02
+ * @LastEditTime: 2022-05-11 16:33:13
  * @FilePath: \yhht-ui\src\views\Header.vue
 -->
-<template >
+<template>
   <div class="headers">
     <div class="left">
       <div class="logo">
@@ -17,18 +17,24 @@
     <div class="right">
       <div class="right_inner">
         <div class="item" :class="{ activeItem: active == 'com' }">
-          <router-link :to="{ path: '/components' }">{{$t( "header.components") }}</router-link>
+          <router-link :to="{ path: '/components' }">{{
+            $t("header.components")
+          }}</router-link>
         </div>
-
+        <div class="item" :class="{ activeItem: active == 'js' }">
+          <router-link :to="{ path: '/js' }">JS</router-link>
+        </div>
       </div>
       <div class="phoneTab">
         <el-dropdown trigger="click" @command="command">
           <el-icon size="28px">
-            <operation style=" margin-right: 8px" />
+            <operation style="margin-right: 8px" />
           </el-icon>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item command="/components">{{$t( "header.components") }}</el-dropdown-item>
+              <el-dropdown-item command="/components">{{
+                $t("header.components")
+              }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -40,26 +46,31 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { Lang } from './header/lang'
-import { GitHub } from './header/github'
-import { Theme } from './header/theme'
-import { ElDropdown, ElDropdownMenu, ElDropdownItem, ElIcon } from "element-plus";
-import { Operation } from "@element-plus/icons-vue"
+import { Lang } from "./header/lang";
+import { GitHub } from "./header/github";
+import { Theme } from "./header/theme";
+import {
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
+  ElIcon,
+} from "element-plus";
+import { Operation } from "@element-plus/icons-vue";
 import { reactive, ref, Ref, computed } from "vue";
 
-
-
+import { useRoute } from "vue-router";
+const route = useRoute();
 const active = computed(() => {
-  return 'com';
+  return route.meta.type;
 });
-
 const command = (type: string) => {
   console.log(type);
   // this.$router.push(type);
-}
-
+};
 </script>
+
 <style lang="scss" scoped>
+
 .headers {
   flex: 1;
   width: var(--vp-screen-max-width);
@@ -127,7 +138,6 @@ const command = (type: string) => {
       cursor: pointer;
 
       &:hover {
-
         a,
         .item-inner {
           color: var(--yh-brand-color-8);
@@ -142,11 +152,6 @@ const command = (type: string) => {
         color: var(--yh-brand-color-8);
       }
     }
-
-
   }
-
-
-
 }
 </style>

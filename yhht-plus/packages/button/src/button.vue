@@ -20,7 +20,7 @@
 
 <script lang="ts" >
 import { defineComponent,PropType   } from 'vue'
-import ripple from "../../../src/util/ripple";
+import {ripple} from "yhht-plus/directives";
 export const sizes = ['small', 'medium', 'large'] as const
 
 export default defineComponent({

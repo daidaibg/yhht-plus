@@ -26,6 +26,7 @@ button,
   user-select: none;
   touch-action: manipulation;
   line-height: 1.15;
+  flex-shrink :0;
 }
 
 
@@ -456,7 +457,7 @@ button,
   -webkit-animation: viewer-fade-out .3s;
   animation: viewer-fade-out .3s
 }
-
+/* 
 .el-input__inner {
   background: var(--yh-bg-color-container);
   border-color: var(--yh-component-border);
@@ -465,4 +466,4 @@ button,
 
 .el-input__inner::-webkit-input-placeholder {
   color: var(--yh-text-color-placeholder);
-}
+} */

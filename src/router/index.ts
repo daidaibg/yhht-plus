@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw ,createWebHistory} from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw, createWebHistory } from 'vue-router'
+import { getScrollContainer } from "yhht-plus/packages/utils/dom"
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -7,41 +8,67 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/components',
     name: 'components',
-    redirect: "com-index",
+    redirect: "/com-index",
     component: () => import(/* webpackChunkName: "Components" */ '../views/components.vue'),
-    children:[
-        {
-          path: '/com-index',
-          name: 'com-index',
-          redirect: '/components/installation',
-          component: () => import(/* webpackChunkName: "Components" */ '../views/components-and-js/components-index.vue'),
-          children:[
-            {
-              path: '/components/installation',
-              name: 'Installation',
-              component: () => import(/* webpackChunkName: "Components" */ '../views/com/Installation.vue'),
-              meta: {
-                type: 'com'
-              }
-            },
-            {
-              path: '/components/icon',
-              name: 'icon',
-              component: () => import(/* webpackChunkName: "Components" */ '../views/com/Icon/Icon.vue'),
-              meta: {
-                type: 'com'
-              }
-            },
-            {
-              path: '/components/buttons',
-              name: 'buttons',
-              component: () => import(/* webpackChunkName: "Components" */ '../views/com/button/button.vue'),
-              meta: {
-                type: 'com'
-              }
-            },
-          ]
-        }
+    children: [
+      {
+        path: '/js',
+        name: 'js',
+        redirect: '/js/copy',
+      },
+      {
+        path: '/com-index',
+        name: 'com-index',
+        redirect: '/components/installation',
+        component: () => import(/* webpackChunkName: "Components" */ '../views/components-and-js/components-index.vue'),
+        children: [
+          {
+            path: '/components/installation',
+            name: 'Installation',
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/Installation.vue'),
+            meta: {
+              type: 'com',
+              title: "安装使用"
+            }
+          },
+          {
+            path: '/components/icon',
+            name: 'icon',
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/Icon/Icon.vue'),
+            meta: {
+              type: 'com',
+              title: "icon"
+            }
+          },
+          {
+            path: '/components/buttons',
+            name: 'buttons',
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/button/button.vue'),
+            meta: {
+              type: 'com',
+              title: "按钮"
+            }
+          },
+          {
+            path: '/components/anchor',
+            name: 'anchor',
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/anchor/anchor.vue'),
+            meta: {
+              type: 'com',
+              title: "锚点"
+            }
+          },
+          {
+            path: '/js/copy',
+            name: 'copy',
+            component: () => import(/* webpackChunkName: "Components-js" */ '../views/com-js/copy/copy.vue'),
+            meta: {
+              type: 'js',
+              title: "复制"
+            }
+          },
+        ]
+      }
     ]
   }
 ]
@@ -49,7 +76,23 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory('/yhht-plus/'),
   // history: createWebHashHistory(),
-  routes
+  routes,
+  // scrollBehavior(to, from, saveScrollPosition) {
+  //   return { left: 0, top: 0 };
+  // },
 })
+
+
+// ---------------------- 路由拦截 方法 -----------------------------------//
+router.beforeEach((to, from, next) => {
+  // console.log(to,from);
+  document.title = to.meta.title ? `${to.meta.title} | yhht-plus` : 'yhht-plus';
+  if (to.path !== from.path) {
+    let body: any = getScrollContainer()
+    body.scrollTop = 0
+  }
+  next();
+})
+// --------------------------- 路由拦截 方法---------------------------------------------- //
 
 export default router

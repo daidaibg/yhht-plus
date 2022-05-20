@@ -1,5 +1,5 @@
 /* not([theme-mode=dark]) */
-:root{
+:root:not([theme-mode=dark]) {
     --yh-brand-color-1: #ECFEFF;
     --yh-brand-color-2: #D4F8FB;
     --yh-brand-color-3: #86ccd0;

@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2022-02-11 10:00:54
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-04-29 12:07:28
+ * @LastEditTime: 2022-05-19 17:16:04
  * @FilePath: \yhht-ui\src\components\scFormTable\table-code.vue
 -->
 <template>
@@ -41,8 +41,8 @@ const theads:any = ref({
   ],
   events: [
     { name: "事件名称", val: "method" },
+    { name: "参数", val: "parms" },
     { name: "说明", val: "explain" },
-    { name: "参数", val: "parms" }
   ],
   funs: [
     { name: "方法名", val: "name" },

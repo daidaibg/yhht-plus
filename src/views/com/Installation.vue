@@ -1,26 +1,24 @@
 <!--
  * @Author: daidai
  * @Date: 2021-09-09 17:19:05
- * @LastEditors: daidai
- * @LastEditTime: 2022-02-09 15:41:42
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-19 14:52:14
  * @FilePath: \yhht-ui\src\views\com\Installation.vue
 -->
 <template>
-  <div class="installation pages">
-    <h2>安装</h2>
-    <p>本节将介绍如何在项目中使用 Yhht Plus。</p>
-    <h3>npm 安装</h3>
+  <div class="installation ">
+    <h2>{{$t("install.name")}}</h2>
+    <p>{{$t("install.tips")}}</p>
+     <anchor-h3 id="install.npm.name"> </anchor-h3>
     <p>
-      推荐使用 npm 的方式安装
+      {{$t("install.npm.tip")}}
     </p>
     <div class="codes">
       <code-light text="npm i yhht-plus -S" codeType=""></code-light>
     </div>
-    <h2>快速使用</h2>
-    <h3>引入 yhht-ui</h3>
-    <p>你可以引入整个 yhht-ui 。</p>
-    <h4>完整引入</h4>
-    <p>在 main.js 中写入以下内容：</p>
+     <anchor-h3 id="install.whole.title"> </anchor-h3>
+
+    <p>{{$t("install.whole.tip")}}</p>
     <code-light wrapClass="codes" text="// main.ts
 import { createApp } from 'vue'
 import YhhtPlus from 'element-plus'
@@ -28,16 +26,58 @@ import 'yhht-plus/lib/theme/index.css'
 import App from './App.vue'
 
 const app = createApp(App)
-
 app.use(YhhtPlus)
 app.mount('#app')">
     </code-light>
 
-    <p>以上代码便完成了 yhht-plus 的引入。需要注意的是，样式文件需要单独引入。</p>
+    <p>{{$t("install.whole.tipEnd")}}</p>
+     <anchor-h3 id="install.onDemand.title"> </anchor-h3>
+
+    <code-light wrapClass="codes" text="import Vue from'vue';
+import {YhButton} from 'yhht-plus';
+import 'yhht-plus/lib/theme/index.css';
+import App from './App.vue';
+Vue.use(YhButton);
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});">
+    </code-light>
+    <h4>{{$t("install.onDemand.other")}}</h4>
+    <div class="warning">
+      <p>{{$t("install.onDemand.warning")}}</p>
+    </div>
+    <code-light wrapClass="codes" text="
+//main.js
+import 'yhht-plus/lib/theme/index.css';
+//组件内      
+import {YhButton} from 'yhht-plus';
+">
+    </code-light>
+
   </div>
+    <right-anchor :list="anchorList"></right-anchor>
+
 </template>
 <script setup lang="ts">
+import {ref} from "vue"
+import RightAnchor from "@/components/right-anchor/right-anchor.vue";
+import AnchorH3 from "@/components/anchor-h3"
 
+const anchorList = ref([
+  {
+    href: 'install.npm.name',
+    title: 'install.npm.name'
+  },
+  {
+    href: 'install.whole.title',
+    title: 'install.whole.title'
+  },
+  {
+    href: 'install.onDemand.title',
+    title: 'install.onDemand.title'
+  },
+])
 </script>
 <style lang="scss" scoped>
 .installation {}

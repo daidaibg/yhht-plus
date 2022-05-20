@@ -1,18 +1,21 @@
 <template>
   <div class="menu_mask" v-if="!phoneMenuCol" @click="phoneMenuCol = !phoneMenuCol"></div>
 
-  <div class="menu" :class="{ phoneMenuColIn: phoneMenuCol }">
+  <div class="menu" :class="[{ phoneMenuColIn: phoneMenuCol }]">
     <div class="menu_Stretch flex justify-center items-center" @click="phoneMenuCol = !phoneMenuCol">
       <i class="yh-icons-s-fold" v-show="!phoneMenuCol"></i>
       <i class="yh-icons-s-unfold" v-show="phoneMenuCol"></i>
     </div>
+    <!-- {{meunType}} -->
     <ul class="menuinner">
       <li v-for="(item, i) in menuList" :key="i">
-        <h3 style="margin: 0" v-if="item.title">{{ item.isTranslate?  $t( "menu."+item.title) :item.title }}  </h3>
+        <h3 style="margin: 0" v-if="item.title">{{ item.isTranslate ? $t("menu." + item.title) : item.title }} </h3>
         <ul class="menType">
           <div class="nav_title" v-if="item.tip">{{ item.tip }}</div>
           <li class="nav_item" v-for="subItem in item.sub" :key="subItem.url">
-            <router-link :to="{ path: subItem.url }" :class="{ active: active == subItem.url }">{{ subItem.isTranslate?subItem.default() :subItem.name }}
+            <router-link :to="{ path: subItem.url }" :class="{ active: active == subItem.url }">{{
+                subItem.isTranslate ? subItem.default() : subItem.name
+            }}
             </router-link>
           </li>
         </ul>
@@ -21,92 +24,38 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref, Ref ,computed} from 'vue'
-import { useRoute, useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
-const route = useRoute()
-const active= computed(() => {
-      return route.path
+import { ref, Ref, PropType } from 'vue'
+interface subMenulist {
+    url:string,
+    default:any,
+    name:string,
+      isTranslate:string|boolean|undefined,
+}
+interface menulistProps {
+    title: string,
+    tip: string,
+    sub:subMenulist[],
+    isTranslate:string|boolean|undefined,
+}
+interface Props {
+  active: (string | number | boolean),
+  menuList: menulistProps[],
+}
+withDefaults(defineProps<Props>(), {
+  active: '',
+  menuList: () => [],
 })
 
-const menuList: Ref = ref([])
 const phoneMenuCol: Ref = ref(true)
-menuList.value= [
-    {
-          title: "DevelopmentGuide",
-          content: "开发指南",
-          isTranslate:true,
-          // tip: "Basic",
-          sub: [
-            {
-              name: "安装",
-              default:()=>t('menu.install'),
-              isTranslate:true,
-              url: "/components/installation",
-            },
-         
-          ],
-        },
-        {
-          title: "components",
-          content: "组件",
-          isTranslate:true,
-          tip: "Basic",
-          sub: [
-            {
-              name: "Icon图标",
-              url: "/components/icon",
-            },
-            {
-              name: "Button按钮",
-              url: "/components/buttons",
-            },
-            // {
-            //   name: "加载状态",
-            //   url: "/components/loading",
-            // },
-            // {
-            //   name: "拖拽弹窗",
-            //   url: "/components/drag",
-            // },
-            // {
-            //   name: "上传图片列表",
-            //   url: "/components/upload",
-            // },
-          ],
-        },
-    
-        // {
-        //   title: "JS",
-        //   tip: "Basic",
-        //   sub: [
-        //     {
-        //       name: "一些js工具",
-        //       url: "/components/utils",
-        //     },
-        //     {
-        //       name: "页面进度条",
-        //       url: "/components/yhProgress",
-        //     },
-        //     {
-        //       name: "树形数据转换",
-        //       url: "/components/tree-js",
-        //     },
-        //     {
-        //       name: "正则",
-        //       url: "/components/any-rule",
-        //     },
-        //   ],
-        // },
 
-      ]
+
+// menuList.value= 
 </script>
 
 <style lang="scss" scoped>
 .menu {
   text-indent: 1em;
-  width: var( --menu-width);
+  width: var(--menu-width);
   box-sizing: border-box;
   overflow-y: hidden;
   position: fixed;
@@ -115,7 +64,7 @@ menuList.value= [
   background: var(--yh-bg-color-container);
   z-index: 999;
   left: calc((100% - var(--vp-screen-max-width)) / 2);
-  padding:0 16px;
+  padding: 0 16px;
 
   &:hover {
     overflow-y: auto;
@@ -164,6 +113,7 @@ menuList.value= [
 
   .nav_item {
     margin-top: 4px;
+
     a {
       display: block;
       height: 40px;
@@ -176,9 +126,10 @@ menuList.value= [
       text-overflow: ellipsis;
       font-weight: 400;
       transition: all 0.2s linear 0s;
+
       &:hover {
-        color: var( --text-primary);
-       background: var(--yh-bg-color-container-hover);
+        color: var(--text-primary);
+        background: var(--yh-bg-color-container-hover);
       }
     }
 
@@ -201,7 +152,7 @@ menuList.value= [
     text-align: center;
     position: fixed;
     font-size: 24px;
-    left: var( --menu-width);
+    left: var(--menu-width);
     top: 160px;
     color: var(--yh-text-color-primary);
     cursor: pointer;
@@ -237,6 +188,7 @@ menuList.value= [
     transition: left 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     left: 0px;
     top: 0px;
+
     .menuinner {
       padding: 22px 0;
     }

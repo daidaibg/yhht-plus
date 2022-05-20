@@ -2,24 +2,21 @@
  * @Author: daidai
  * @Date: 2022-03-04 14:12:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-06 16:18:34
+ * @LastEditTime: 2022-05-19 14:52:20
  * @FilePath: \yhht-ui\src\views\com\button\button.vue
 -->
 <template>
-  <div class="buttons pages">
+  <div class="buttons ">
 
     <h2>Button 按钮</h2>
-    <p>{{$t('button.tips')}}</p>
-    <h3 id="填充按钮">
-      <a href="#填充按钮" class="h_anchor">#</a>
-      {{$t('button.fillButton.name')}}
-    </h3>
+    <p>{{ $t('button.tips') }}</p>
+    <anchor-h3 id="button.fillButton.name"> </anchor-h3>
     <p>
-      {{$t('button.fillButton.tip')}}
+      {{ $t('button.fillButton.tip') }}
     </p>
-    <h3> {{$t('button.textButton.name')}}</h3>
+    <anchor-h3 id="button.textButton.name"> </anchor-h3>
     <p>
-      {{$t('button.textButton.tip')}}
+      {{ $t('button.textButton.tip') }}
     </p>
 
     <!-- <div class="aaaa">
@@ -62,12 +59,14 @@
         <yh-button theme="success" variant="text" disabled>禁用成功</yh-button>
       </div>
     </code-wrap>
-    <h3>{{$t('button.strokeButton.name')}}</h3>
+    <anchor-h3 id="button.strokeButton.name"> </anchor-h3>
+
     <p>
-     {{$t('button.strokeButton.tip')}}
+      {{ $t('button.strokeButton.tip') }}
     </p>
-    <h3>{{$t('button.virtualFrameButton.name')}}</h3>
-    <p>{{$t('button.virtualFrameButton.tip')}}</p>
+    <anchor-h3 id="button.virtualFrameButton.name"> </anchor-h3>
+
+    <p>{{ $t('button.virtualFrameButton.tip') }}</p>
     <code-wrap :codeText="text.otlineDashed" style="position: relative" code-type="language-xml vue">
       <div class="row">
         <yh-button variant="outline">描边按钮</yh-button>
@@ -98,9 +97,10 @@
         <yh-button theme="success" variant="dashed" disabled>禁用成功</yh-button>
       </div>
     </code-wrap>
-    <h3>{{$t('button.sizeOrShape.name')}}</h3>
-    <p>{{$t('button.sizeOrShape.tip1')}}</p>
-    <p>{{$t('button.sizeOrShape.tip2')}}</p>
+    <anchor-h3 id="button.sizeOrShape.name"> </anchor-h3>
+
+    <p>{{ $t('button.sizeOrShape.tip1') }}</p>
+    <p>{{ $t('button.sizeOrShape.tip2') }}</p>
     <code-wrap :codeText="text.sharpSize" style="position: relative" code-type="language-xml vue">
       <div class="row">
         <yh-button size="small">小按钮</yh-button>
@@ -118,12 +118,13 @@
         <yh-button size="large" shape="circle" theme="success">大</yh-button>
       </div>
     </code-wrap>
-    <h3>{{$t('button.BlockButton.name')}}</h3>
+    <anchor-h3 id="button.BlockButton.name"> </anchor-h3>
+
     <p>
-     {{$t('button.BlockButton.tip')}}
+      {{ $t('button.BlockButton.tip') }}
     </p>
     <div class="warning">
-      <p>{{$t('button.BlockButton.warning')}}</p>
+      <p>{{ $t('button.BlockButton.warning') }}</p>
     </div>
     <code-wrap :codeText="text.block" style="position: relative" code-type="language-xml vue">
       <div class="block_wrap">
@@ -136,17 +137,61 @@
         <yh-button theme="primary" block size="large" loading shape="round">主要大按钮</yh-button>
       </div>
     </code-wrap>
-    <h3>{{$t('button.parameter.name')}}</h3>
-    <TableParam :data="paramData" />
+    <anchor-h3 id="button.parameter.name"> </anchor-h3>
+    <table-param :data="paramData" />
+    <right-anchor :list="anchorList"></right-anchor>
+
   </div>
+
 </template>
 
 <script lang="ts" setup>
 import textObj from "./button";
-import {ElButton} from 'element-plus'
-import {YhButton} from 'yhht-plus'
+import RightAnchor from "@/components/right-anchor/right-anchor.vue";
+import AnchorH3 from "@/components/anchor-h3"
+import { YhButton } from 'yhht-plus'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 let text: any = ref(textObj)
+const handleI18n = (name: string, prefix?: string) => {
+  let str = t(name)
+  if (prefix) {
+    str = prefix + t(name)
+  }
+  str = str.replace(/\s/g, "-")
+  return t(str)
+}
+const anchorList = ref([
+  {
+    href: 'button.fillButton.name',
+    title: 'button.fillButton.name'
+  },
+  {
+    href: 'button.textButton.name',
+    title: 'button.textButton.name'
+  },
+  {
+    href: 'button.strokeButton.name',
+    title: 'button.strokeButton.name'
+  },
+  {
+    href: 'button.virtualFrameButton.name',
+    title: 'button.virtualFrameButton.name'
+  },
+  {
+    href: 'button.sizeOrShape.name',
+    title: 'button.sizeOrShape.name'
+  },
+  {
+    href: 'button.BlockButton.name',
+    title: 'button.BlockButton.name'
+  },
+  {
+    href: 'button.parameter.name',
+    title: 'button.parameter.name'
+  }
+])
 let paramData = ref([
   {
     key: "block",
@@ -211,11 +256,12 @@ const aa = () => {
 <style lang='scss' scoped>
 .row {
   margin: 0 0 16px 0;
-   display: flex;
+  display: flex;
   flex-wrap: wrap;
   row-gap: 16px;
   column-gap: 16px;
   align-items: center;
+
   .yh-button+.yh-button {
     margin-left: 8px;
   }
