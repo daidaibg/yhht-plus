@@ -10,7 +10,6 @@ import YhPlus from 'yhht-plus'
 import i18n from './i18n';
 import 'element-plus/dist/index.css'
 import "./assets/css/index.scss";
-import "../yhht-plus/lib/theme/index.css"
 import "yhht-plus/lib/theme/index.css"
 import "./assets/css/code.scss";
 import './assets/tailwind.css'

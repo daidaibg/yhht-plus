@@ -20,7 +20,7 @@
   --bg-color-component: #eee;
   --header-logo-shadow: rgba(255, 255, 255, 0.5) 0 5px 6px,
     rgba(255, 255, 255, 0.2) 1px 3px 3px;
-  --menu-active-bg-color: var(--yh-brand-color-8);
+  --menu-active-bg-color: var(--yh-brand-color);
   --text-primary: rgba(0, 0, 0, .9);
 
   --menu-width-hide: -260px;
@@ -112,7 +112,7 @@ body {
       width: 20px;
       text-align: center;
       cursor: pointer;
-      color: var(--yh-brand-color-8);
+      color: var(--yh-brand-color);
 
     }
 
@@ -164,7 +164,7 @@ body {
     padding: 8px 16px;
     background-color: var(--yh-success-color-1);
     border-radius: 4px;
-    border-left: 5px solid var(--yh-success-color-5);
+    border-left: 5px solid var(--yh-success-color);
     ;
     margin: 20px 0;
   }
@@ -172,7 +172,7 @@ body {
     padding: 8px 16px;
     background-color: var(--yh-warning-color-1);
     border-radius: 4px;
-    border-left: 5px solid var(--yh-warning-color-5);
+    border-left: 5px solid var(--yh-warning-color);
     ;
     margin: 20px 0;
   }

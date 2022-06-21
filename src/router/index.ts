@@ -43,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: '/components/buttons',
             name: 'buttons',
-            component: () => import(/* webpackChunkName: "Components" */ '../views/com/button/button.vue'),
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/button/buttons.vue'),
             meta: {
               type: 'com',
               title: "按钮"

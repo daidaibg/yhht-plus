@@ -9,8 +9,8 @@ export default {
         
     },
     whole:{
-        title:"完整引入 yhht-ui",
-        tip:"你可以引入整个 yhht-ui, 在 main.js 中写入以下内容：",
+        title:"完整引入 yhht-plus",
+        tip:"你可以引入整个 yhht-plus, 在 main.js 中写入以下内容：",
         tipEnd:"以上代码便完成了 yhht-plus 的引入。需要注意的是，样式文件需要单独引入。"
     },
     onDemand:{

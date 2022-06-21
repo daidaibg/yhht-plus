@@ -1,7 +1,6 @@
 import { ScrollContainer, ScrollContainerElement } from '../common';
-import isString from 'lodash/isString';
-import raf from 'raf';
-
+import {isString} from 'yhht-plus/src/util/index';
+import  raf  from '../../utils/raf/raf';
 import { easeInOutCubic, EasingFunction } from './easing';
 
 const isServer = typeof window === 'undefined';

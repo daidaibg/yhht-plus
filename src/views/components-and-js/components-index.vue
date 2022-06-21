@@ -123,7 +123,7 @@ const active = computed(() => {
         color: var(--yh-text-color-secondary);
 
         &:hover {
-            color: var(--yh-brand-color-8);
+            color: var(--yh-brand-color);
         }
     }
 }
