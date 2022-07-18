@@ -13,7 +13,12 @@ const comMenu = [
                 isTranslate: true,
                 url: "/components/installation",
             },
-
+            {
+                name: "CSS全局变量",
+                default: () => t('menu.cssVariable'),
+                isTranslate: true,
+                url: "/components/cssVariable",
+            },
         ],
     },
     {

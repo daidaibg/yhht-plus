@@ -30,7 +30,16 @@ const routes: Array<RouteRecordRaw> = [
               type: 'com',
               title: "安装使用"
             }
-          },
+          },  
+          {
+            path: '/components/cssVariable',
+            name: 'cssVariable',
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/css-variable'),
+            meta: {
+              type: 'com',
+              title: "CSS全局变量"
+            }
+          }, 
           {
             path: '/components/icon',
             name: 'icon',

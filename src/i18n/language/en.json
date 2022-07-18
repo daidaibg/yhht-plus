@@ -8,6 +8,7 @@
         "DevelopmentGuide":"Development Guide",
         "components":"Components",
         "toolLibrary":"Tool Library",
-        "directives":"Directives"
+        "directives":"Directives",
+        "cssVariable":"CssVariable"
     }
 }
