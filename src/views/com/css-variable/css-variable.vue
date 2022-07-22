@@ -10,6 +10,8 @@ import {
   otherArr,
   bgArr,
   textArr,
+  shadowArr,
+  borderwArr
 } from "./css-vaeiable";
 import variableItem from "./variable-item.vue";
 import RightAnchor from "@/components/right-anchor/right-anchor.vue";
@@ -71,45 +73,17 @@ const itemClick = (item: any) => {
           </li>
         </ul>
         <div class="border_wrap">
-          <div style="border-color:var( --yh-border-level-1-color)" class="var_items var_items_margin">
-            --yh-border-level-1-color
-          </div>
-          <div style="border-color: var(--yh-border-component-stroke)" class="var_items var_items_margin">
-            --yh-component-stroke
-          </div>
-          <div style="border-color: var(--yh-border-level-2-color)" class="var_items var_items_margin">
-            --yh-border-level-2-color
-          </div>
-          <div style="border-color: var(--yh-border-component-border)" class="var_items var_items_margin">
-            --yh-component-border
-          </div>
-          <div style="border-color: var(--yh-border-level-3-color)" class="var_items var_items_margin">
-            -yh-border-level-3-color
+          <div :style="{'border-color':`var( ${item.name})`}" class="var_items var_items_margin"
+            v-for="item in borderwArr" :key="item.name" @click="itemClick(item)"
+          >
+             {{item.name}}
           </div>
         </div>
       </div>
       <div>
         <ul>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-1);">
-            --yh-shadow-1
-          </li>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-2);">
-            --yh-shadow-2
-          </li>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-2);">
-            --yh-shadow-3
-          </li>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-top);">
-            --yh-shadow-inset-top
-          </li>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-right);">
-            --yh-shadow-inset-right
-          </li>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-bottom);">
-            --yh-shadow-inset-bottom
-          </li>
-          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-left);">
-            --yh-shadow-inset-left
+          <li class="var_items var_items_margin_lg" @click="itemClick(item)" :style="{boxShadow: `var(${item.name})`}" v-for="item in shadowArr" :key="item.name">
+            {{item.name}}
           </li>
         </ul>
       </div>
@@ -149,6 +123,7 @@ const itemClick = (item: any) => {
   padding: 4px 8px;
   min-height: 40px;
   display: flex;
+  border-radius: 4px;
   align-items: flex-end;
 
   &:first-child {
@@ -167,9 +142,13 @@ const itemClick = (item: any) => {
   &.var_items_margin {
     margin: 12px 0;
     border-radius: 4px;
+    color: var(--yh-text-color-primary);
+
   }
   &.var_items_margin_lg{
     margin-bottom: 24px;
+    border-radius: 4px;
+    color: var(--yh-text-color-primary);
   }
 }
 
@@ -181,7 +160,6 @@ const itemClick = (item: any) => {
   >div {
     border-width: 1px;
     border-style: solid;
-
 
 
   }

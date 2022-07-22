@@ -56,3 +56,36 @@ export let otherArr: any = [
   },
 
 ];
+
+
+export const shadowArr:any=[
+  {
+    name:"--yh-shadow-1"
+  }, {
+    name:"--yh-shadow-2"
+  }, {
+    name:"--yh-shadow-3"
+  }, {
+    name:"--yh-shadow-inset-top"
+  }, {
+    name:"--yh-shadow-inset-right"
+  }, {
+    name:"--yh-shadow-inset-bottom"
+  }, {
+    name:"--yh-shadow-inset-left"
+  }
+]
+
+export const borderwArr:any=[
+  {
+    name:"--yh-border-level-1-color"
+  }, {
+    name:"--yh-component-stroke"
+  }, {
+    name:"--yh-border-level-2-color"
+  }, {
+    name:"--yh-component-border"
+  }, {
+    name:"-yh-border-level-3-color"
+  }
+]
