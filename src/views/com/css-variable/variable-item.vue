@@ -1,14 +1,25 @@
 <script setup lang="ts">
+
+import {copyVar} from "./util"
+
 interface Props {
   list: any[];
   bg: string;
-  noDark: boolean; //文字是否变色
+  noDark?: boolean; //文字是否变色
 }
 withDefaults(defineProps<Props>(), {
   list: () => [],
   bg: "",
   noDark: false,
 });
+
+
+
+const itemClick = (item:any)=>{
+
+ copyVar(item.name)
+
+}
 </script>
 
 <template>
@@ -26,9 +37,10 @@ withDefaults(defineProps<Props>(), {
         :key="item.name"
         class="flex justify-between items-end"
         :style="{
-          background: item.isEvent ? `var(${item.val})` : `var(${item.name})`,
+          background: `var(${item.name})` ,
         }"
         :class="{ iscolor: item.iscolor, nodark: item.class }"
+        @click="itemClick(item)"
       >
         <div class="name">
           {{ item.name }}
@@ -46,18 +58,23 @@ withDefaults(defineProps<Props>(), {
   font-size: 14px;
 }
 .noDark {
-  ul li {
+  ul {
+      li {
     &.title {
       color: #fff !important;
     }
   }
+    }
+}
+ul{
+  width: 100%;
 }
 li {
-  height: 40px;
+  min-height: 40px;
   padding: 4px 8px;
   transition: all 0.2s cubic-bezier(0.38, 0, 0.24, 1);
   color: var(--yh-font-gray-2);
-
+  
   &.iscolor {
     color: var(--yh-font-white-1);
   }

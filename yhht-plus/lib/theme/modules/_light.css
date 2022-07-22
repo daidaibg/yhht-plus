@@ -97,7 +97,6 @@
     --yh-bg-color-component-active: var(--yh-gray-color-6);
     --yh-bg-color-component-disabled: var(--yh-gray-color-2);
     --yh-bg-color-specialcomponent: #fff;
-    --yh-bg-color-comtitle:var(--yh-brand-color-11);
     --yh-text-color-primary: var(--yh-font-gray-1);
     --yh-text-color-secondary: var(--yh-font-gray-2);
     --yh-text-color-placeholder: var(--yh-font-gray-3);
@@ -117,6 +116,5 @@
     --yh-shadow-inset-right: inset .5px 0 0 #dcdcdc;
     --yh-shadow-inset-bottom: inset 0 -.5px 0 #dcdcdc;
     --yh-shadow-inset-left: inset -.5px 0 0 #dcdcdc;
-    --yh-table-shadow-color: rgba(0, 0, 0, .08);
     --yh-scrollbar-color: rgba(0, 0, 0, .1);
 }

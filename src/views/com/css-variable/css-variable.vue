@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { copyVar } from "./util";
 import {
   brandArr,
   warningArr,
@@ -7,16 +8,22 @@ import {
   successArr,
   grayArr,
   otherArr,
+  bgArr,
+  textArr,
 } from "./css-vaeiable";
 import variableItem from "./variable-item.vue";
 import RightAnchor from "@/components/right-anchor/right-anchor.vue";
-
+const source = ref<string>("");
 const anchorList = ref([
   {
     href: "#功能色",
     title: "功能色",
   },
 ]);
+
+const itemClick = (item: any) => {
+  copyVar(item.name);
+};
 </script>
 
 <template>
@@ -48,9 +55,64 @@ const anchorList = ref([
       </variable-item>
 
       <variable-item :list="otherArr" bg="--yh-font-gray-2" noDark>
-        <div>其他</div>
+        <div>font-gray</div>
         <span>--yh-font-gray-2</span>
       </variable-item>
+      <variable-item :list="bgArr" bg="--yh-bg-color-component-hover" class="anti flex_wrap">
+        <div>bg</div>
+        <span>--yh-bg-color-component</span>
+      </variable-item>
+      <div class="other_arr">
+        <ul class="text_wrap">
+          <li v-for="item in textArr" :key="item.name" @click="itemClick(item)"
+            :style="{ color: `var(${item.name})`, background: item.bg }"
+            class="flex justify-between items-end var_items">
+            {{ item.name }}
+          </li>
+        </ul>
+        <div class="border_wrap">
+          <div style="border-color:var( --yh-border-level-1-color)" class="var_items var_items_margin">
+            --yh-border-level-1-color
+          </div>
+          <div style="border-color: var(--yh-border-component-stroke)" class="var_items var_items_margin">
+            --yh-component-stroke
+          </div>
+          <div style="border-color: var(--yh-border-level-2-color)" class="var_items var_items_margin">
+            --yh-border-level-2-color
+          </div>
+          <div style="border-color: var(--yh-border-component-border)" class="var_items var_items_margin">
+            --yh-component-border
+          </div>
+          <div style="border-color: var(--yh-border-level-3-color)" class="var_items var_items_margin">
+            -yh-border-level-3-color
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-1);">
+            --yh-shadow-1
+          </li>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-2);">
+            --yh-shadow-2
+          </li>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-2);">
+            --yh-shadow-3
+          </li>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-top);">
+            --yh-shadow-inset-top
+          </li>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-right);">
+            --yh-shadow-inset-right
+          </li>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-bottom);">
+            --yh-shadow-inset-bottom
+          </li>
+          <li class="var_items var_items_margin_lg" style="box-shadow: var(--yh-shadow-inset-left);">
+            --yh-shadow-inset-left
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <right-anchor :list="anchorList" isNoTranslate></right-anchor>
@@ -61,10 +123,70 @@ const anchorList = ref([
   max-width: 1300px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 24px;
+  grid-gap: 56px 24px;
   font-size: 1px;
   cursor: pointer;
+
+  .anti {
+    :deep(.title) {
+      color: var(--yh-text-color-primary) !important;
+    }
+  }
+
+  .flex_wrap {
+    :deep(li) {
+      .name {
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        // white-space: nowrap;
+        // width: 40%;
+      }
+    }
+  }
 }
+
+.var_items {
+  padding: 4px 8px;
+  min-height: 40px;
+  display: flex;
+  align-items: flex-end;
+
+  &:first-child {
+    border-radius: 6px 6px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 6px 6px;
+  }
+
+  &:hover {
+    border-radius: 3px !important;
+    transform: scale(1.04);
+  }
+
+  &.var_items_margin {
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+  &.var_items_margin_lg{
+    margin-bottom: 24px;
+  }
+}
+
+.text_wrap {
+  li {}
+}
+
+.border_wrap {
+  >div {
+    border-width: 1px;
+    border-style: solid;
+
+
+
+  }
+}
+
 @media screen and (max-width: 1800px) {
   .wrap {
     grid-template-columns: repeat(3, 1fr);
@@ -76,6 +198,7 @@ const anchorList = ref([
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media screen and (max-width: 500px) {
   .wrap {
     grid-template-columns: repeat(1, 1fr);

@@ -54,4 +54,5 @@ export let otherArr: any = [
     name: "--yh-mask-disabled",
     val: "rgba(255, 255, 255, .6)",
   },
+
 ];

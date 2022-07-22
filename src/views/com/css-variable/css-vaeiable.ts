@@ -1,5 +1,9 @@
-export * from "./gray"
-export * from "./other"
+export * from "./modules/gray"
+export * from "./modules/other"
+export * from "./modules/bg"
+export * from "./modules/text"
+
+
 
 let brandArr=[
     {
@@ -54,30 +58,30 @@ let brandArr=[
         
     },
     {
-        "name": "hover",
-        "val": "--yh-brand-color-hover",
+        "val": "hover",
+        "name": "--yh-brand-color-hover",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "focus",
-        "val": " --yh-brand-color-focus",
+        "val": "focus",
+        "name": " --yh-brand-color-focus",
         isEvent:true
     },
     {
-        "name": "active",
-        "val": "--yh-brand-color-active",
+        "val": "active",
+        "name": "--yh-brand-color-active",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "disabled",
-        "val": " --yh-brand-color-disabled",
+        "val": "disabled",
+        "name": " --yh-brand-color-disabled",
         isEvent:true
     },
     {
-        "name": "light",
-        "val": " --yh-brand-color-light",
+        "val": "light",
+        "name": " --yh-brand-color-light",
         isEvent:true
     }
 ]
@@ -132,31 +136,31 @@ let warningArr=[
         "val": "",
     },
     {
-        "name": "hover",
-        "val": " --yh-warning-color-hover",
+        "val": "hover",
+        "name": " --yh-warning-color-hover",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "focus",
-        "val": " --yh-warning-color-focus",
+        "val": "focus",
+        "name": " --yh-warning-color-focus",
         isEvent:true
     },
     {
-        "name": "active",
-        "val": " --yh-warning-color-active",
+        "val": "active",
+        "name": " --yh-warning-color-active",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "disabled",
-        "val": " --yh-warning-color-disabled",
+        "val": "disabled",
+        "name": " --yh-warning-color-disabled",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "light",
-        "val": " --yh-warning-color-light",
+        "val": "light",
+        "name": " --yh-warning-color-light",
         isEvent:true
     }
 ]
@@ -212,31 +216,31 @@ let errorArr:any =[
         "val": "",
     },
     {
-        "name": "hover",
-        "val": " --yh-error-color-hover",
+        "val": "hover",
+        "name": " --yh-error-color-hover",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "focus",
-        "val": " --yh-error-color-focus",
+        "val": "focus",
+        "name": " --yh-error-color-focus",
         isEvent:true
     },
     {
-        "name": "active",
-        "val": " --yh-error-color-active",
+        "val": "active",
+        "name": " --yh-error-color-active",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "disabled",
-        "val": " --yh-error-color-disabled",
+        "val": "disabled",
+        "name": " --yh-error-color-disabled",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "light",
-        "val": " --yh-error-color-light",
+        "val": "light",
+        "name": " --yh-error-color-light",
         isEvent:true
     }
 ]
@@ -292,31 +296,31 @@ let successArr:any =[
         "val": "",
     },
     {
-        "name": "hover",
-        "val": " --yh-success-color-hover",
+        "val": "hover",
+        "name": " --yh-success-color-hover",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "focus",
-        "val": " --yh-success-color-focus",
+        "val": "focus",
+        "name": " --yh-success-color-focus",
         isEvent:true
     },
     {
-        "name": "active",
-        "val": " --yh-success-color-active",
+        "val": "active",
+        "name": " --yh-success-color-active",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "disabled",
-        "val": " --yh-success-color-disabled",
+        "val": "disabled",
+        "name": " --yh-success-color-disabled",
         iscolor:true,
         isEvent:true
     },
     {
-        "name": "light",
-        "val": " --yh-success-color-light",
+        "val": "light",
+        "name": " --yh-success-color-light",
         isEvent:true
     }
 ]
