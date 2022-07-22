@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2021-09-09 17:19:05
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-11 16:33:13
+ * @LastEditTime: 2022-07-22 14:18:00
  * @FilePath: \yhht-ui\src\views\Header.vue
 -->
 <template>
@@ -130,7 +130,7 @@ const command = (type: string) => {
       a,
       .item-inner {
         height: 100%;
-        color: var(--yh-brand-color-11);
+        color: var(--yh-brand-color-6);
         display: flex;
         align-items: center;
       }

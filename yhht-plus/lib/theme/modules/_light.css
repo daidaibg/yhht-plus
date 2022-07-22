@@ -13,7 +13,7 @@
     --yh-brand-color-hover: var(--yh-brand-color-7);
     --yh-brand-color-focus: var(--yh-brand-color-2);
     --yh-brand-color-active: var(--yh-brand-color-9);
-    --yh-brand-color-disabled: var(--yh-brand-color-3);
+    --yh-brand-color-disabled: var(--yh-brand-color-5);
     --yh-brand-color-light: var(--yh-brand-color-1);
     --yh-warning-color-1: #fef3e6;
     --yh-warning-color-2: #f9e0c7;
@@ -116,5 +116,4 @@
     --yh-shadow-inset-right: inset .5px 0 0 #dcdcdc;
     --yh-shadow-inset-bottom: inset 0 -.5px 0 #dcdcdc;
     --yh-shadow-inset-left: inset -.5px 0 0 #dcdcdc;
-    --yh-scrollbar-color: rgba(0, 0, 0, .1);
 }
