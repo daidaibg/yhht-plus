@@ -86,6 +86,6 @@ export const borderwArr:any=[
   }, {
     name:"--yh-component-border"
   }, {
-    name:"-yh-border-level-3-color"
+    name:"--yh-border-level-3-color"
   }
 ]
