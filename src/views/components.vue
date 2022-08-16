@@ -39,7 +39,7 @@ import Header from './Header.vue'
   z-index: 990;
   right: 8px;
 }
-@media screen and (min-width:960px) and(max-width:1340px) {
+@media screen and (min-width:960px) and (max-width:1340px) {
     .headers{
       width: auto ;
     }

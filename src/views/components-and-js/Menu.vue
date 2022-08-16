@@ -170,7 +170,7 @@ const phoneMenuCol: Ref = ref(true)
   background: var(--yh-mask-active);
 }
 
-@media screen and (min-width:960px) and(max-width:1340px) {
+@media screen and (min-width:960px) and (max-width:1340px) {
   .menu {
     left: 0;
   }

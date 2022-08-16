@@ -7,7 +7,7 @@ const isServer = typeof window === 'undefined';
 
 
 export const on = ((): any => {
-    if (!isServer && document.addEventListener) {
+    if (!isServer) {
         return (element: Node, event: string, handler: EventListenerOrEventListenerObject): any => {
             if (element && event && handler) {
                 element.addEventListener(event, handler, false);
@@ -22,7 +22,7 @@ export const on = ((): any => {
 })();
 
 export const off = ((): any => {
-    if (!isServer && document.removeEventListener) {
+    if (!isServer ) {
         return (element: Node, event: string, handler: EventListenerOrEventListenerObject): any => {
             if (element && event) {
                 element.removeEventListener(event, handler, false);
