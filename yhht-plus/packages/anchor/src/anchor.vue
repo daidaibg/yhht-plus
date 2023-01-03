@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-anchor" ref="anchorRef" v-bind="$attrs">
+  <nav class="yh-anchor" ref="anchorRef" v-bind="$attrs">
     <div class="yh-anchor__line">
       <div class="yh-anchor__line-cursor-wrapper" :style="{ ...activeLineStyle }">
         <slot v-if="$slots.cursor" name="cursor" />
@@ -7,7 +7,7 @@
       </div>
     </div>
     <slot></slot>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">
