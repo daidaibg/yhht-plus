@@ -1,6 +1,6 @@
 import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
-import cloneDeep from 'lodash/cloneDeep';
+import cloneDeep from 'yhht-plus/utils/lodash/cloneDeep';
 import { GlobalConfigProvider } from './type';
 import type { ConfigProviderProps } from './config-provider';
 
@@ -12,7 +12,8 @@ const globalConfigCopy = ref<GlobalConfigProvider>();
  * useConfig('pagination')
  */
 export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: T) {
-    const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
+    // const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
+    const injectGlobalConfig = globalConfigCopy;
     const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
     const globalConfig = computed(() => (mergedGlobalConfig.value as any)[componentName]);
     const classPrefix = computed(() => {

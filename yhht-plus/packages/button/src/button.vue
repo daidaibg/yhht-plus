@@ -32,7 +32,7 @@
 <script lang="ts" setup>
 import { ButtonProps } from "./button";
 import { onMounted, ref } from "vue";
-import useRipple from "../../../hook/useRipple";
+import useRipple from "yhht-plus/hook/useRipple";
 
 const btnRef = ref<HTMLElement>();
 

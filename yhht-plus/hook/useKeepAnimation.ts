@@ -1,5 +1,5 @@
 import { useConfig } from './useConfig';
-import { EAnimationType } from '../config/context';
+import { EAnimationType } from 'yhht-plus/config/context';
 
 
 const {  ripple, test } = EAnimationType;

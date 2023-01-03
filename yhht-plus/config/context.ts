@@ -1,9 +1,9 @@
 import { InjectionKey, ComputedRef } from 'vue';
-import _mergeWith from 'lodash/mergeWith';
+import _mergeWith from 'yhht-plus/utils/lodash/mergeWith';
+import merge from 'yhht-plus/utils/lodash/merge';
+
 import { GlobalConfigProvider } from './type';
 import defaultConfig from './default-config';
-import merge from 'lodash/merge';
-
 export enum EAnimationType {
     ripple = 'ripple',
     test = 'test',

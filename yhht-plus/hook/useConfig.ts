@@ -1,6 +1,6 @@
 
 import { computed } from 'vue';
-import { useConfig } from '../config/useConfig';
+import { useConfig } from 'yhht-plus/config/useConfig';
 
 export function usePrefixClass(componentName?: string) {
     const { classPrefix } = useConfig('classPrefix');
