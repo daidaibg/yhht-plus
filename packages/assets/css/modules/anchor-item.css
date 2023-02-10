@@ -1,0 +1,30 @@
+.yh-anchor__item{
+    padding: 0 8px 0 16px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.yh-anchor__item-link {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    line-height: 22px;
+    max-height: 72px;
+    overflow: hidden;
+    word-break: break-all;
+    color: var(--td-text-color-primary);
+    text-decoration: none;
+    text-align: justify;
+    margin-right: -4px;
+    padding-right: 10px;
+    background-color: transparent;
+}
+.yh-is-active{
+    font-weight: 500;
+}
+.yh-is-active>a {
+    color: var(--yh-brand-color);
+}
+.yh-anchor__item .yh-anchor__item  {
+    padding: 0 8px 0 16px;
+}
