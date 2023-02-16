@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <yh-button>测试</yh-button>
+  <router-view></router-view>
 </template>
 
 <style scoped></style>
