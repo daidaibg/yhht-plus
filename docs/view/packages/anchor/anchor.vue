@@ -2,7 +2,6 @@
 import { ref, getCurrentInstance, computed } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
-console.log(route);
 const currentActive = ref("");
 </script>
 
