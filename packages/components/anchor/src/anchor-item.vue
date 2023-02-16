@@ -33,6 +33,20 @@ const handleClick = (e: MouseEvent) => {
     e,
   });
 };
+
+//获取标签值
+const getHref=():string=>{
+  if(anchor.noLink&&anchor.hashRouter!==""){
+    return  "#"+anchor.hashRouter
+  }else if(!anchor.noLink&&anchor.hashRouter!==""){
+    return "#"+anchor.hashRouter+props.href!
+  }else if(!anchor.noLink&&anchor.hashRouter==""){
+    "#"+props.href
+  }
+
+  return "#"
+}
+
 watch(
   () => props.href,
   () => {
@@ -55,13 +69,16 @@ onUnmounted(() => {
     :class="{ 'yh-is-active': anchor.active == href }"
   >
     <a
-      :href="anchor.noLink ? '#' : href"
+      :href="getHref()"
       :target="target"
       class="yh-anchor__item-link"
       @click="handleClick"
     >
       <slot name="title"> {{ title }}</slot>
     </a>
+    <!-- <span v-else class="yh-anchor__item-link" @click="handleClick" >
+      <slot name="title"> {{ title }}</slot>
+    </span> -->
     <slot></slot>
   </div>
 </template>

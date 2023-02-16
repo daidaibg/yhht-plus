@@ -57,7 +57,7 @@ export default defineComponent({
      */
     const getScrollContainers = () => {
       const { container } = props;
-      scrollContainer.value = getScrollContainer(container);
+      scrollContainer.value = getScrollContainer(container) as HTMLElement;
       on(scrollContainer.value, "scroll", handleScroll);
       handleScroll();
     };
@@ -99,13 +99,16 @@ export default defineComponent({
      */
     const handleScrollTo = async (link: string): Promise<void> => {
       const anchor = getAnchorTarget(link);
+
       setCurrentActiveLink(link);
       if (!anchor) return;
+
       handleScrollLock.value = true;
       const { targetOffset } = props;
       const scrollTop = getScroll(scrollContainer.value);
       const offsetTop = getOffsetTop(anchor, scrollContainer.value);
       const top = scrollTop + offsetTop - targetOffset;
+
       await scrollTo(top, {
         container: scrollContainer.value,
       });
@@ -222,7 +225,8 @@ export default defineComponent({
         handleScrollTo,
         handleLinkClick,
         active,
-        noLink:props.noLink
+        noLink:props.noLink,
+        hashRouter:props.hashRouter
       })
     );
     return {

@@ -78,6 +78,10 @@ export const props = {
     type:Boolean,
     default:false
   },
+  hashRouter:{
+    type: String,
+    default: "",
+  },
   /** 锚点改变时触发 */
   onChange: Function as PropType<YhAnchorProps['onChange']>,
   /** 锚点被点击时触发 */

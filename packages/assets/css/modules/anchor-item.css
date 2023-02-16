@@ -18,11 +18,12 @@
     margin-right: -4px;
     padding-right: 10px;
     background-color: transparent;
+    cursor: pointer;
 }
 .yh-is-active{
     font-weight: 500;
 }
-.yh-is-active>a {
+.yh-is-active>.yh-anchor__item-link {
     color: var(--yh-brand-color);
 }
 .yh-anchor__item .yh-anchor__item  {

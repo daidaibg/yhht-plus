@@ -112,8 +112,8 @@
     --yh-shadow-1: 0 1px 10px rgba(0, 0, 0, .05), 0 4px 5px rgba(0, 0, 0, 8%), 0 2px 4px -1px rgba(0, 0, 0, 12%);
     --yh-shadow-2: 0 3px 14px 2px rgba(0, 0, 0, .05), 0 8px 10px 1px rgba(0, 0, 0, 6%), 0 5px 5px -3px rgba(0, 0, 0, 10%);
     --yh-shadow-3: 0 6px 30px 5px rgba(0, 0, 0, .05), 0 16px 24px 2px rgba(0, 0, 0, 4%), 0 8px 10px -5px rgba(0, 0, 0, 8%);
-    --yh-shadow-inset-top: inset 0 .5px 0 #dcdcdc;
-    --yh-shadow-inset-right: inset .5px 0 0 #dcdcdc;
+    --yh-shadow-inset-top: inset 0 -.5px 0 #dcdcdc;
+    --yh-shadow-inset-right: inset -.5px 0 0 #dcdcdc;
     --yh-shadow-inset-bottom: inset 0 -.5px 0 #dcdcdc;
     --yh-shadow-inset-left: inset -.5px 0 0 #dcdcdc;
 }
