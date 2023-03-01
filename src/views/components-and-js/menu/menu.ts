@@ -56,24 +56,24 @@ const jsMenu = [
         // tip: "Basic",
         sub: [
             {
-                name: "复制Copy",
-                url: "/js/copy",
+                name: "通用方法",
+                url: "/common-method",
             },
 
         ],
     },
-    {
-        title: "directives",
-        content: "自定义指令",
-        isTranslate: true,
-        // tip: "Basic",
-        sub: [
-            // {
-            //     name: "---",
-            //     url: "---",
-            // },
-        ],
-    },
+    // {
+    //     title: "directives",
+    //     content: "自定义指令",
+    //     isTranslate: true,
+    //     // tip: "Basic",
+    //     sub: [
+    //         // {
+    //         //     name: "---",
+    //         //     url: "---",
+    //         // },
+    //     ],
+    // },
 ]
 let comMenuPathList:any = []
    

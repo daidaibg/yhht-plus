@@ -1,8 +1,8 @@
 <script setup lang='ts'>
-import Menu from './Menu.vue'
 import { ref, Ref, computed } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import { comMenu, jsMenu, comMenuPathList,jsMenuList } from "./menu/menu";
+import Menus from './menus.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -45,7 +45,7 @@ const active = computed(() => {
 </script>
 
 <template>
-    <Menu :menuList="menuList"  :active="active"></Menu>
+    <Menus :menuList="menuList"  :active="active"></Menus>
     <div class="page-content">
         <div class="pages">
             <router-view />

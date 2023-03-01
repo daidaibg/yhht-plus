@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw, createWebHistory } from 'vue-router'
-import { getScrollContainer } from "yhht-plus/lib/utils/index"
+import { getScrollContainer } from "yhht-plus/lib/utils"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/js',
         name: 'js',
-        redirect: '/js/copy',
+        redirect: '/common-method',
       },
       {
         path: '/com-index',
@@ -84,6 +84,15 @@ const routes: Array<RouteRecordRaw> = [
             meta: {
               type: 'js',
               title: "复制"
+            }
+          },
+          {
+            path: '/common-method',
+            name: '/common-method',
+            component: () => import(/* webpackChunkName: "Components-js" */ '../views/com-js/common-method/common-method.vue'),
+            meta: {
+              type: 'js',
+              title: "通用方法"
             }
           },
         ]

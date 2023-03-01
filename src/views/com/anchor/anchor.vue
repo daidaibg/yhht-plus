@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2022-03-04 14:12:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-02-21 17:29:32
+ * @LastEditTime: 2023-03-01 18:09:19
  * @FilePath: \yhht-ui\src\views\com\button\button.vue
 -->
 <template>
@@ -91,29 +91,29 @@ const baseCodeText = `<yh-anchor container="body" :bounds="50" >
 
 const anchorList = ref([
   {
-    href: '#基础锚点',
+    href: '基础锚点',
     title: '基础锚点'
   },
   {
-    href: '#自定义游标锚点',
+    href: '自定义游标锚点',
     title: '自定义游标锚点'
   },
   {
-    href: '#指定容器锚点',
+    href: '指定容器锚点',
     title: '指定容器锚点'
   }, {
-    href: '#注意',
+    href: '注意',
     title: '注意'
   }, {
-    href: '#Anchor-Props',
+    href: 'Anchor-Props',
     title: 'Anchor Props'
   },
   {
-    href: '#Anchor-Events',
+    href: 'Anchor-Events',
     title: 'Anchor Events'
   },
   {
-    href: '#AnchorItem-Props',
+    href: 'AnchorItem-Props',
     title: 'AnchorItem Props'
   },
 

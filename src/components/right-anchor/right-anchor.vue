@@ -23,9 +23,9 @@ const props = defineProps({
     }
 })
 const { t } = useI18n()
-const handleI18n = (name: string, prefix?: string) => {
+const handleI18n = (name: string, prefix?: string):string => {
     if (props.isNoTranslate) {
-        return name
+        return prefix?prefix+ name:name
     }
     let str = t(name)
     if (prefix) {
@@ -38,9 +38,9 @@ const handleI18n = (name: string, prefix?: string) => {
 
 <template>
     <div class='code-anchor'>
-        <yh-anchor container="body" :bounds="50" :targetOffset="0" ref="anchor" :currentActive="currentActive">
+        <yh-anchor container="body" :bounds="50" :targetOffset="0" ref="anchor" :currentActive="currentActive" :hashRouter="route.path">
             <template v-for="(item, i) in list" :key="i">
-                <yh-anchor-item :href="handleI18n(item.href, '#')" :title="isNoTranslate?item.title: t(item.title)" />
+                <yh-anchor-item :href="handleI18n(item.href,'#')" :title="isNoTranslate?item.title: t(item.title)" />
             </template>
         </yh-anchor>
     </div>
