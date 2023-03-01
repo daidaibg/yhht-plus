@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build:docs": "vite build --mode=docs",
     "build": "vite build",
     "preview": "vite preview"
   },
