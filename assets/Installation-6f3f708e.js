@@ -1,4 +1,4 @@
-import{R as r}from"./right-anchor-c3e0e0a0.js";import{e as s,r as e,x as l,m as p,y as n,u as a,aa as o,F as i,h as m,a3 as h}from"./index-37be681d.js";const u=`## 安装\r
+import{e as r,r as s,x as e,m as l,y as n,u as a,aa as p,ab as o,F as i,h,a3 as m}from"./index-c3c2344b.js";const u=`## 安装\r
 \r
 本节将介绍如何在项目中使用 Yhht Plus。\r
 \r
@@ -51,4 +51,4 @@ new Vue({\r
 import "yhht-plus/lib/style.css"\r
 //组件内      \r
 import {YhButton} from 'yhht-plus';\r
-\`\`\``,c={class:"installation"},_=s({__name:"Installation",setup(f){const t=e([{href:"install.npm.name",title:"install.npm.name"},{href:"install.whole.title",title:"install.whole.title"},{href:"install.onDemand.title",title:"install.onDemand.title"}]);return(y,d)=>(m(),l(i,null,[p("div",c,[n(o,{text:a(u)},null,8,["text"])]),n(r,{list:t.value},null,8,["list"])],64))}});const x=h(_,[["__scopeId","data-v-3fc9089a"]]);export{x as default};
+\`\`\``,c={class:"installation"},_=r({__name:"Installation",setup(f){const t=s([{href:"install.npm.name",title:"install.npm.name"},{href:"install.whole.title",title:"install.whole.title"},{href:"install.onDemand.title",title:"install.onDemand.title"}]);return(y,d)=>(h(),e(i,null,[l("div",c,[n(p,{text:a(u)},null,8,["text"])]),n(o,{list:t.value},null,8,["list"])],64))}});const A=m(_,[["__scopeId","data-v-3fc9089a"]]);export{A as default};
