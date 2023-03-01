@@ -1,7 +1,6 @@
 
 <script setup lang='ts'>
 import {ref,Ref,  computed } from 'vue'
-import { ElPopover } from 'element-plus'
 import { langList } from '@/i18n'
 import {useLangStore} from '@/store'
 import {  LangEnum } from '@/enums'

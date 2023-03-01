@@ -7,10 +7,8 @@ import CodeLight from '@/components/codes/code-highlights.vue'
 import CodeWrap from '@/components/codes/Code-wrap.vue'
 import YhPlus from 'yhht-plus'
 import i18n from './i18n';
-import 'element-plus/dist/index.css'
 import "./assets/css/index.scss";
 import "yhht-plus/lib/style.css"
-import "./assets/css/code.scss";
 import './assets/tailwind.css'
 const app=createApp(App)
 // 注册所有自定义指令

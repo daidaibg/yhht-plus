@@ -1,22 +1,21 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
-import externalGlobals from "rollup-plugin-external-globals";
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
-    }),
+  AutoImport({
+    resolvers: [ElementPlusResolver()],
+  }),
+  Components({
+    resolvers: [ElementPlusResolver()],
+  }),
   ],
   publicDir: "public",
-  base : '/yhht-plus/',
+  base: './',
   // base : './',
   server: {
     host: '0.0.0.0',
@@ -60,41 +59,14 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    chunkSizeWarningLimit:500,
+    chunkSizeWarningLimit: 800,
     rollupOptions: {
-      // external: [
-      //   'highlight.js'
-      // ],
-      // plugins:[
-      //   externalGlobals({
-      //     'highlight.js': 'hljs'
-      //   }),
-      // ],
+
       output: {
-        // globals: {
-        //   'highlight.js': 'hljs',  //暂不支持 使用上边plugins.externalGlobals方式
-        // }
-        // manualChunks(id) {
-        //   if (id.includes('node_modules')) {
-        //     const arr = id.toString().split('node_modules/')[1].split('/')
-        //     switch(arr[0]) {
-        //       case 'highlight.js':
-        //         return '_' + arr[0]
-        //         break
-        //       default :
-        //         return '__vendor'
-        //         break
-        //     }
-        //     return id.toString().split('node_modules/')[1].split('/')[0].toString();
-        //   }
-        // }
+
       }
     }
-    // lib: {
-    //   entry: 'packages/index.js',
-    //   formats: ['es'],
-    //   fileName: (format) => `index.${format}.js`
-    // },
+
   },
 
 

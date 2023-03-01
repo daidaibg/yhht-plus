@@ -12,12 +12,16 @@ declare module '@vue/runtime-core' {
     AnchorH3: typeof import('./src/components/anchor-h3/anchor-h3.vue')['default']
     CodeHighlights: typeof import('./src/components/codes/code-highlights.vue')['default']
     CodeWrap: typeof import('./src/components/codes/Code-wrap.vue')['default']
+    ElDropdown: typeof import('element-plus/es')['ElDropdown']
+    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
+    ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElPopover: typeof import('element-plus/es')['ElPopover']
     I18n: typeof import('./src/components/I18n/index.vue')['default']
     Marked: typeof import('./src/components/marked/marked.vue')['default']
     RightAnchor: typeof import('./src/components/right-anchor/right-anchor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TableCode: typeof import('./src/components/scFormTable/table-code.vue')['default']
   }
 }

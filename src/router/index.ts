@@ -93,8 +93,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/yhht-plus/'),
-  // history: createWebHashHistory(),
+  // history: createWebHistory('/yhht-plus/'),
+  history: createWebHashHistory(),
   routes,
   // scrollBehavior(to, from, saveScrollPosition) {
   //   return { left: 0, top: 0 };

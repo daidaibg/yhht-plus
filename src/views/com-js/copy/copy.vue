@@ -22,10 +22,8 @@ Copy('需要复制的值').then((res) => {
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import  Copy  from "@/utils/copy/copy";
-import { ElInput } from "element-plus";
 import { textObj } from "./copy";
 export default defineComponent({
-  components: { ElInput },
   setup() {
     let input = ref("");
     let text=textObj

@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2021-09-09 17:19:05
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-07-22 14:18:00
+ * @LastEditTime: 2023-03-01 15:55:44
  * @FilePath: \yhht-ui\src\views\Header.vue
 -->
 <template>
@@ -49,12 +49,7 @@
 import { Lang } from "./header/lang";
 import { GitHub } from "./header/github";
 import { Theme } from "./header/theme";
-import {
-  ElDropdown,
-  ElDropdownMenu,
-  ElDropdownItem,
-  ElIcon,
-} from "element-plus";
+
 import { Operation } from "@element-plus/icons-vue";
 import { reactive, ref, Ref, computed } from "vue";
 
