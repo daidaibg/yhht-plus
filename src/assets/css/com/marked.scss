@@ -1,0 +1,28 @@
+.md-editor,
+.md-editor.md-editor-dark {
+  .md-editor-preview {
+    --md-theme-color: var(--yh-text-color-secondary);
+    --md-theme-border-color: var(--yh-border-level-1-color);
+  }
+}
+#yh-md {
+  table {
+    width: 100%;
+    font-size: 14px;
+    th,
+    td {
+      padding: 12px 12px;
+    }
+  }
+  pre {
+    border: 1px solid var(--yh-component-stroke);
+    .copy-button{
+      color: var(--yh-text-color-secondary);
+      &:hover{
+        color: var(--yh-text-color-link);
+
+      }
+    }
+  }
+
+}

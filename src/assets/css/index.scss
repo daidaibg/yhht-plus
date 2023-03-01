@@ -1,0 +1,197 @@
+@charset "UTF-8";
+@import "./element/index.scss";
+@import "./com/marked.scss";
+
+:root {
+  --menu-one-title: var(--yh-font-gray-1);
+  --menu-two-title: var(--yh-font-gray-2);
+  --code-bg: #f3f3f3;
+  --code-bg-line: #f9fafc;
+  --code-bg: #f5f7fa;
+  --yh-gray-color-15:#f3f1f1;
+  --yh-bg-color-tertiarycontainer:var( --yh-gray-color-15);
+
+  --code-bg-line-border: #eaeefb;
+  --header-bottom-color: #dcdfe6;
+  --bg-color-tab-select: #fff;
+  --border-radius: 3px;
+  --text-disabled: rgba(0, 0, 0, .26);
+  --anim-time-fn-easing: cubic-bezier(.38, 0, .24, 1);
+  --anim-duration-moderate: .24s;
+  --bg-color-component: #eee;
+  --header-logo-shadow: rgba(255, 255, 255, 0.5) 0 5px 6px,
+    rgba(255, 255, 255, 0.2) 1px 3px 3px;
+  --menu-active-bg-color: var(--yh-brand-color);
+  --text-primary: rgba(0, 0, 0, .9);
+
+  --menu-width-hide: -260px;
+  --menu-width: 260px;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0003;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+
+}
+
+:root[theme-mode=dark] {
+  --menu-one-title: var(--yh-font-white-1);
+  --menu-two-title: var(--yh-font-white-1);
+  --code-bg: #2c2c2c;
+  --code-bg-line: #444444;
+  --code-bg-line-border: #5e5e5e;
+  --header-bottom-color: #666666;
+  --bg-color-tab-select: #4b4b4b;
+  --text-disabled: rgba(255, 255, 255, .22);
+  --anim-time-fn-easing: cubic-bezier(.38, 0, .24, 1);
+  --anim-duration-moderate: .24s;
+  --bg-color-component: #383838;
+  --header-logo-shadow: rgba(0, 0, 0, 0.5) 0 5px 6px,
+    rgba(0, 0, 0, 0.2) 1px 3px 3px;
+  --text-primary: rgba(255, 255, 255, .9);
+
+
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#app {
+  width: 100%;
+  min-height: 100%;
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+}
+
+.pages {
+  box-sizing: border-box;
+  padding: 64px 48px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  a.yh-title {
+    color: #409eff;
+  }
+
+  h2.yh-title,
+  h4.yh-title,
+  h3.yh-title {
+    font-weight: 400;
+    // color: #1f2f3d;
+    color: var(--yh-text-color-primary);
+  }
+
+  h2.yh-title {
+    font-size: 26px;
+  }
+
+  h3.yh-title {
+    margin: 40px 0 20px;
+    font-size: 22px;
+    padding-top: 80px;
+    margin-top: -60px;
+
+    >a:first-child {
+      opacity: 0;
+      float: left;
+      margin-left: -20px;
+      width: 20px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--yh-brand-color);
+
+    }
+
+    &:hover {
+      >a:first-child {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    h3.yh-title {
+      padding-top: 60px;
+      margin-top: -40px;
+      >a:first-child {
+        margin-left: -16px;
+        width: 16px;
+      }
+    }
+  }
+
+  h4.yh-title {
+    height: 22px;
+    line-height: 22px;
+    margin: 21px 0;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    // color: #5e6d82;
+    color: var(--yh-text-color-secondary);
+    line-height: 1.5em;
+    margin: 14px 0;
+  }
+
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .yh-content {
+    width: 100%;
+    height: 100%;
+  }
+  .success {
+    padding: 8px 16px;
+    background-color: var(--yh-success-color-1);
+    border-radius: 4px;
+    border-left: 5px solid var(--yh-success-color);
+    ;
+    margin: 20px 0;
+  }
+  .warning {
+    padding: 8px 16px;
+    background-color: var(--yh-warning-color-1);
+    border-radius: 4px;
+    border-left: 5px solid var(--yh-warning-color);
+    ;
+    margin: 20px 0;
+  }
+  .error {
+    padding: 8px 16px;
+    background-color: var(--yh-error-color-1);
+    border-radius: 4px;
+    border-left: 5px solid var(--yh-error-color-5);
+    ;
+    margin: 20px 0;
+  }
+  .tipdefault {
+    padding: 8px 16px;
+    background-color: var(--yh-remind-color-2);
+    border-radius: 4px;
+    border-left: 5px solid var(--yh-remind-color-5);
+    margin: 20px 0;
+  }
+}
+
+

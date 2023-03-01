@@ -1,0 +1,35 @@
+
+.hljs {
+  font-family: Menlo,Monaco,Consolas,Courier,monospace !important;
+}
+pre{
+}
+code.hljs {
+}
+
+.hljs-tag {
+  background: transparent;
+}
+
+
+.codelit {
+  background-color: var(--code-bg-line);
+  border: 1px solid var(--code-bg-line-border);
+  border-radius: 4px;
+}
+
+ .codes,
+.code_wrap {
+  font-family: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+}
+
+.code_wrap {
+  border: 1px solid var(--yh-component-stroke);
+}
+
+.codes {
+  border-radius: 4px;
+ 
+}
+

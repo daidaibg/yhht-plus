@@ -2,125 +2,100 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
 import externalGlobals from "rollup-plugin-external-globals";
-import dts from 'vite-plugin-dts'
-const docsBuild = {
-  outDir: 'dist',
-  chunkSizeWarningLimit: 500,
-  rollupOptions: {
-    input: {
-      main: resolve(__dirname, 'index.html'),
-    },
-    external: [
-      'highlight.js'
-    ],
-    plugins: [
-      externalGlobals({
-        'highlight.js': 'hljs'
-      }),
-    ],
-    output: {
-    },
-
-  }
-
-}
-const yhhtPlusBuild = {
-  target: 'modules',
-  outDir: "lib",  //打包文件目录
-  minify: false,  //压缩
-  cssCodeSplit: false,  //css分离
-  // staticDirectory: './packages/asste',
-  rollupOptions: {  // rollup配置
-    external: ['vue', /node_modules/],    //忽略打包vue文件
-    input: { index: './packages/index.ts', "utils/index": "./packages/utils/index.ts" },
-    output: [
-      {
-        format: 'es',
-        //不用打包成.es.js,这里我们想把它打包成.js
-        entryFileNames: '[name].js',
-        //让打包目录和我们目录对应
-        preserveModules: true,
-        //配置打包根目录
-        dir: 'lib',
-        preserveModulesRoot: 'src',
-        exports: 'named',
-        globals: {
-          vue: 'Vue',
-        }
-      },
-      {
-        format: 'cjs',
-        entryFileNames: '[name].js',
-        preserveModules: true,
-        dir: 'lib/cjs',
-        preserveModulesRoot: 'src',
-        exports: 'named',
-        globals: {
-          vue: 'Vue',
-        }
-      }
-    ]
-  },
-  lib: {
-    // entry: resolve(__dirname, './packages/index.ts'),
-    entry: './packages/index.ts',
-    // formats: ['es', 'cjs'],
-  }
-}
-
-
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
-  console.log("mode", mode);
-  let build: any = mode === "docs" ? docsBuild : yhhtPlusBuild
-  const dtsFlag = mode !== "docs"
-  return {
-    plugins: [vue(),
-    dtsFlag && dts({
-      outputDir: 'lib',
-      tsConfigFilePath: './tsconfigBuild.json',
-      // beforeWriteFile: (filePath: string, content: string) => {
-      //   const regex = /lib\\utils\\index\.d\.ts/;
-      //   if (regex.test(filePath)) {
-      //     const newPath = filePath.replace(/\\index\.d\.ts$/, '.d.ts')
-      //     // console.log("filePath", filePath, regex.test(filePath),newPath);
-      //     return {filePath:newPath,content:content}
-      //   }
-      //   return {}
-      // }
+export default defineConfig({
+  plugins: [vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
     }),
-    dtsFlag && dts({
-      outputDir: 'lib/cjs',
-      tsConfigFilePath: './tsconfigBuild.json'
-    })
-    ],
-    publicDir: "public",
-    base: '/yhht-plus/',
-    build: build,
-    // base : './',
-    server: {
-      host: '0.0.0.0',
-      port: 8006,
-      open: false,
-      strictPort: false,
-      proxy: { // 代理 
-      }
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+  publicDir: "public",
+  base : '/yhht-plus/',
+  // base : './',
+  server: {
+    host: '0.0.0.0',
+    port: 8006,
+    open: false,
+    strictPort: false,
+    proxy: { // 代理 
+      // 字符串简写写法
+      // '/foo': 'http://localhost:4567/foo',
+      // 选项写法
+      // '/api': {
+      //   target: 'http://jsonplaceholder.typicode.com',
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, '')
+      // },
+      // 正则表达式写法
+      // '^/fallback/.*': {
+      //   target: 'http://jsonplaceholder.typicode.com',
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/fallback/, '')
+      // }
+
+    }
+  },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+      "@components": resolve(__dirname, "./src/components"),
+      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
     },
-    resolve: {
-      alias: {
-        "@": resolve(__dirname, "./docs"),
+  },
+  css: {
+    // css预处理器
+    preprocessorOptions: {
+      scss: {
+        // charset: false,
+        // additionalData: '@import "./src/assets/css/variable.scss";',
+        additionalData: `@use "./src/assets/css/variable.scss" as *;`,
       },
     },
-    // css: {
-    //   // css预处理器
-    //   preprocessorOptions: {
-    //     scss: {
-    //       // charset: false,
-    //       // additionalData: '@import "./src/assets/css/variable.scss";',
-    //       additionalData: `@use "./src/assets/css/element/index.scss" as *;`,
-    //     },
-    //   },
+  },
+  build: {
+    outDir: 'dist',
+    chunkSizeWarningLimit:500,
+    rollupOptions: {
+      // external: [
+      //   'highlight.js'
+      // ],
+      // plugins:[
+      //   externalGlobals({
+      //     'highlight.js': 'hljs'
+      //   }),
+      // ],
+      output: {
+        // globals: {
+        //   'highlight.js': 'hljs',  //暂不支持 使用上边plugins.externalGlobals方式
+        // }
+        // manualChunks(id) {
+        //   if (id.includes('node_modules')) {
+        //     const arr = id.toString().split('node_modules/')[1].split('/')
+        //     switch(arr[0]) {
+        //       case 'highlight.js':
+        //         return '_' + arr[0]
+        //         break
+        //       default :
+        //         return '__vendor'
+        //         break
+        //     }
+        //     return id.toString().split('node_modules/')[1].split('/')[0].toString();
+        //   }
+        // }
+      }
+    }
+    // lib: {
+    //   entry: 'packages/index.js',
+    //   formats: ['es'],
+    //   fileName: (format) => `index.${format}.js`
     // },
-  }
+  },
+
 
 })

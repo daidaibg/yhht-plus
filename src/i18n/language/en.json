@@ -1,0 +1,14 @@
+{
+    "header": {
+        "language": "English",
+        "components":"COMPONENTS"
+    },
+    "menu":{
+        "install":"install",
+        "DevelopmentGuide":"Development Guide",
+        "components":"Components",
+        "toolLibrary":"Tool Library",
+        "directives":"Directives",
+        "cssVariable":"CssVariable"
+    }
+}
