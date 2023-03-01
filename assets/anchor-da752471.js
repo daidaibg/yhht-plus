@@ -1,4 +1,4 @@
-import{e as f,A as _,r as d,x as m,m as n,y as t,k as c,u as e,aa as v,ab as g,F as y,a7 as b,ag as x,a1 as A,a2 as k,h as S,ai as l,aj as o,a3 as P}from"./index-c3c2344b.js";const w=`<template>
+import{e as f,A as _,r as d,x as m,m as n,y as t,k as c,u as e,aa as v,ab as g,F as y,a7 as b,ag as x,a1 as A,a2 as k,h as S,ai as l,aj as o,a3 as P}from"./index-b92c590a.js";const w=`<template>
   <div class="anchor-demo">
     <yh-anchor container="body" :bounds="50" :targetOffset="120">
       <template #cursor>
