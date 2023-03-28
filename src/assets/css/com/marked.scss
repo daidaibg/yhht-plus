@@ -9,6 +9,15 @@
   table {
     width: 100%;
     font-size: 14px;
+    display: table;
+    thead,tbody{
+      display: table-header-group;
+    }
+    thead{
+      tr{
+        background-color:var(--github-theme-table-stripe-color);
+      }
+    }
     th,
     td {
       padding: 12px 12px;
