@@ -1,6 +1,7 @@
 <template>
   <button
     class="yh-button"
+    type="button"
     :disabled="disabled || loading"
     :autofocus="autofocus"
     :class="[
