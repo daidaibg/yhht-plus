@@ -25,6 +25,9 @@
   }
   pre {
     border: 1px solid var(--yh-component-stroke);
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
     .copy-button{
       color: var(--yh-text-color-secondary);
       &:hover{

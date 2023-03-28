@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2022-03-04 14:12:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-03-01 18:09:19
+ * @LastEditTime: 2023-03-28 16:04:47
  * @FilePath: \yhht-ui\src\views\com\button\button.vue
 -->
 <template>
@@ -74,9 +74,6 @@ import {  curporCodeText,containerCodeText } from "./anchor"
 import marked from "@/components/marked/marked.vue"
 import AnchorProp from '@/docs/anchor/anchor-prop.md?raw'
 
-
-const docsData=reactive({
-})
 const currentActive = ref('')
 const route = useRoute()
 if (route.hash && route.hash !== '') {

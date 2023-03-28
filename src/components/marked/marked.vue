@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MdEditor from "md-editor-v3";
-import "@vavt/markdown-theme/css/all.css";
+import "md-editor-v3/lib/style.css";
 import { mdEditorConfig, generateId } from "./marked";
 import { reactive, watch, ref } from "vue";
 import { userThemeStore } from "@/store";
