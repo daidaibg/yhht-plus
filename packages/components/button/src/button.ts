@@ -1,5 +1,5 @@
 // default/primary/danger/warning/success
-
+import type {PropType} from "vue"
 
 export const buttonVariants = [
   'base',
@@ -48,8 +48,8 @@ export const ButtonProps = {
   },
   //按钮类型 原生属性
   type: {
-    type: String,
-    default: () => "text",
+    type: String as PropType<"button" | "submit" | "reset"|undefined>,
+    default: () => "button",
   }
 
 } as const
