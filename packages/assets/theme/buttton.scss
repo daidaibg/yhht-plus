@@ -1,0 +1,233 @@
+$prefix: "yh";
+$prefix-button: "#{$prefix}-button";
+$button-theme-list: (
+  "primary": "brand",
+  "danger": "error",
+  "warning": "warning",
+  "success": "success",
+);
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+.yh-button {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  font-size: 14px;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: all 0.2s linear;
+  touch-action: manipulation;
+  line-height: 1;
+  /* yh-is-disabled  禁用*/
+  &.yh-is-disabled {
+    cursor: not-allowed;
+  }
+}
+
+.yh-button__text {
+  position: relative;
+  z-index: 1;
+}
+
+.yh-button:not(.t-is-disabled):not(.t-button--ghost) {
+  --ripple-color: var(--yh-bg-color-container-active);
+}
+
+/* button 大中小*/
+
+@mixin button-size($height, $font-size, $padding-horizontal, $size-name) {
+  .#{$prefix-button}.#{$prefix-button}--size-#{$size-name} {
+    height: $height;
+    font-size: $font-size;
+    padding-left: $padding-horizontal;
+    padding-right: $padding-horizontal;
+  }
+}
+// 小
+@include button-size(32px, 14px, 15px, medium);
+// 正常
+@include button-size(24px, 12px, 7px, small);
+//大
+@include button-size(40px, 16px, 23px, large);
+
+/* 按钮形状   圆角长方形*/
+.#{$prefix-button}--shape-round {
+  border-radius: 16px;
+  &.#{$prefix-button}--size-small {
+    border-radius: 12px;
+  }
+  &.#{$prefix-button}--size-large {
+    border-radius: 20px;
+  }
+}
+
+//圆形按钮
+@mixin button-circle($size-name, $width, $border-radius) {
+  .#{$prefix-button}--shape-circle.#{$prefix-button}--size-#{$size-name} {
+    border-radius: $border-radius;
+    width: $width;
+    padding: 0;
+    // text-align: center;
+  }
+}
+@include button-circle(small, 24px, 12px);
+@include button-circle(medium, 32px, 16px);
+@include button-circle(large, 40px, 20px);
+
+/* block按钮 */
+.#{$prefix-button}.yh-size-full-width {
+  /* display: block; */
+  width: 100%;
+}
+
+/* 文字按钮 基础*/
+.#{$prefix-button}--variant-text {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--yh-text-color-primary);
+  &:hover {
+    background-color: var(--yh-bg-color-container-hover);
+  }
+  &.#{$prefix-button}--theme-default.#{$prefix}-is-disabled {
+    color: var(--yh-text-color-disabled);
+    background-color: transparent;
+  }
+  &.yh-is-disabled:hover {
+    background-color: transparent;
+  }
+  
+}
+
+.#{$prefix-button}.#{$prefix-button}--variant-text:not(.yh-is-disabled):not(
+    .yh-button--ghost
+  ) {
+  --ripple-color: var(--yh-bg-color-container-active);
+}
+
+/* 文字按钮 默认主题*/
+.#{$prefix-button}--variant-text.#{$prefix-button}--theme-default.yh-is-disabled {
+  color: var(--yh-text-color-disabled);
+}
+@each $theme, $color in $button-theme-list {
+  //文字按钮
+  .#{$prefix-button}--variant-text.#{$prefix-button}--theme-#{$theme} {
+    color: var(--yh-#{$color}-color);
+  }
+  .#{$prefix-button}--variant-text.#{$prefix-button}--theme-#{$theme}:hover {
+    color: var(--yh-#{$color}-color-hover);
+  }
+  .#{$prefix-button}--variant-text.#{$prefix-button}--theme-#{$theme}.#{$prefix}-is-disabled {
+    color: var(--yh-#{$color}-color-disabled);
+  }
+}
+
+/* 虚线按钮 描边按钮 基础 */
+
+.yh-button--variant-dashed,
+.yh-button--variant-outline {
+  color: var(--yh-text-color-primary);
+  background-color: var(--yh-bg-color-specialcomponent);
+  border-color: var(--yh-border-level-2-color);
+  &:hover {
+    color: var(--yh-text-color-primary);
+    background-color: var(--yh-bg-color-specialcomponent);
+    border-color: var(--yh-border-level-2-color);
+  }
+  &.yh-is-disabled {
+    color: var(--yh-text-color-disabled);
+    background-color: var(--yh-bg-color-component-disabled);
+    border-color: var(--yh-border-level-2-color);
+  }
+}
+
+.yh-button--variant-dashed {
+  border-style: dashed;
+}
+
+@each $theme, $color in $button-theme-list {
+  /* 线框按钮 虚线 颜色   */
+  .yh-button--variant-outline.yh-button--theme-#{$theme},
+  .yh-button--variant-dashed.yh-button--theme-#{$theme} {
+    color: var(--yh-#{$color}-color);
+    border-color: var(--yh-#{$color}-color);
+  }
+
+  .yh-button--variant-outline.yh-button--theme-#{$theme}:hover,
+  .yh-button--variant-dashed.yh-button--theme-#{$theme}:hover {
+    border-color: var(--yh-#{$color}-color-hover);
+    background-color: var(--yh-bg-color-specialcomponent);
+    color: var(--yh-#{$color}-color-hover);
+  }
+
+  .yh-button--variant-outline.yh-button--theme-#{$theme}.yh-is-disabled,
+  .yh-button--variant-dashed.yh-button--theme-#{$theme}.yh-is-disabled {
+    color: var(--yh-#{$color}-color-disabled);
+    border-color: var(--yh-#{$color}-color-disabled);
+    background-color: var(--yh-bg-color-component-disabled);
+  }
+}
+
+/************************************************* button variant-default 默认主题 ******************************************************************************/
+.yh-button--variant-base {
+  &.yh-button--theme-default {
+    background-color: var(--yh-bg-color-component);
+    border-color: var(--yh-bg-color-component);
+    color: var(--yh-text-color-primary);
+    &:hover {
+      border-color: var(--yh-bg-color-component-hover);
+      background-color: var(--yh-bg-color-component-hover);
+      color: var(--yh-text-color-primary);
+    }
+    &.yh-is-disabled {
+      background-color: var(--yh-bg-color-component-disabled);
+      border-color: var(--yh-bg-color-component-disabled);
+      color: var(--yh-text-color-disabled);
+    }
+    &:not(.yh-is-disabled):not(.yh-button--ghost) {
+      --ripple-color: var(--yh-bg-color-component-active);
+    }
+  }
+}
+
+@each $theme, $color in $button-theme-list {
+  .yh-button--variant-base.yh-button--theme-#{$theme} {
+    color: var(--yh-text-color-anti);
+    background-color: var(--yh-#{$color}-color);
+    border-color: var(--yh-#{$color}-color);
+  }
+
+  .yh-button--variant-base.yh-button--theme-#{$theme}:not(.yh-is-disabled):not(
+      .yh-button--ghost
+    ) {
+    --ripple-color: var(--yh-#{$color}-color-active);
+  }
+
+  .yh-button--variant-base.yh-button--theme-#{$theme}:hover {
+    background-color: var(--yh-#{$color}-color-hover);
+    border-color: var(--yh-#{$color}-color-hover);
+  }
+
+  .yh-button--variant-base.yh-button--theme-#{$theme}.yh-is-disabled {
+    background-color: var(--yh-#{$color}-color-disabled);
+    border-color: var(--yh-#{$color}-color-disabled);
+  }
+}

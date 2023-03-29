@@ -3,7 +3,7 @@ import YhButton from './components/button'
 import YhAnchor from './components/anchor'
 import YhAnchorItem from './components/anchor-item'
 import YhAffix from './components/affix'
-import  "./assets/theme/index.css"
+import  "./assets/theme/index.scss"
 
 const components = [
   YhButton,
