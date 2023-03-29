@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2022-03-04 14:12:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-02-21 16:43:37
+ * @LastEditTime: 2023-03-29 15:43:03
  * @FilePath: \yhht-ui\src\views\com\button\button.vue
 -->
 <template>
@@ -39,24 +39,24 @@
       </div>
       <div class="row">
         <yh-button loading>默认按钮</yh-button>
-        <yh-button theme="primary" loading>主要按钮</yh-button>
-        <yh-button theme="danger" loading>危险按钮</yh-button>
-        <yh-button theme="warning" loading>警告按钮</yh-button>
-        <yh-button theme="success" loading>成功按钮</yh-button>
+        <yh-button theme="primary" loading>加载主要</yh-button>
+        <yh-button theme="danger" loading>加载危险</yh-button>
+        <yh-button theme="warning" loading>加载警告</yh-button>
+        <yh-button theme="success" loading>加载成功</yh-button>
       </div>
       <div class="row">
         <yh-button variant="text">文字按钮</yh-button>
-        <yh-button theme="primary" variant="text">禁用主要</yh-button>
-        <yh-button theme="danger" variant="text">禁用危险</yh-button>
-        <yh-button theme="warning" variant="text">禁用警告</yh-button>
-        <yh-button theme="success" variant="text">禁用成功</yh-button>
+        <yh-button theme="primary" variant="text">文字主要</yh-button>
+        <yh-button theme="danger" variant="text">文字危险</yh-button>
+        <yh-button theme="warning" variant="text">文字警告</yh-button>
+        <yh-button theme="success" variant="text">文字成功</yh-button>
       </div>
       <div class="row">
         <yh-button variant="text" disabled>文字按钮</yh-button>
-        <yh-button theme="primary" variant="text" disabled>禁用主要</yh-button>
-        <yh-button theme="danger" variant="text" disabled>禁用危险</yh-button>
-        <yh-button theme="warning" variant="text" disabled>禁用警告</yh-button>
-        <yh-button theme="success" variant="text" disabled>禁用成功</yh-button>
+        <yh-button theme="primary" variant="text" disabled>禁用文字主要</yh-button>
+        <yh-button theme="danger" variant="text" disabled>禁用文字危险</yh-button>
+        <yh-button theme="warning" variant="text" disabled>禁用文字警告</yh-button>
+        <yh-button theme="success" variant="text" disabled>禁用文字成功</yh-button>
       </div>
     </code-wrap>
     <anchor-h3 id="button.strokeButton.name"> </anchor-h3>

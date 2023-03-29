@@ -24,7 +24,7 @@
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6",
-    "yhht-plus": "^0.1.2"
+    "yhht-plus": "^0.1.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",

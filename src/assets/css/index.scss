@@ -77,7 +77,11 @@ body {
   min-height: 100%;
   font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color: #2c3e50;
+  :disabled{
+    cursor: not-allowed;
+  }
 }
+
 
 .pages {
   box-sizing: border-box;
@@ -89,24 +93,33 @@ body {
     color: #409eff;
   }
 
-  h2.yh-title,
-  h4.yh-title,
-  h3.yh-title {
-    font-weight: 400;
-    // color: #1f2f3d;
-    color: var(--yh-text-color-primary);
+  @mixin yh-title {
+    font-weight: 900;
+    color: var(--yh-text-color-secondary);
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+  }
+  //页面标题重置
+  h1,h2,h3,h4,h5,h6 {
+    &.yh-title{
+      @include yh-title;
+    }
+
+  }
+  //md文档标题重置
+  .md-editor-preview-wrapper{
+    h1,h2,h3,h4,h5,h6 {
+      @include yh-title;
+    }
   }
 
   h2.yh-title {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   h3.yh-title {
-    margin: 40px 0 20px;
-    font-size: 22px;
-    padding-top: 80px;
-    margin-top: -60px;
-
+    font-size: 20px;
+    padding-top: 20px;
+    margin-bottom: 20px;
     >a:first-child {
       opacity: 0;
       float: left;
@@ -117,7 +130,6 @@ body {
       color: var(--yh-brand-color);
 
     }
-
     &:hover {
       >a:first-child {
         opacity: 1;
@@ -127,8 +139,6 @@ body {
 
   @media screen and (max-width: 960px) {
     h3.yh-title {
-      padding-top: 60px;
-      margin-top: -40px;
       >a:first-child {
         margin-left: -16px;
         width: 16px;

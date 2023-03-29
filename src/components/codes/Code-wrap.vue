@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2021-09-30 15:00:52
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-06 14:55:49
+ * @LastEditTime: 2023-03-29 13:28:17
  * @FilePath: \yhht-ui\src\components\Code-wrap.vue
 -->
 <template>
@@ -13,7 +13,7 @@
     <div class="code-inner-wrap" :style="{ height: `${codeH}px` }">
       <div class="code_wrap" ref="codeinner">
         <slot name="code">
-          <code-light :text="codeText" :codeType="codeType"></code-light>
+          <code-light :text="codeText" ></code-light>
         </slot>
       </div>
     </div>
@@ -50,12 +50,6 @@ const props = defineProps({
   },
 })
 
-const clientHeight = computed(() => {
-  get: () => {
-    return document.documentElement.clientHeight;
-  }
-  set: () => { }
-})
 
 onBeforeUnmount(() => {
   removeScrollHandler();

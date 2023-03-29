@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2022-03-04 14:12:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-03-28 16:04:47
+ * @LastEditTime: 2023-03-29 15:17:53
  * @FilePath: \yhht-ui\src\views\com\button\button.vue
 -->
 <template>
@@ -11,9 +11,7 @@
     <p>页面内的超级链接，用于跳转到页面内指定位置</p>
     <h3 class="yh-title" :id="`基础锚点`" >基础锚点 </h3>
     <code-wrap :codeText="baseCodeText" style="position: relative" code-type="language-xml vue">
-      <!-- <yh-affix container="body" :offset="120">
-      </yh-affix> -->
-      <yh-anchor container="body" :bounds="50" :currentActive="currentActive">
+      <yh-anchor container="body" :bounds="50" :currentActive="currentActive" :hashRouter="route.path">
         <yh-anchor-item :href="`#基础锚点`" title="基础锚点">
         </yh-anchor-item>
         <yh-anchor-item href="#自定义游标锚点" title="自定义游标锚点" />
@@ -23,9 +21,9 @@
     </code-wrap>
     <h3 class="yh-title" id="自定义游标锚点">自定义游标锚点</h3>
     <p>targetOffset 锚点滚动偏移量 </p>
-    <code-wrap :codeText="curporCodeText" style="position: relative" code-type="language-xml vue">
+    <code-wrap :codeText="curporCodeText" style="position: relative" code-type="language-xml vue" >
       <div class="anchor-demo">
-        <yh-anchor container="body" :bounds="50" :targetOffset="120" :currentActive="currentActive">
+        <yh-anchor container="body" :bounds="50" :targetOffset="120" :currentActive="currentActive" :hashRouter="route.path">
           <template #cursor>
             <div class="test-cursor" />
           </template>
@@ -43,7 +41,7 @@
     </div>
     <code-wrap :codeText="containerCodeText" style="position: relative;" code-type="language-xml vue">
       <div id="container" class="anchor-demo anchor-container-demo">
-        <yh-anchor id="default" container="#anchor-container" no-link>
+        <yh-anchor id="default" container="#anchor-container" no-link :hashRouter="route.path">
           <yh-anchor-item :href="`#content-1`" title="content-1" />
           <yh-anchor-item :href="`#content-2`" title="content-2" />
           <yh-anchor-item :href="`#content-3`" title="content-3" />
@@ -122,8 +120,6 @@ const anchorList = ref([
 .anchor-demo {
   border: 1px solid transparent;
   padding: 20px;
-  margin: -20px;
-
   .test-cursor {
     width: 10px;
     height: 10px;

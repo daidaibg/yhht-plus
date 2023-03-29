@@ -42,6 +42,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  wrapClass: {
+    type: String,
+    default: () => "",
+  },
 });
 
 state.text = props.text;

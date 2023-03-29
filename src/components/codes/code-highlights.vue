@@ -1,5 +1,5 @@
 <template>
-    <marked :text="codeText" :class="wrapClass"></marked>
+    <marked :text="codeText" :wrapClass="wrapClass"></marked>
 </template>
 
 <script lang="ts" setup>
@@ -17,6 +17,7 @@ const props = defineProps({
 });
 
 const codeText = computed(() => {
+
   return `
 \`\`\`
 ${props.text}
