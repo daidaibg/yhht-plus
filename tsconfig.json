@@ -3,7 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
@@ -15,12 +15,16 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": false,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "docs/*"
       ]
-    }
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ],
   },
   "include": [
     "docs/**/*.ts",
@@ -30,7 +34,9 @@
     "packages/**/*.ts",
     "packages/**/*.d.ts",
     "packages/**/*.tsx",
-    "packages/**/*.vue"
+    "packages/**/*.vue",
+    "types/env.d.ts",
+    "types/*.d.ts"
   ],
   "references": [
     {
