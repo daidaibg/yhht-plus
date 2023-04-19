@@ -33,3 +33,7 @@ export const isElement = (e: unknown): e is Element => {
   if (typeof Element === 'undefined') return false
   return e instanceof Element
 }
+
+export function isDefined<T = unknown>(value: T | undefined | null): value is T {
+  return value !== undefined && value !== null
+}

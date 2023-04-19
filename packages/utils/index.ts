@@ -1,4 +1,5 @@
 import Copy from "./copy/copy";
+import {computeSeriesColors} from "./common/series-color"
 import {
   on,
   off,
@@ -16,4 +17,5 @@ export {
   getScroll,
   scrollTo,
   getScrollContainer,
+  computeSeriesColors
 }
