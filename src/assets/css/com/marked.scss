@@ -5,6 +5,12 @@
     --md-theme-border-color: var(--yh-border-level-1-color);
   }
 }
+.md-editor{
+  background-color: transparent;
+  .md-editor-preview-wrapper{
+    padding: 0;
+  }
+}
 #yh-md {
   table {
     width: 100%;
