@@ -11,7 +11,7 @@ export const mdEditorConfig = (MdEditor: any) => {
     // console.log("mdEditorConfigFlag", mdEditorConfigFlag);
     try {
         MdEditor.config({
-            markedExtensions: [MarkExtension],
+            // markedExtensions: [MarkExtension],
             editorExtensions: {
                 highlight: {
                     js: `${cdnBase}/highlight.js/11.7.0/highlight.min.js`,
