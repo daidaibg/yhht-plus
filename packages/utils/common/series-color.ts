@@ -30,7 +30,7 @@ export function computeSeriesColors(value: Color) {
             style.setProperty(`--yh-brand-color-${num}`, light)
              // style.setProperty(`--yh-brand-color-opacity-${i}`, opacity)
         }else{
-            style.setProperty(`--yh-brand-color`, value as string)
+            rootStyle.setProperty(`--yh-brand-color`, value as string)
         }
 
         colors.light.push(light)

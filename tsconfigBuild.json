@@ -16,7 +16,7 @@
     "forceConsistentCasingInFileNames": false,
     "sourceMap": true,
     "skipDefaultLibCheck": false,
-    "baseUrl": "."
+    "baseUrl": "./"
   },
   "include": [
     "packages/**/*.ts",

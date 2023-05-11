@@ -1,6 +1,6 @@
 {
   "name": "yhht-plus",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A Component Library for Vue.js.",
   "type": "module",
   "types": "lib",
@@ -37,6 +37,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/lodash": "^4.14.192",
     "@types/raf": "^3.4.0",
     "lodash": "^4.17.21",

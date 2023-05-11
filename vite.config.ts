@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
 import externalGlobals from "rollup-plugin-external-globals";
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import dts from 'vite-plugin-dts'
 const docsBuild = {
   outDir: 'dist',
@@ -31,7 +33,7 @@ const yhhtPlusBuild = {
   cssCodeSplit: false,  //css分离
   // staticDirectory: './packages/asste',
   rollupOptions: {  // rollup配置
-    external: ['vue', /node_modules/],    //忽略打包vue文件
+    external: ['vue',/lodash/,"raf","performance-now"],    //忽略打包vue文件
     input: { index: './packages/index.ts', "utils/index": "./packages/utils/index.ts" },
     output: [
       {
@@ -42,24 +44,37 @@ const yhhtPlusBuild = {
         preserveModules: true,
         //配置打包根目录
         dir: 'lib',
-        preserveModulesRoot: 'src',
+        preserveModulesRoot: resolve(__dirname, './lib'),
         exports: 'named',
         globals: {
           vue: 'Vue',
-        }
+          "lodash":"lodash",
+          "raf":"raf",
+          "performance-now":"performanceNow"
+
+        },
       },
       {
         format: 'cjs',
         entryFileNames: '[name].js',
         preserveModules: true,
         dir: 'lib/cjs',
-        preserveModulesRoot: 'src',
+        preserveModulesRoot: resolve(__dirname, './lib'),
         exports: 'named',
         globals: {
           vue: 'Vue',
+          "lodash":"lodash",
+          "raf":"raf",
+          "performance-now":"performanceNow"
+
+
         }
       }
-    ]
+    ],
+    plugins: [
+     
+    ],
+
   },
   lib: {
     // entry: resolve(__dirname, './packages/index.ts'),
