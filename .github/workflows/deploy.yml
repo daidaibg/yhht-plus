@@ -23,7 +23,7 @@ jobs:
         run: npm install
       # 打包
       - name: 打包
-        run: npm build
+        run: npm run build
       # 上传打包文件
       - name: 部署 # 部署
         uses: JamesIves/github-pages-deploy-action@v4 # 使用的工具
