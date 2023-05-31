@@ -37,8 +37,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/lodash": "^4.14.192",
     "@types/raf": "^3.4.0",
     "lodash": "^4.17.21",
@@ -47,6 +45,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
     "@types/node": "^18.15.11",
     "@types/web-bluetooth": "^0.0.16",
     "@vitejs/plugin-vue": "^4.1.0",
