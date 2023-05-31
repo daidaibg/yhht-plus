@@ -1,0 +1,44 @@
+name: build and deploy yhht-plus-docs
+# 触发脚本的条件，develop分支push代码的时候
+permissions:
+  contents: write
+on:
+  push:
+    branches:
+      - docs
+# 要执行的任务
+jobs:
+  # 任务名称
+  build:
+    # runs-on 指定job任务运行所需要的虚拟机环境（必填）
+    runs-on: ubuntu-latest
+    # 任务步骤
+    steps:
+      # 获取源码
+      - name: 迁出代码
+        # 使用action库  actions/checkout获取源码
+        uses: actions/checkout@v3 # 使用的工具
+      # 使用 pnpm
+      - name: 使用 npm
+        uses: npm/action-setup@v2
+        with:
+          version: 8.19.2
+      # 安装node
+      - name: 安装node.js
+        # 使用action库 actions/setup-node 安装node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.0
+          cache: 'npm'
+      # 安装
+      - name: 安装依赖
+        run: npm install
+      # 打包
+      - name: 打包
+        run: npm build
+      # 上传打包文件
+      - name: 部署 # 部署
+        uses: JamesIves/github-pages-deploy-action@v4 # 使用的工具
+        with:
+          branch: pages # 部署后提交到那个分支
+          folder: dist # 这里填打包好的目录名称

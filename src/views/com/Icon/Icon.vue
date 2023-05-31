@@ -45,8 +45,8 @@
   import YhIconsCom from "./Yh-icons-com.vue";
   import { ref, Ref } from 'vue'
   const text: Ref = ref(`<i class="yh-icons-delete-solid"></i>
-  <i class="yh-icons-delete"></i>
-  <i class="yh-icons-user-solid"></i>`) 
+<i class="yh-icons-delete"></i>
+<i class="yh-icons-user-solid"></i>`) 
 </script>
 
 <style lang="scss" scoped>
