@@ -1,4 +1,4 @@
-import{d as r,r as s,m as e,k as l,q as n,u as p,a4 as a,a5 as o,F as i,e as h,_ as m}from"./index-636e6187.js";const u=`## 安装\r
+import{d as r,r as s,m as e,k as l,q as n,u as p,a4 as a,a5 as o,F as i,e as h,_ as m}from"./index-4dbc8810.js";const u=`## 安装\r
 \r
 本节将介绍如何在项目中使用 Yhht Plus。\r
 \r
