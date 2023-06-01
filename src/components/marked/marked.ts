@@ -1,4 +1,7 @@
+import {config } from "md-editor-v3";
 import MarkExtension from '@/utils/marked-mark';
+
+
 let mdEditorConfigFlag = false
 export const generateId = (text: string, level: number, index: number): string => {
     const id = text.replace(/ /g, '-')
@@ -6,11 +9,11 @@ export const generateId = (text: string, level: number, index: number): string =
 };
 
 export const cdnBase = "https://cdn.bootcdn.net/ajax/libs"
-export const mdEditorConfig = (MdEditor: any) => {
+export const mdEditorConfig = () => {
     if (mdEditorConfigFlag) return
     // console.log("mdEditorConfigFlag", mdEditorConfigFlag);
     try {
-        MdEditor.config({
+        config({
             // markedExtensions: [MarkExtension],
             editorExtensions: {
                 highlight: {
@@ -32,22 +35,26 @@ export const mdEditorConfig = (MdEditor: any) => {
                     css: `${cdnBase}/KaTeX/0.16.4/katex.min.css`
                 },
                 mermaid:{
-                    js:"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js"
+                    js:"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.0/mermaid.min.js"
                 }
                 
             },
-            markedRenderer: (renderer: any) => {
-                renderer.heading = (text: string, level: number, raw: string, s: any, index: number) => {
-                    // console.log(text,level,raw,s,index);
-                    const id = generateId(text, level, index)
-                    return `<h${level} id="${id}">${text}</h${level}>`;
-                };
-                renderer.link = (href: any, title: any, text: any) => {
-                    // console.log(href,text,title);
-                    return `<a href="${href}" title="${title}" target="_blank">${text}</a>`;
-                };
-                return renderer;
-            },
+            markdownItConfig:(mdit)=>{
+                // console.log(mdit);
+            }
+            //3.0版本以上已经移除
+            // markedRenderer: (renderer: any) => {
+            //     renderer.heading = (text: string, level: number, raw: string, s: any, index: number) => {
+            //         // console.log(text,level,raw,s,index);
+            //         const id = generateId(text, level, index)
+            //         return `<h${level} id="${id}">${text}</h${level}>`;
+            //     };
+            //     renderer.link = (href: any, title: any, text: any) => {
+            //         // console.log(href,text,title);
+            //         return `<a href="${href}" title="${title}" target="_blank">${text}</a>`;
+            //     };
+            //     return renderer;
+            // },
         });
 
         mdEditorConfigFlag = true

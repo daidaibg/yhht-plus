@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MdEditor from "md-editor-v3";
-import "md-editor-v3/lib/style.css";
+import { MdPreview } from "md-editor-v3";
+import "md-editor-v3/lib/preview.css";
 import { mdEditorConfig, generateId } from "./marked";
 import { reactive, watch, ref } from "vue";
 import { userThemeStore } from "@/store";
@@ -10,6 +10,7 @@ import RightAnchor from "@/components/right-anchor/right-anchor.vue";
 const emits = defineEmits<{
   (event: "log", e: any[]): void;
 }>();
+mdEditorConfig();
 
 const themeStore = userThemeStore();
 const anchorList = ref([]);
@@ -21,16 +22,14 @@ const onGetCatalog = (list: any) => {
     };
   });
   anchorList.value = newLog;
-  emits("log",newLog)
+  emits("log", newLog);
 };
-mdEditorConfig(MdEditor);
 const state = reactive({
   text: "",
   theme: "light",
   previewTheme: "github", //'default' | 'github' | 'vuepress' | 'mk-cute' | 'smart-blue' | 'cyanosis'
   codeTheme: "github", //'atom'|'a11y'|'github'|'gradient'|'kimbie'|'paraiso'|'qtcreator'|'stackoverflow'
 });
-
 
 const props = defineProps({
   text: {
@@ -49,6 +48,12 @@ const props = defineProps({
 });
 
 state.text = props.text;
+
+const mdHeadingId = (_text:string, _level:number, index:number) => {
+  const id = generateId(_text, _level, index);
+  return id;
+};
+
 watch(
   () => props.text,
   (newVal) => {
@@ -58,14 +63,14 @@ watch(
 </script>
 
 <template>
-  <MdEditor
+  <MdPreview
     v-model="state.text"
     :theme="themeStore.theme"
     :previewTheme="state.previewTheme"
     :code-theme="state.codeTheme"
     showCodeRowNumber
-    previewOnly
     @onGetCatalog="onGetCatalog"
+    :mdHeadingId="mdHeadingId"
     id="yh-md"
   />
   <right-anchor :list="anchorList" isNoTranslate v-if="isAnchor"></right-anchor>
