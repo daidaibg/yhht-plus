@@ -1,6 +1,6 @@
 import {config } from "md-editor-v3";
 import MarkExtension from '@/utils/marked-mark';
-
+import TargetBlankExtension from "@/utils/marked/target-blank-extension"
 
 let mdEditorConfigFlag = false
 export const generateId = (text: string, level: number, index: number): string => {
@@ -41,6 +41,7 @@ export const mdEditorConfig = () => {
             },
             markdownItConfig:(mdit)=>{
                 // console.log(mdit);
+                mdit.use(TargetBlankExtension)
             }
             //3.0版本以上已经移除
             // markedRenderer: (renderer: any) => {
