@@ -11,6 +11,8 @@ import RightAnchor from "@/components/right-anchor/right-anchor.vue";
 import marked from "@/components/marked/marked.vue"
 import installs from '@/docs/install/install.md?raw'
 
+
+
 const anchorList = ref([
   {
     href: 'install.npm.name',

@@ -1,4 +1,41 @@
+## Anchor 锚点
 
+页面内的超级链接，用于跳转到页面内指定位置
+
+### 基础锚点 
+
+``` yhht-plus-demo
+
+/src/docs/anchor/anchor-basic.vue
+
+```
+
+### 自定义游标锚点
+
+targetOffset 锚点滚动偏移量 
+
+``` yhht-plus-demo
+
+/src/docs/anchor/anthor-custom-cursor.vue
+
+```
+
+### 指定容器锚点
+
+指定响应滚动的容器进行锚点定位
+
+
+!!! warning 
+
+如果使用了指定容器配置`container`,如果您的元素充满整个html不用考虑以下，根据业务需求进行调整配置。使用`no-link`配置可以不把锚点拼接到url后边，拼接到路径后边会使指定容器也置顶。
+
+!!!
+
+``` yhht-plus-demo
+
+/src/docs/anchor/anchor-container.vue
+
+```
 
 ### 注意
 

@@ -1,19 +1,21 @@
 <script setup lang="ts">
+import { reactive, watch, ref, defineAsyncComponent ,nextTick,computed} from "vue";
+import type {PropType} from "vue";
 import { MdPreview } from "md-editor-v3";
 import "md-editor-v3/lib/preview.css";
 import { mdEditorConfig, generateId } from "./marked";
-import { reactive, watch, ref } from "vue";
 import { userThemeStore } from "@/store";
-import { ThemeEnum } from "@/enums";
 import RightAnchor from "@/components/right-anchor/right-anchor.vue";
 
 const emits = defineEmits<{
   (event: "log", e: any[]): void;
 }>();
+
 mdEditorConfig();
 
 const themeStore = userThemeStore();
-const anchorList = ref([]);
+const mdAnchorList = ref([]);
+
 const onGetCatalog = (list: any) => {
   const newLog = list.map((element: any) => {
     return {
@@ -21,9 +23,11 @@ const onGetCatalog = (list: any) => {
       href: generateId(element.text, element.level, element.level),
     };
   });
-  anchorList.value = newLog;
+  mdAnchorList.value = newLog;
   emits("log", newLog);
 };
+
+
 const state = reactive({
   text: "",
   theme: "light",
@@ -41,6 +45,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  anchorList:{
+    type:Array as PropType<any[]>,
+    default:()=>[]
+  },
   wrapClass: {
     type: String,
     default: () => "",
@@ -49,7 +57,70 @@ const props = defineProps({
 
 state.text = props.text;
 
-const mdHeadingId = (_text:string, _level:number, index:number) => {
+const components = props.text.split(/```\s*yhht-plus-demo\s*([\s\S]+?)\s*```/g);
+
+const pattern = /^\/src\/([\w-]+\/)*[\w-]+\.vue$/;
+
+const docxModules = import.meta.glob("@/docs/**/*.vue");
+
+const docxModulesStr = import.meta.glob("@/docs/**/*.vue", { as: "raw" });
+
+const loading = ref(true);
+
+const isDocxComponent = (str: string): boolean => {
+  return pattern.test(str);
+};
+
+const getComponent = (str: string): any => {
+  const com = defineAsyncComponent(() =>
+    docxModules[str]().then((module: any) => {
+      return module.default;
+    })
+  );
+  return com;
+};
+
+const getComponentStr = (str: string): any => {
+  return docxModulesStr[str]().then(str=>str);
+};
+
+let newComponents: any = [];
+
+const initCom = async () => {
+  loading.value = true;
+  for (const item of components) {
+    if (isDocxComponent(item)) {
+      const code = await getComponentStr(item);
+      newComponents.push({
+        type: "com",
+        com: getComponent(item),
+        code: code,
+      });
+    } else {
+      newComponents.push({
+        type: "md",
+        md: item,
+      });
+    }
+  }
+  nextTick(() => {
+    loading.value = false;
+  });
+  // console.log(components, newComponents);
+};
+
+
+
+initCom();
+
+const anchors =computed(()=>{
+  if(props.anchorList.length>0){
+    return props.anchorList
+  }
+  return  mdAnchorList.value
+})
+
+const mdHeadingId = (_text: string, _level: number, index: number) => {
   const id = generateId(_text, _level, index);
   return id;
 };
@@ -63,17 +134,31 @@ watch(
 </script>
 
 <template>
-  <MdPreview
-    v-model="state.text"
-    :theme="themeStore.theme"
-    :previewTheme="state.previewTheme"
-    :code-theme="state.codeTheme"
-    showCodeRowNumber
-    @onGetCatalog="onGetCatalog"
-    :mdHeadingId="mdHeadingId"
-    id="yh-md"
-  />
-  <right-anchor :list="anchorList" isNoTranslate v-if="isAnchor"></right-anchor>
+  <template v-if="!loading">
+    <template v-for="item in newComponents">
+      <MdPreview
+        :model-value="item.md"
+        :theme="themeStore.theme"
+        :previewTheme="state.previewTheme"
+        :code-theme="state.codeTheme"
+        showCodeRowNumber
+        @onGetCatalog="onGetCatalog"
+        :mdHeadingId="mdHeadingId"
+        id="yh-md"
+        v-if="item.type == 'md'"
+      />
+      <code-wrap
+        :codeText="item.code"
+        style="position: relative"
+        code-type="vue"
+        v-else
+      >
+        <component :is="item.com"></component>
+      </code-wrap>
+    </template>
+  </template>
+
+  <right-anchor :list="anchors" isNoTranslate v-if="isAnchor&&!loading"></right-anchor>
 </template>
 
 <style scoped lang="scss"></style>

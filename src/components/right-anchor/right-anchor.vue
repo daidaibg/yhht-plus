@@ -7,6 +7,7 @@ const route = useRoute()
 if (route.hash && route.hash !== '') {
     currentActive.value = route.hash
 }
+
 interface anchorListProps {
     href: any;
     title: any;

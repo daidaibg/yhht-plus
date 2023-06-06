@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2021-09-30 15:00:52
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-03-29 13:28:17
+ * @LastEditTime: 2023-06-06 09:28:05
  * @FilePath: \yhht-ui\src\components\Code-wrap.vue
 -->
 <template>
@@ -13,7 +13,7 @@
     <div class="code-inner-wrap" :style="{ height: `${codeH}px` }">
       <div class="code_wrap" ref="codeinner">
         <slot name="code">
-          <code-light :text="codeText" ></code-light>
+          <code-light :text="codeText" :codeType="codeType"></code-light>
         </slot>
       </div>
     </div>
@@ -46,7 +46,7 @@ const props = defineProps({
   },
    codeType: {
     type: String,
-    default: () => "javascript html xml"
+    default: () => "javascript"
   },
 })
 

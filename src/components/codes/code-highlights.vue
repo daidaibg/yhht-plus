@@ -14,12 +14,16 @@ const props = defineProps({
     type: String,
     default: () => "",
   },
+  codeType:{
+    type:String,
+    default:()=>"",
+  }
 });
 
 const codeText = computed(() => {
 
   return `
-\`\`\`
+\`\`\` ${props.codeType}
 ${props.text}
 \`\`\`
   `;
