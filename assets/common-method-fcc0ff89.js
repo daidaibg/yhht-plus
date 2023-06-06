@@ -1,4 +1,4 @@
-import{d as r,h as n,u as o,a9 as t,f as e}from"./index-813c03a2.js";const l=`## on(绑定事件)\r
+import{d as r,h as n,u as o,a9 as t,f as e}from"./index-353b2d11.js";const l=`## on(绑定事件)\r
 \r
 同原生的\`addEventListener\`只是简单做了优化\r
 \r
