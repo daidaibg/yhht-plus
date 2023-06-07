@@ -1,6 +1,15 @@
 <script setup lang="ts">
-import { reactive, watch, ref, defineAsyncComponent ,nextTick,computed} from "vue";
-import type {PropType} from "vue";
+import {
+  reactive,
+  watch,
+  ref,
+  defineAsyncComponent,
+  nextTick,
+  computed,
+  onMounted,
+  onUpdated
+} from "vue";
+import type { PropType } from "vue";
 import { MdPreview } from "md-editor-v3";
 import "md-editor-v3/lib/preview.css";
 import { mdEditorConfig, generateId } from "./marked";
@@ -27,14 +36,6 @@ const onGetCatalog = (list: any) => {
   emits("log", newLog);
 };
 
-
-const state = reactive({
-  text: "",
-  theme: "light",
-  previewTheme: "github", //'default' | 'github' | 'vuepress' | 'mk-cute' | 'smart-blue' | 'cyanosis'
-  codeTheme: "github", //'atom'|'a11y'|'github'|'gradient'|'kimbie'|'paraiso'|'qtcreator'|'stackoverflow'
-});
-
 const props = defineProps({
   text: {
     type: String,
@@ -45,9 +46,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  anchorList:{
-    type:Array as PropType<any[]>,
-    default:()=>[]
+  anchorList: {
+    type: Array as PropType<any[]>,
+    default: () => [],
   },
   wrapClass: {
     type: String,
@@ -55,7 +56,6 @@ const props = defineProps({
   },
 });
 
-state.text = props.text;
 
 const components = props.text.split(/```\s*yhht-plus-demo\s*([\s\S]+?)\s*```/g);
 
@@ -66,6 +66,8 @@ const docxModules = import.meta.glob("@/docs/**/*.vue");
 const docxModulesStr = import.meta.glob("@/docs/**/*.vue", { as: "raw" });
 
 const loading = ref(true);
+
+const loaded = ref(false);
 
 const isDocxComponent = (str: string): boolean => {
   return pattern.test(str);
@@ -81,7 +83,7 @@ const getComponent = (str: string): any => {
 };
 
 const getComponentStr = (str: string): any => {
-  return docxModulesStr[str]().then(str=>str);
+  return docxModulesStr[str]().then((str) => str);
 };
 
 let newComponents: any = [];
@@ -103,34 +105,36 @@ const initCom = async () => {
       });
     }
   }
+  loading.value = false;
+
   nextTick(() => {
-    loading.value = false;
+    let timer = setTimeout(() => {
+      loaded.value = true;
+      clearTimeout(timer);
+    }, 600);
   });
   // console.log(components, newComponents);
 };
 
-
-
 initCom();
 
-const anchors =computed(()=>{
-  if(props.anchorList.length>0){
-    return props.anchorList
+const anchors = computed(() => {
+  if (props.anchorList.length > 0) {
+    return props.anchorList;
   }
-  return  mdAnchorList.value
-})
+  return mdAnchorList.value;
+});
 
 const mdHeadingId = (_text: string, _level: number, index: number) => {
   const id = generateId(_text, _level, index);
   return id;
 };
 
-watch(
-  () => props.text,
-  (newVal) => {
-    state.text = newVal;
-  }
-);
+onMounted(() => {});
+
+onUpdated(() => {
+});
+
 </script>
 
 <template>
@@ -139,8 +143,8 @@ watch(
       <MdPreview
         :model-value="item.md"
         :theme="themeStore.theme"
-        :previewTheme="state.previewTheme"
-        :code-theme="state.codeTheme"
+        :previewTheme="themeStore.previewTheme"
+        :code-theme="themeStore.codeTheme"
         showCodeRowNumber
         @onGetCatalog="onGetCatalog"
         :mdHeadingId="mdHeadingId"
@@ -157,8 +161,11 @@ watch(
       </code-wrap>
     </template>
   </template>
-
-  <right-anchor :list="anchors" isNoTranslate v-if="isAnchor&&!loading"></right-anchor>
+  <right-anchor
+    :list="anchors"
+    isNoTranslate
+    v-if="isAnchor && loaded"
+  ></right-anchor>
 </template>
 
 <style scoped lang="scss"></style>

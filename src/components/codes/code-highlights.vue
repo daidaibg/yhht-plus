@@ -1,10 +1,11 @@
-<template>
-    <marked :text="codeText" :wrapClass="wrapClass"></marked>
-</template>
-
 <script lang="ts" setup>
-import marked from "@/components/marked/marked.vue";
-import { watch, computed } from "vue";
+import { watch, computed, reactive } from "vue";
+import { MdPreview } from "md-editor-v3";
+import { userThemeStore } from "@/store";
+import "md-editor-v3/lib/preview.css";
+
+const themeStore = userThemeStore();
+
 const props = defineProps({
   text: {
     type: String,
@@ -14,14 +15,14 @@ const props = defineProps({
     type: String,
     default: () => "",
   },
-  codeType:{
-    type:String,
-    default:()=>"",
-  }
+  codeType: {
+    type: String,
+    default: () => "",
+  },
 });
 
-const codeText = computed(() => {
 
+const codeText = computed(() => {
   return `
 \`\`\` ${props.codeType}
 ${props.text}
@@ -29,4 +30,16 @@ ${props.text}
   `;
 });
 </script>
+
+<template>
+  <MdPreview
+    :model-value="codeText"
+    :theme="themeStore.theme"
+    :previewTheme="themeStore.previewTheme"
+    :code-theme="themeStore.codeTheme"
+    showCodeRowNumber
+    id="yh-md"
+  />
+</template>
+
 <style lang="scss" scoped></style>

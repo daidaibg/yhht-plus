@@ -17,7 +17,9 @@ if (themeState && themeState.theme == ThemeEnum.DARK) {
 }
 //state
 const state: ThemeStateType = {
-    theme: themeState?.theme || theme
+    theme: themeState?.theme || theme,
+    previewTheme: "github", 
+    codeTheme: "github", 
 }
 
 export const userThemeStore = defineStore({
