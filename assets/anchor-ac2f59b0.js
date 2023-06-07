@@ -1,4 +1,4 @@
-import{_ as n}from"./marked.vue_vue_type_script_setup_true_lang-da2ae1db.js";import{d as t,r as e,h as o,u as s,f as c,a2 as a}from"./index-e4e727ef.js";import"./right-anchor-890ab940.js";const h=`## Anchor 锚点\r
+import{_ as n}from"./marked.vue_vue_type_script_setup_true_lang-9620d710.js";import{d as t,r as e,h as o,u as s,f as c,a2 as a}from"./index-7d333d25.js";import"./right-anchor-351a0313.js";const h=`## Anchor 锚点\r
 \r
 页面内的超级链接，用于跳转到页面内指定位置\r
 \r
