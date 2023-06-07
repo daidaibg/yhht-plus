@@ -1,0 +1,1 @@
+import{_ as e}from"./marked.vue_vue_type_script_setup_true_lang-da2ae1db.js";import{d as o,q as t,x as s,f as a}from"./index-e4e727ef.js";import"./right-anchor-890ab940.js";const r={class:""},d=o({__name:"demo",setup(_){return(c,n)=>(a(),t("div",r,[s(e)]))}});export{d as default};

@@ -1,4 +1,4 @@
-import{d as r,h as n,u as o,a9 as t,f as e}from"./index-353b2d11.js";const l=`## on(绑定事件)\r
+import{_ as r}from"./marked.vue_vue_type_script_setup_true_lang-da2ae1db.js";import{d as n,h as o,u as t,f as e}from"./index-e4e727ef.js";import"./right-anchor-890ab940.js";const l=`## on(绑定事件)\r
 \r
 同原生的\`addEventListener\`只是简单做了优化\r
 \r
@@ -128,4 +128,4 @@ const dom4 = getScrollContainer(dom4Fun)\r
 const dom4 = getScrollContainer(document.querySelector("body"))\r
 \`\`\`\r
 \r
-`,m=r({__name:"common-method",setup(c){return(s,i)=>(e(),n(t,{text:o(l),isAnchor:""},null,8,["text"]))}});export{m as default};
+`,d=n({__name:"common-method",setup(c){return(s,i)=>(e(),o(r,{text:t(l),isAnchor:""},null,8,["text"]))}});export{d as default};
