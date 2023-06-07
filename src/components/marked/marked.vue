@@ -7,7 +7,7 @@ import {
   nextTick,
   computed,
   onMounted,
-  onUpdated
+  onUpdated,
 } from "vue";
 import type { PropType } from "vue";
 import { MdPreview } from "md-editor-v3";
@@ -15,6 +15,7 @@ import "md-editor-v3/lib/preview.css";
 import { mdEditorConfig, generateId } from "./marked";
 import { userThemeStore } from "@/store";
 import RightAnchor from "@/components/right-anchor/right-anchor.vue";
+import Loading from "./loading.vue";
 
 const emits = defineEmits<{
   (event: "log", e: any[]): void;
@@ -56,7 +57,6 @@ const props = defineProps({
   },
 });
 
-
 const components = props.text.split(/```\s*yhht-plus-demo\s*([\s\S]+?)\s*```/g);
 
 const pattern = /^\/src\/([\w-]+\/)*[\w-]+\.vue$/;
@@ -74,11 +74,12 @@ const isDocxComponent = (str: string): boolean => {
 };
 
 const getComponent = (str: string): any => {
-  const com = defineAsyncComponent(() =>
-    docxModules[str]().then((module: any) => {
-      return module.default;
-    })
-  );
+  const com = defineAsyncComponent({
+    loader: () =>
+      docxModules[str]().then((module: any) => {
+        return module.default;
+      }),
+  });
   return com;
 };
 
@@ -86,37 +87,35 @@ const getComponentStr = (str: string): any => {
   return docxModulesStr[str]().then((str) => str);
 };
 
-let newComponents: any = [];
-
-const initCom = async () => {
+const initCom = () => {
+  let componentList: any = [];
   loading.value = true;
   for (const item of components) {
     if (isDocxComponent(item)) {
-      const code = await getComponentStr(item);
-      newComponents.push({
+      const code = getComponentStr(item);
+      componentList.push({
         type: "com",
         com: getComponent(item),
-        code: code,
+        code: () => code,
       });
     } else {
-      newComponents.push({
+      componentList.push({
         type: "md",
         md: item,
       });
     }
   }
   loading.value = false;
-
-  nextTick(() => {
-    let timer = setTimeout(() => {
-      loaded.value = true;
-      clearTimeout(timer);
-    }, 600);
-  });
-  // console.log(components, newComponents);
+  let timer = setTimeout(() => {
+    loaded.value = true;
+    clearTimeout(timer);
+  }, 600);
+  return componentList;
 };
 
-initCom();
+const newComponents = computed((): any => {
+  return initCom();
+});
 
 const anchors = computed(() => {
   if (props.anchorList.length > 0) {
@@ -132,34 +131,30 @@ const mdHeadingId = (_text: string, _level: number, index: number) => {
 
 onMounted(() => {});
 
-onUpdated(() => {
-});
-
+onUpdated(() => {});
 </script>
 
 <template>
-  <template v-if="!loading">
-    <template v-for="item in newComponents">
-      <MdPreview
-        :model-value="item.md"
-        :theme="themeStore.theme"
-        :previewTheme="themeStore.previewTheme"
-        :code-theme="themeStore.codeTheme"
-        showCodeRowNumber
-        @onGetCatalog="onGetCatalog"
-        :mdHeadingId="mdHeadingId"
-        id="yh-md"
-        v-if="item.type == 'md'"
-      />
-      <code-wrap
-        :codeText="item.code"
-        style="position: relative"
-        code-type="vue"
-        v-else
-      >
-        <component :is="item.com"></component>
-      </code-wrap>
-    </template>
+  <template v-for="item in newComponents">
+    <MdPreview
+      :model-value="item.md"
+      :theme="themeStore.theme"
+      :previewTheme="themeStore.previewTheme"
+      :code-theme="themeStore.codeTheme"
+      showCodeRowNumber
+      @onGetCatalog="onGetCatalog"
+      :mdHeadingId="mdHeadingId"
+      id="yh-md"
+      v-if="item.type == 'md'"
+    />
+    <code-wrap
+      :asyncCodeText="item.code"
+      style="position: relative"
+      code-type="vue"
+      v-else
+    >
+      <component :is="item.com"></component>
+    </code-wrap>
   </template>
   <right-anchor
     :list="anchors"

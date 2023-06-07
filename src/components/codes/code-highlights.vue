@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-import { watch, computed, reactive } from "vue";
+import { watch, computed, reactive, ref } from "vue";
 import { MdPreview } from "md-editor-v3";
 import { userThemeStore } from "@/store";
 import "md-editor-v3/lib/preview.css";
+
+import type { PropType } from "vue";
 
 const themeStore = userThemeStore();
 
@@ -19,13 +21,24 @@ const props = defineProps({
     type: String,
     default: () => "",
   },
+  asyncCodeText: {
+    type: Function as PropType<() => Promise<string>> | undefined,
+    default: void 0,
+  },
 });
 
+const str = ref("");
+
+if (props.asyncCodeText) {
+  props.asyncCodeText().then((res) => {
+    str.value = res;
+  });
+}
 
 const codeText = computed(() => {
   return `
 \`\`\` ${props.codeType}
-${props.text}
+${props.asyncCodeText ? str.value : props.text}
 \`\`\`
   `;
 });

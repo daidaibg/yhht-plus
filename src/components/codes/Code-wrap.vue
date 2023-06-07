@@ -2,7 +2,7 @@
  * @Author: daidai
  * @Date: 2021-09-30 15:00:52
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-06-06 09:28:05
+ * @LastEditTime: 2023-06-07 17:00:14
  * @FilePath: \yhht-ui\src\components\Code-wrap.vue
 -->
 <template>
@@ -13,7 +13,7 @@
     <div class="code-inner-wrap" :style="{ height: `${codeH}px` }">
       <div class="code_wrap" ref="codeinner">
         <slot name="code">
-          <code-light :text="codeText" :codeType="codeType"></code-light>
+          <code-light :text="codeText" :codeType="codeType" v-bind="$attrs"></code-light>
         </slot>
       </div>
     </div>
@@ -48,15 +48,18 @@ const props = defineProps({
     type: String,
     default: () => "javascript"
   },
+
 })
 
 
 onBeforeUnmount(() => {
   removeScrollHandler();
 })
+
 const mouseenter = ()=>{
   hovering.value=true
 }
+
 const mouseleave = ()=>{
   hovering.value=false
 }
