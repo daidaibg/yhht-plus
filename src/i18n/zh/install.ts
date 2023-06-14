@@ -2,7 +2,7 @@ export default {
     tips:'本节将介绍如何在项目中使用 Yhht Plus。',
     name:'安装',
     npm:{
-        name:'npm 安装 ',
+        name:'npm 安装',
         tip:"推荐使用 npm 的方式安装",
     },
     use:{

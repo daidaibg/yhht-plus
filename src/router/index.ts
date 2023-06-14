@@ -21,12 +21,12 @@ const routes: Array<RouteRecordRaw> = [
         path: '/com-index',
         name: 'com-index',
         redirect: '/components/installation',
-        component: () => import(/* webpackChunkName: "Components" */ '../views/components-and-js/components-index.vue'),
+        component: () => import(/* webpackChunkName: "Components" */ '../views/layout/layout.vue'),
         children: [
           {
             path: '/components/installation',
             name: 'Installation',
-            component: () => import(/* webpackChunkName: "Components" */ '../views/com/Installation.vue'),
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/Installation/Installation.vue'),
             meta: {
               type: 'com',
               title: "安装使用"
