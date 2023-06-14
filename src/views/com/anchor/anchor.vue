@@ -2,17 +2,15 @@
  * @Author: daidai
  * @Date: 2022-03-04 14:12:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-06-06 10:30:50
+ * @LastEditTime: 2023-06-14 15:40:09
  * @FilePath: \yhht-ui\src\views\com\button\button.vue
 -->
 <template>
   <marked :text="AnchorProp" :anchorList="anchorList" isAnchor></marked>
-  <!-- <right-anchor :list="anchorList" isNoTranslate></right-anchor> -->
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from "vue";
-import RightAnchor from "@/components/right-anchor/right-anchor.vue";
 import marked from "@/components/marked/marked.vue";
 import AnchorProp from "@/docs/anchor/anchor.md?raw";
 

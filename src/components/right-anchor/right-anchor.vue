@@ -19,8 +19,8 @@ const props = defineProps({
     },
     //是否进行翻译
     isNoTranslate: {
-        type: Boolean,
-        default: false
+        type: Boolean as PropType<boolean> ,
+        default:()=> false
     }
 })
 const { t } = useI18n()

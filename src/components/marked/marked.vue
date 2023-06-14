@@ -16,6 +16,7 @@ import { mdEditorConfig, generateId } from "./marked";
 import { userThemeStore } from "@/store";
 import RightAnchor from "@/components/right-anchor/right-anchor.vue";
 import Loading from "./loading.vue";
+import { checkboxGroupEmits } from "element-plus";
 
 const emits = defineEmits<{
   (event: "log", e: any[]): void;
@@ -55,6 +56,10 @@ const props = defineProps({
     type: String,
     default: () => "",
   },
+  isNoTranslate: {
+    type: Boolean as PropType<boolean>,
+    default: () => true,
+  },
 });
 
 const components = props.text.split(/```\s*yhht-plus-demo\s*([\s\S]+?)\s*```/g);
@@ -73,12 +78,16 @@ const isDocxComponent = (str: string): boolean => {
   return pattern.test(str);
 };
 
-const getComponent = (str: string): any => {
+const getComponent = (str: any): any => {
   const com = defineAsyncComponent({
-    loader: () =>
-      docxModules[str]().then((module: any) => {
+    loader: () => {
+      // return new Promise((resolve, reject) => {
+      //   resolve((docxModules[str] as any).default);
+      // });
+      return (docxModules[str] as any)().then((module: any) => {
         return module.default;
-      }),
+      });
+    },
   });
   return com;
 };
@@ -158,7 +167,7 @@ onUpdated(() => {});
   </template>
   <right-anchor
     :list="anchors"
-    isNoTranslate
+    :isNoTranslate="isNoTranslate"
     v-if="isAnchor && loaded"
   ></right-anchor>
 </template>
