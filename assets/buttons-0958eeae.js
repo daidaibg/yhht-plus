@@ -1,4 +1,4 @@
-import{_ as t}from"./marked.vue_vue_type_script_setup_true_lang-6a38d407.js";import{d as a,a0 as o,r as s,a9 as n,h as i,u as l,f as u}from"./index-bc9cefe4.js";import"./right-anchor-5ce0cacf.js";const d=`## Button 按钮\r
+import{_ as t}from"./marked.vue_vue_type_script_setup_true_lang-a2129f6e.js";import{d as a,a0 as o,r as s,a9 as n,h as i,u as l,f as u}from"./index-28c98c4e.js";import"./right-anchor-f5247677.js";const d=`## Button 按钮\r
 \r
 按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。\r
 \r
@@ -101,7 +101,7 @@ The button border is a dashed line, commonly used for adding configuration items
 /src/docs/button/button-outline-EN.vue\r
 \r
 \`\`\`\r
-### The shape and size of the button\r
+### Shape and size Button\r
 \r
 There are three sizes available: large, medium (default), and small.\r
 \r
