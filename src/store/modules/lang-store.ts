@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { setLocalStorage, getLocalStorage } from '@/utils'
 import { StorageEnum, LangStateType, LangEnum } from '@/enums'
 import i18n from '@/i18n/index'
+
 const { global } = i18n;
 const { YH_LANG_STORE } = StorageEnum
 const storageLang: LangStateType = getLocalStorage(YH_LANG_STORE)

@@ -52,11 +52,11 @@ const active = computed(() => {
             <div class="previous-ext flex justify-between pt-16">
                 <div class="flex  items-center item cursor-pointer" @click="go(prev.url)" v-if="prev">
                     <i class="yh-icons-arrow-left"></i>
-                    <span>{{ prev.name }}</span>
+                    <span>{{ $t(prev.name) }}</span>
                 </div>
                 <div v-else></div>
                 <div class="flex  items-center item cursor-pointer" @click="go(next.url)" v-if="next">
-                    <span>{{ next.name }}</span>
+                    <span>{{$t(next.name)  }}</span>
                     <i class="yh-icons-arrow-right"></i>
                 </div>
                 <div v-else></div>

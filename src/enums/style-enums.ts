@@ -6,8 +6,8 @@ export enum ThemeEnum {
 
 // 语言
 export enum LangEnum {
-    ZH = 'ZH',
-    EN = 'EN'
+    ZH = 'zh-CN',
+    EN = 'en-US'
 }
 export interface LangStateType {
     // 当前语言

@@ -25,13 +25,13 @@ const routes: Array<RouteRecordRaw> = [
         children: [
           {
             path: '/components/installation',
-            name: 'Installation',
+            name: '/components/installation',
             component: () => import(/* webpackChunkName: "Components" */ '../views/com/Installation/Installation.vue'),
             meta: {
               type: 'com',
               title: "安装使用"
             }
-          },  
+          },
           {
             path: '/components/cssVariable',
             name: 'cssVariable',
@@ -40,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
               type: 'com',
               title: "CSS全局变量"
             }
-          }, 
+          },
           {
             path: '/components/icon',
             name: 'icon',
@@ -67,7 +67,7 @@ const routes: Array<RouteRecordRaw> = [
               type: 'com',
               title: "锚点"
             }
-          }, 
+          },
           {
             path: '/components/demo',
             name: 'demo',

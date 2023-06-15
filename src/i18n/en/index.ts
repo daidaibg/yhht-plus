@@ -1,6 +1,5 @@
 import en from '../language/en.json'
 import button from './button'
-import install from "./install"
 import icon from "./icon"
 
 const global = {
@@ -15,6 +14,5 @@ export default {
   global,
   ...en,
   button,
-  install,
   icon
 }

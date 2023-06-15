@@ -1,47 +1,39 @@
 
-import i18n from '@/i18n/index'
-const t= i18n.global.t
 const comMenu = [
     {
-        title: "DevelopmentGuide",
+        title: "menu.DevelopmentGuide",
         content: "开发指南",
-        isTranslate: true,
         sub: [
             {
-                name: "安装",
-                default: () => t('menu.install'),
-                isTranslate: true,
+                name: "menu.install",
                 url: "/components/installation",
             },
             {
-                name: "CSS全局变量",
-                default: () => t('menu.cssVariable'),
-                isTranslate: true,
+                name: "menu.cssVariable",
                 url: "/components/cssVariable",
             },
         ],
     },
     {
-        title: "components",
+        title: "menu.components",
         content: "组件",
-        isTranslate: true,
-        tip: "Basic",
+        tip: "menu.basic",
         sub: [
             {
-                name: "Icon图标",
+                name: "menu.icon",
                 url: "/components/icon",
             },
             {
-                name: "Button按钮",
+                name: "menu.button",
                 url: "/components/buttons",
             }
         ],
     },
     {
-        tip: "Navigation",
+        tip: "menu.navigation",
         sub: [
             {
-                name: "Anchor锚点",
+                name: "menu.anchor",
                 url: "/components/anchor",
             },
         ],

@@ -9,6 +9,11 @@
         "components":"Components",
         "toolLibrary":"Tool Library",
         "directives":"Directives",
-        "cssVariable":"CssVariable"
+        "cssVariable":"CssVariable",
+        "icon":"Icon",
+        "button":"Button",
+        "anchor":"Anchor",
+        "navigation":"Navigation",
+        "basic":"Basic"
     }
 }

@@ -1,21 +1,65 @@
+<script lang="ts" setup>
+import { ref, Ref, PropType } from "vue";
+import { LangEnum } from "@/enums";
+import { useLangStore } from "@/store";
+const langStore = useLangStore();
+interface subMenulist {
+  url: string;
+  default: any;
+  name: string;
+  isTranslate: string | boolean | undefined;
+}
+interface menulistProps {
+  title: string;
+  tip: string;
+  sub: subMenulist[];
+  isTranslate: string | boolean | undefined;
+}
+interface Props {
+  active: string;
+  menuList: menulistProps[];
+}
+withDefaults(defineProps<Props>(), {
+  active: "",
+  menuList: () => [],
+});
+
+const phoneMenuCol: Ref = ref(true);
+
+// menuList.value=
+</script>
 <template>
-  <div class="menu_mask" v-if="!phoneMenuCol" @click="phoneMenuCol = !phoneMenuCol"></div>
+  <div
+    class="menu_mask"
+    v-if="!phoneMenuCol"
+    @click="phoneMenuCol = !phoneMenuCol"
+  ></div>
 
   <div class="menu" :class="[{ phoneMenuColIn: phoneMenuCol }]">
-    <div class="menu_Stretch flex justify-center items-center" @click="phoneMenuCol = !phoneMenuCol">
+    <div
+      class="menu_Stretch flex justify-center items-center"
+      @click="phoneMenuCol = !phoneMenuCol"
+    >
       <i class="yh-icons-s-fold" v-show="!phoneMenuCol"></i>
       <i class="yh-icons-s-unfold" v-show="phoneMenuCol"></i>
     </div>
     <!-- {{meunType}} -->
     <ul class="menuinner">
       <li v-for="(item, i) in menuList" :key="i">
-        <h3 class="yh-title" style="margin: 0" v-if="item.title">{{ item.isTranslate ? $t("menu." + item.title) : item.title }} </h3>
+        <h3 class="yh-title" style="margin: 0" v-if="item.title">
+          {{ $t(item.title) }}
+        </h3>
         <ul class="menType">
-          <div class="nav_title" v-if="item.tip">{{ item.tip }}</div>
+          <div class="nav_title" v-if="item.tip">{{ $t(item.tip) }}</div>
           <li class="nav_item" v-for="subItem in item.sub" :key="subItem.url">
-            <router-link :to="{ path: subItem.url }" :class="{ active: active == subItem.url }">{{
-                subItem.isTranslate ? subItem.default() : subItem.name
-            }}
+            <router-link
+              :to="{
+                path: subItem.url,
+              }"
+              :class="{
+                active: active == subItem.url,
+              }"
+              >{{ $t(subItem.name) }}
             </router-link>
           </li>
         </ul>
@@ -23,35 +67,6 @@
     </ul>
   </div>
 </template>
-<script lang="ts" setup>
-import { ref, Ref, PropType } from 'vue'
-interface subMenulist {
-    url:string,
-    default:any,
-    name:string,
-      isTranslate:string|boolean|undefined,
-}
-interface menulistProps {
-    title: string,
-    tip: string,
-    sub:subMenulist[],
-    isTranslate:string|boolean|undefined,
-}
-interface Props {
-  active: (string | number | boolean),
-  menuList: menulistProps[],
-}
-withDefaults(defineProps<Props>(), {
-  active: '',
-  menuList: () => [],
-})
-
-const phoneMenuCol: Ref = ref(true)
-
-
-// menuList.value= 
-</script>
-
 <style lang="scss" scoped>
 .menu {
   text-indent: 1em;
@@ -90,7 +105,7 @@ const phoneMenuCol: Ref = ref(true)
   //   background: transparent;
   // }
 
-  >ul {
+  > ul {
     padding: 44px 0;
 
     .nav_title {
@@ -134,7 +149,7 @@ const phoneMenuCol: Ref = ref(true)
     }
 
     a.active {
-      color: #FFF;
+      color: #fff;
       background-color: var(--menu-active-bg-color);
       border-radius: 4px;
     }
@@ -170,15 +185,13 @@ const phoneMenuCol: Ref = ref(true)
   background: var(--yh-mask-active);
 }
 
-@media screen and (min-width:960px) and (max-width:1340px) {
+@media screen and (min-width: 960px) and (max-width: 1340px) {
   .menu {
     left: 0;
   }
-
 }
 
 @media screen and (max-width: 960px) {
-
   .menu_mask,
   .menu_Stretch {
     display: block !important;

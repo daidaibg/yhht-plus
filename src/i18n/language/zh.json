@@ -9,7 +9,11 @@
         "components":"组件",
         "toolLibrary":"工具库",
         "directives":"指令",
-        "cssVariable":"css变量"
-
+        "cssVariable":"css变量",
+        "icon":"Icon 图标",
+        "button":"Button 按钮",
+        "anchor":"Anchor 锚点",
+        "navigation":"Navigation 导航",
+        "basic":"Basic"
     }
 }
