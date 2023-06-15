@@ -25,8 +25,10 @@
     "yhht-plus": "^0.1.5"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
+    "nprogress": "^0.2.0",
     "postcss": "^8.4.24",
     "sass": "^1.63.4",
     "sass-loader": "^13.3.2",

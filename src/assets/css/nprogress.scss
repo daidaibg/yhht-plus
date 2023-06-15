@@ -1,0 +1,10 @@
+@import 'nprogress/nprogress.css';
+#nprogress {
+    .bar {
+      background-color: var(--yh-brand-color);
+    }
+    .peg {
+      box-shadow: 0 0 10px var(--yh-brand-color), 0 0 5px var(--yh-brand-color) ;
+    }
+  }
+  

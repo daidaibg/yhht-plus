@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw, createWebHistory } from 'vue-router'
 import { getScrollContainer } from "yhht-plus/lib/utils"
+import { start, close } from "@/utils/nprogress";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -119,8 +120,11 @@ router.beforeEach((to, from, next) => {
     let body: any = getScrollContainer()
     body.scrollTop = 0
   }
+  start();
   next();
 })
 // --------------------------- 路由拦截 方法---------------------------------------------- //
-
+router.afterEach(() => {
+  close();
+})
 export default router
