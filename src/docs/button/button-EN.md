@@ -29,7 +29,7 @@ The button border is a dashed line, commonly used for adding configuration items
 /src/docs/button/button-outline-EN.vue
 
 ```
-### The shape and size of the button
+### Shape and size Button
 
 There are three sizes available: large, medium (default), and small.
 
