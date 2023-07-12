@@ -2,6 +2,15 @@ const n=`<script setup lang="ts">\r
 import { useRoute } from "vue-router";\r
 \r
 const route = useRoute();\r
+\r
+//阻止默认行为\r
+const handleClick = (linkData: {\r
+  href: string;\r
+  title: string;\r
+  e: MouseEvent;\r
+}) => {\r
+  linkData.e.preventDefault();\r
+};\r
 <\/script>\r
 \r
 <template>\r
@@ -11,7 +20,7 @@ const route = useRoute();\r
       container="#anchor-container"\r
       no-link\r
       :hashRouter="route.path"\r
-      :targetOffset="60"\r
+      @click="handleClick"\r
     >\r
       <yh-anchor-item href="#content-1" title="content-1" />\r
       <yh-anchor-item href="#content-2" title="content-2" />\r
