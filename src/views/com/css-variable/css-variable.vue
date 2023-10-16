@@ -107,16 +107,7 @@ const itemClick = (item: any) => {
     }
   }
 
-  .flex_wrap {
-    :deep(li) {
-      .name {
-        // overflow: hidden;
-        // text-overflow: ellipsis;
-        // white-space: nowrap;
-        // width: 40%;
-      }
-    }
-  }
+ 
 }
 
 .var_items {

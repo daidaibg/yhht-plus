@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import {copyVar} from "./util"
+import { copyVar } from "./util";
 
 interface Props {
   list: any[];
@@ -13,22 +12,15 @@ withDefaults(defineProps<Props>(), {
   noDark: false,
 });
 
-
-
-const itemClick = (item:any)=>{
-
- copyVar(item.name)
-
-}
+const itemClick = (item: any) => {
+  copyVar(item.name);
+};
 </script>
 
 <template>
   <div class="brand css_item" :class="{ noDark: noDark }">
     <ul>
-      <li
-        class="flex justify-between items-end title iscolor"
-        :style="{ background: `var(${bg})` }"
-      >
+      <li class="flex justify-between items-end title iscolor" :style="{ background: `var(${bg})` }">
         <slot></slot>
       </li>
 
@@ -37,7 +29,7 @@ const itemClick = (item:any)=>{
         :key="item.name"
         class="flex justify-between items-end"
         :style="{
-          background: `var(${item.name})` ,
+          background: `var(${item.name})`,
         }"
         :class="{ iscolor: item.iscolor, nodark: item.class }"
         @click="itemClick(item)"
@@ -59,14 +51,14 @@ const itemClick = (item:any)=>{
 }
 .noDark {
   ul {
-      li {
-    &.title {
-      color: #fff !important;
+    li {
+      &.title {
+        color: #fff !important;
+      }
     }
   }
-    }
 }
-ul{
+ul {
   width: 100%;
 }
 li {
@@ -74,7 +66,8 @@ li {
   padding: 4px 8px;
   transition: all 0.2s cubic-bezier(0.38, 0, 0.24, 1);
   color: var(--yh-font-gray-2);
-  
+  font-size: 14px;
+
   &.iscolor {
     color: var(--yh-font-white-1);
   }

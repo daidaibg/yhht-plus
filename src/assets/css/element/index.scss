@@ -1,7 +1,7 @@
 /*
  * @Author: wei
  * @description: 修改element主题和变量
- * @LastEditTime: 2023-03-01 16:13:26
+ * @LastEditTime: 2023-10-16 15:00:46
  */
 // https://github.dev/element-plus/unplugin-element-plus
 
@@ -32,36 +32,37 @@ html:root{
 
 
 
-.el-message.message_top {
-    z-index: 10000 !important;
-}
+// .el-message.message_top {
+//     z-index: 10000 !important;
+// }
 
-.el-message {
+html .el-message {
     background-color: var(--yh-bg-color-container);
-    box-shadow: var(--yh-shadow-3), var(--yh-shadow-inset-top), var(--yh-shadow-inset-right), var(--yh-shadow-inset-bottom), var(--yh-shadow-inset-left);
-    border: none;
-
+    color: var(--yh-text-color-primary);
+    box-shadow: var(--yh-shadow-3);
+    border-color: var(--yh-component-border);
+  
     .el-message__icon {
-        font-size: 20px;
+      font-size: 20px;
     }
-
+  
     &.el-message--info .el-message__icon {
-        color: var(--yh-brand-color);
+      color: var(--yh-brand-color);
     }
-
+  
     &.el-message--success .el-message__icon {
-        color: var(--yh-success-color);
+      color: var(--yh-success-color);
     }
-
+  
     &.el-message--warning .el-message__icon {
-        color: var(--yh-warning-color);
+      color: var(--yh-warning-color);
     }
-
+  
     &.el-message--error .el-message__icon {
-        color: var(--yh-error-color);
+      color: var(--yh-error-color);
     }
-
+  
     .el-message__content {
-        color: var(--yh-text-color-primary);
+      color: var(--yh-text-color-primary);
     }
-}
+  }
