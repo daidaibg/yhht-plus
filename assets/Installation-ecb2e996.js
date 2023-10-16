@@ -1,4 +1,4 @@
-import{_ as e}from"./marked.vue_vue_type_script_setup_true_lang-820810fc.js";import{d as p,a0 as s,r as o,a9 as n,h,u as m,f as i}from"./index-46d58eae.js";import"./right-anchor-1c92dab4.js";const u=`## 安装\r
+import{_ as e}from"./marked.vue_vue_type_script_setup_true_lang-7d17c4c7.js";import{d as p,a0 as s,r as o,a9 as n,h,u as m,f as i}from"./index-afedf2e3.js";import"./right-anchor-e370150e.js";const u=`## 安装\r
 \r
 本节将介绍如何在项目中使用 Yhht Plus。\r
 \r
