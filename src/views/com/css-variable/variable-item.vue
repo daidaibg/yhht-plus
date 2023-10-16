@@ -66,7 +66,7 @@ li {
   padding: 4px 8px;
   transition: all 0.2s cubic-bezier(0.38, 0, 0.24, 1);
   color: var(--yh-font-gray-2);
-  font-size: 14px;
+  font-size: 13px;
 
   &.iscolor {
     color: var(--yh-font-white-1);

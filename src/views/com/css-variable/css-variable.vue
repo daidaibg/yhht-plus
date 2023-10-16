@@ -116,7 +116,7 @@ const itemClick = (item: any) => {
   display: flex;
   border-radius: 4px;
   align-items: flex-end;
-
+  font-size: 13px;
   &:first-child {
     border-radius: 6px 6px 0 0;
   }
