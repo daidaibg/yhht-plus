@@ -1,4 +1,4 @@
-import{_ as t}from"./marked.vue_vue_type_script_setup_true_lang-8828e71f.js";import{d as a,a0 as o,r as s,a9 as n,h as i,u as l,f as u}from"./index-388c0f88.js";import"./right-anchor-a4bbfb18.js";const d=`## Button 按钮\r
+import{_ as t}from"./marked.vue_vue_type_script_setup_true_lang-4e4903f3.js";import{d as a,a0 as o,r as s,a9 as n,h as i,u as l,f as u}from"./index-ba59fb60.js";import"./right-anchor-72c08b2d.js";const d=`## Button 按钮\r
 \r
 按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。\r
 \r
