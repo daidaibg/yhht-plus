@@ -42,13 +42,13 @@ const comMenu = [
 ]
 const jsMenu = [
     {
-        title: "toolLibrary",
+        title: "menu.toolLibrary",
         content: "工具库",
         isTranslate: true,
         // tip: "Basic",
         sub: [
             {
-                name: "通用方法",
+                name: "menu.commonMethod",
                 url: "/common-method",
             },
 

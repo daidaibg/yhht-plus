@@ -14,6 +14,7 @@
         "button":"Button",
         "anchor":"Anchor",
         "navigation":"Navigation",
-        "basic":"Basic"
+        "basic":"Basic",
+        "commonMethod":"commonMethod"
     }
 }

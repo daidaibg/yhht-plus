@@ -14,6 +14,7 @@
         "button":"Button 按钮",
         "anchor":"Anchor 锚点",
         "navigation":"Navigation 导航",
-        "basic":"Basic"
+        "basic":"Basic",
+        "commonMethod":"通用方法"
     }
 }
