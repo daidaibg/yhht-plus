@@ -18,32 +18,36 @@ body {
 
 :root:not([theme-mode="dark"]) {
   // 重置主色调 start
-  --yh-brand-color-1: #ecf2fe;
-  --yh-brand-color-2: #d4e3fc;
-  --yh-brand-color-3: #bbd3fb;
-  --yh-brand-color-4: #96bbf8;
-  --yh-brand-color-5: #699ef5;
-  --yh-brand-color-6: #4787f0;
-  --yh-brand-color-7: #266fe8;
-  --yh-brand-color: #0052d9;
-  --yh-brand-color-9: #0034b5;
-  --yh-brand-color-10: #001f97;
+  // --yh-brand-color-1: #ecf2fe;
+  // --yh-brand-color-2: #d4e3fc;
+  // --yh-brand-color-3: #bbd3fb;
+  // --yh-brand-color-4: #96bbf8;
+  // --yh-brand-color-5: #699ef5;
+  // --yh-brand-color-6: #4787f0;
+  // --yh-brand-color-7: #266fe8;
+  // --yh-brand-color: #0052d9;
+  // --yh-brand-color-9: #0034b5;
+  // --yh-brand-color-10: #001f97;
+
+
 
   --dd-scrollbar-color: rgba(0, 0, 0, 0.1);
   --dd-scroll-track-color: #fff;
 }
 
 :root[theme-mode="dark"] {
-  --yh-brand-color-1: #1b2f51;
-  --yh-brand-color-2: #173463;
-  --yh-brand-color-3: #143975;
-  --yh-brand-color-4: #103d88;
-  --yh-brand-color-5: #0d429a;
-  --yh-brand-color-6: #054bbe;
-  --yh-brand-color-7: #2667d4;
-  --yh-brand-color: #4582e6;
-  --yh-brand-color-9: #699ef5;
-  --yh-brand-color-10: #96bbf8;
+  // --yh-brand-color-1: #1b2f51;
+  // --yh-brand-color-2: #173463;
+  // --yh-brand-color-3: #143975;
+  // --yh-brand-color-4: #103d88;
+  // --yh-brand-color-5: #0d429a;
+  // --yh-brand-color-6: #054bbe;
+  // --yh-brand-color-7: #2667d4;
+  // --yh-brand-color: #4582e6;
+  // --yh-brand-color-9: #699ef5;
+  // --yh-brand-color-10: #96bbf8;
+
+
 
   --dd-scrollbar-color: rgba(255, 255, 255, 0.1);
   --dd-scroll-track-color: #333;
