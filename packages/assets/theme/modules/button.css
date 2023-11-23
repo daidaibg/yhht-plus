@@ -1,8 +1,8 @@
 /* button样式最初 */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -22,13 +22,17 @@ button,
   vertical-align: middle;
   white-space: nowrap;
   border-radius: 4px;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   user-select: none;
   touch-action: manipulation;
   line-height: 1.15;
-  flex-shrink :0;
+  flex-shrink: 0;
 }
 
+/* 仅在通过键盘导航时应用 */
+.yh-button:focus-visible {
+  outline: none;
+}
 
 /* .yh-is-loading .yh-icons-button-loading,.yh-is-loading .yh-button__text{
   display: inline-block;
@@ -51,9 +55,6 @@ button,
   padding-right: 15px;
 }
 
-
-
-
 .yh-button.yh-button--size-small {
   height: 24px;
   font-size: 12px;
@@ -72,7 +73,6 @@ button,
 /* 按钮形状   圆角长方形*/
 .yh-button--shape-round {
   border-radius: 16px;
-
 }
 
 .yh-button--shape-round.yh-button--size-small {
@@ -122,11 +122,13 @@ button,
   --ripple-color: var(--yh-bg-color-container-active);
 }
 
-.yh-button--variant-text:hover {
+.yh-button--variant-text:hover,
+.yh-button--variant-text:focus-visible {
   background-color: var(--yh-bg-color-container-hover);
 }
 
-.yh-button--variant-text.yh-is-disabled:hover {
+.yh-button--variant-text.yh-is-disabled:hover,
+.yh-button--variant-text.yh-is-disabled:focus-visible {
   background-color: transparent;
 }
 
@@ -148,7 +150,9 @@ button,
 
 /* 虚线按钮与描边按钮  hover disavled */
 .yh-button--variant-outline:hover,
-.yh-button--variant-dashed:hover {
+.yh-button--variant-dashed:hover,
+.yh-button--variant-outline:focus-visible,
+.yh-button--variant-dashed:focus-visible {
   border-color: var(--yh-brand-color-hover);
   background-color: var(--yh-bg-color-specialcomponent);
   color: var(--yh-brand-color-hover);
@@ -168,7 +172,8 @@ button,
   color: var(--yh-text-color-primary);
 }
 
-.yh-button--variant-base.yh-button--theme-default:hover {
+.yh-button--variant-base.yh-button--theme-default:hover,
+.yh-button--variant-base.yh-button--theme-default:focus-visible {
   border-color: var(--yh-bg-color-component-hover);
   background-color: var(--yh-bg-color-component-hover);
   color: var(--yh-text-color-primary);
@@ -197,7 +202,6 @@ button,
 
 /* 线框按钮 默认主题*/
 
-
 /***********************************button variant-base & theme-primary  主要颜色********************************************************************/
 .yh-button--variant-base.yh-button--theme-primary {
   color: var(--yh-text-color-anti);
@@ -209,7 +213,8 @@ button,
   --ripple-color: var(--yh-brand-color-active);
 }
 
-.yh-button--variant-base.yh-button--theme-primary:hover {
+.yh-button--variant-base.yh-button--theme-primary:hover,
+.yh-button--variant-base.yh-button--theme-primary:focus-visible {
   background-color: var(--yh-brand-color-hover);
   border-color: var(--yh-brand-color-hover);
 }
@@ -224,7 +229,8 @@ button,
   color: var(--yh-brand-color);
 }
 
-.yh-button--variant-text.yh-button--theme-primary:hover {
+.yh-button--variant-text.yh-button--theme-primary:hover,
+.yh-button--variant-text.yh-button--theme-primary:focus-visible {
   color: var(--yh-brand-color-hover);
 }
 
@@ -240,7 +246,9 @@ button,
 }
 
 .yh-button--variant-outline.yh-button--theme-primary:hover,
-.yh-button--variant-dashed.yh-button--theme-primary:hover {
+.yh-button--variant-dashed.yh-button--theme-primary:hover,
+.yh-button--variant-outline.yh-button--theme-primary:focus-visible,
+.yh-button--variant-dashed.yh-button--theme-primary:focus-visible {
   border-color: var(--yh-brand-color-hover);
   background-color: var(--yh-bg-color-specialcomponent);
   color: var(--yh-brand-color-hover);
@@ -264,7 +272,8 @@ button,
   --ripple-color: var(--yh-error-color-active);
 }
 
-.yh-button--variant-base.yh-button--theme-danger:hover {
+.yh-button--variant-base.yh-button--theme-danger:hover,
+.yh-button--variant-base.yh-button--theme-danger:focus-visible {
   background-color: var(--yh-error-color-hover);
   border-color: var(--yh-error-color-hover);
 }
@@ -279,7 +288,8 @@ button,
   color: var(--yh-error-color);
 }
 
-.yh-button--variant-text.yh-button--theme-danger:hover {
+.yh-button--variant-text.yh-button--theme-danger:hover ,
+.yh-button--variant-text.yh-button--theme-danger:focus-visible{
   color: var(--yh-error-color-hover);
 }
 
@@ -295,7 +305,9 @@ button,
 }
 
 .yh-button--variant-outline.yh-button--theme-danger:hover,
-.yh-button--variant-dashed.yh-button--theme-danger:hover {
+.yh-button--variant-dashed.yh-button--theme-danger:hover,
+.yh-button--variant-outline.yh-button--theme-danger:focus-visible,
+.yh-button--variant-dashed.yh-button--theme-danger:focus-visible {
   border-color: var(--yh-error-color-hover);
   background-color: var(--yh-bg-color-specialcomponent);
   color: var(--yh-error-color-hover);
@@ -319,7 +331,8 @@ button,
   --ripple-color: var(--yh-warning-color-active);
 }
 
-.yh-button--variant-base.yh-button--theme-warning:hover {
+.yh-button--variant-base.yh-button--theme-warning:hover,
+.yh-button--variant-base.yh-button--theme-warning:focus-visible {
   background-color: var(--yh-warning-color-hover);
   border-color: var(--yh-warning-color-hover);
 }
@@ -334,7 +347,8 @@ button,
   color: var(--yh-warning-color);
 }
 
-.yh-button--variant-text.yh-button--theme-warning:hover {
+.yh-button--variant-text.yh-button--theme-warning:hover,
+.yh-button--variant-text.yh-button--theme-warning:focus-visible  {
   color: var(--yh-warning-color-hover);
 }
 
@@ -350,7 +364,9 @@ button,
 }
 
 .yh-button--variant-outline.yh-button--theme-warning:hover,
-.yh-button--variant-dashed.yh-button--theme-warning:hover {
+.yh-button--variant-dashed.yh-button--theme-warning:hover,
+.yh-button--variant-outline.yh-button--theme-warning:focus-visible,
+.yh-button--variant-dashed.yh-button--theme-warning:focus-visible  {
   border-color: var(--yh-warning-color-hover);
   background-color: var(--yh-bg-color-specialcomponent);
   color: var(--yh-warning-color-hover);
@@ -374,7 +390,8 @@ button,
   --ripple-color: var(--yh-success-color-active);
 }
 
-.yh-button--variant-base.yh-button--theme-success:hover {
+.yh-button--variant-base.yh-button--theme-success:hover,
+.yh-button--variant-base.yh-button--theme-success:focus-visible {
   background-color: var(--yh-success-color-hover);
   border-color: var(--yh-success-color-hover);
 }
@@ -389,7 +406,8 @@ button,
   color: var(--yh-success-color);
 }
 
-.yh-button--variant-text.yh-button--theme-success:hover {
+.yh-button--variant-text.yh-button--theme-success:hover,
+.yh-button--variant-text.yh-button--theme-success:focus-visible {
   color: var(--yh-success-color-hover);
 }
 
@@ -405,7 +423,9 @@ button,
 }
 
 .yh-button--variant-outline.yh-button--theme-success:hover,
-.yh-button--variant-dashed.yh-button--theme-success:hover {
+.yh-button--variant-dashed.yh-button--theme-success:hover,
+.yh-button--variant-outline.yh-button--theme-success:focus-visible,
+.yh-button--variant-dashed.yh-button--theme-success:focus-visible {
   border-color: var(--yh-success-color-hover);
   background-color: var(--yh-bg-color-specialcomponent);
   color: var(--yh-success-color-hover);

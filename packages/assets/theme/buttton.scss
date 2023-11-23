@@ -104,14 +104,14 @@ button,
   background-color: transparent;
   border-color: transparent;
   color: var(--yh-text-color-primary);
-  &:hover {
+  &:hover,&:focus-visible {
     background-color: var(--yh-bg-color-container-hover);
   }
   &.#{$prefix-button}--theme-default.#{$prefix}-is-disabled {
     color: var(--yh-text-color-disabled);
     background-color: transparent;
   }
-  &.yh-is-disabled:hover {
+  &.yh-is-disabled:hover,&.yh-is-disabled:focus-visible {
     background-color: transparent;
   }
   
@@ -135,6 +135,9 @@ button,
   .#{$prefix-button}--variant-text.#{$prefix-button}--theme-#{$theme}:hover {
     color: var(--yh-#{$color}-color-hover);
   }
+  .#{$prefix-button}--variant-text.#{$prefix-button}--theme-#{$theme}:focus-visible {
+    color: var(--yh-#{$color}-color-hover);
+  }
   .#{$prefix-button}--variant-text.#{$prefix-button}--theme-#{$theme}.#{$prefix}-is-disabled {
     color: var(--yh-#{$color}-color-disabled);
   }
@@ -147,7 +150,7 @@ button,
   color: var(--yh-text-color-primary);
   background-color: var(--yh-bg-color-specialcomponent);
   border-color: var(--yh-border-level-2-color);
-  &:hover {
+  &:hover ,&:focus-visible{
     color: var(--yh-text-color-primary);
     background-color: var(--yh-bg-color-specialcomponent);
     border-color: var(--yh-border-level-2-color);
@@ -172,7 +175,9 @@ button,
   }
 
   .#{$prefix-button}--variant-outline.#{$prefix-button}--theme-#{$theme}:hover,
-  .#{$prefix-button}--variant-dashed.#{$prefix-button}--theme-#{$theme}:hover {
+  .#{$prefix-button}--variant-dashed.#{$prefix-button}--theme-#{$theme}:hover,
+  .#{$prefix-button}--variant-outline.#{$prefix-button}--theme-#{$theme}:focus-visible,
+  .#{$prefix-button}--variant-dashed.#{$prefix-button}--theme-#{$theme}:focus-visible  {
     border-color: var(--yh-#{$color}-color-hover);
     background-color: var(--yh-bg-color-specialcomponent);
     color: var(--yh-#{$color}-color-hover);
@@ -192,7 +197,7 @@ button,
     background-color: var(--yh-bg-color-component);
     border-color: var(--yh-bg-color-component);
     color: var(--yh-text-color-primary);
-    &:hover {
+    &:hover,&:focus-visible {
       border-color: var(--yh-bg-color-component-hover);
       background-color: var(--yh-bg-color-component-hover);
       color: var(--yh-text-color-primary);
@@ -221,7 +226,8 @@ button,
     --ripple-color: var(--yh-#{$color}-color-active);
   }
 
-  .#{$prefix-button}--variant-base.#{$prefix-button}--theme-#{$theme}:hover {
+  .#{$prefix-button}--variant-base.#{$prefix-button}--theme-#{$theme}:hover,
+  .#{$prefix-button}--variant-base.#{$prefix-button}--theme-#{$theme}:focus-visible {
     background-color: var(--yh-#{$color}-color-hover);
     border-color: var(--yh-#{$color}-color-hover);
   }
