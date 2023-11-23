@@ -1,4 +1,4 @@
-import{_ as n}from"./marked.vue_vue_type_script_setup_true_lang-4e4903f3.js";import{d as t,r as e,h as o,u as s,f as c,a5 as a}from"./index-ba59fb60.js";import"./right-anchor-72c08b2d.js";const h=`## Anchor 锚点\r
+import{_ as n}from"./marked.vue_vue_type_script_setup_true_lang-_YjLeCAO.js";import{d as t,r as e,h as o,u as s,f as c,a5 as a}from"./index-oQQ_IwSr.js";import"./right-anchor-fzjYKfF9.js";const h=`## Anchor 锚点\r
 \r
 页面内的超级链接，用于跳转到页面内指定位置\r
 \r
@@ -85,4 +85,4 @@ targetOffset 锚点滚动偏移量 \r
 | ------ | ------------------------------------------------- | ------------- | ------ | ------------------------- |\r
 | href   | 必需。锚点链接, 如果是 hash 模式需要加上当前 path | String        | -      | -                         |\r
 | target | 锚点文本。可选项：_self、_blank、_parent、_top       | String        | _self  | \`_self\`、\`_blank\`、\`_parent\`、\`_top\` |\r
-| title  | 锚点文本                                          | String 、 Slot |        | -                         |`,i=t({__name:"anchor",setup(l){const r=e([{href:"基础锚点",title:"基础锚点"},{href:"自定义游标锚点",title:"自定义游标锚点"},{href:"指定容器锚点",title:"指定容器锚点"},{href:"注意",title:"注意"},{href:"Anchor-Props",title:"Anchor Props"},{href:"Anchor-Events",title:"Anchor Events"},{href:"AnchorItem-Props",title:"AnchorItem Props"}]);return(u,p)=>(c(),o(n,{text:s(h),anchorList:r.value,isAnchor:""},null,8,["text","anchorList"]))}});const d=a(i,[["__scopeId","data-v-50429d90"]]);export{d as default};
+| title  | 锚点文本                                          | String 、 Slot |        | -                         |`,i=t({__name:"anchor",setup(l){const r=e([{href:"基础锚点",title:"基础锚点"},{href:"自定义游标锚点",title:"自定义游标锚点"},{href:"指定容器锚点",title:"指定容器锚点"},{href:"注意",title:"注意"},{href:"Anchor-Props",title:"Anchor Props"},{href:"Anchor-Events",title:"Anchor Events"},{href:"AnchorItem-Props",title:"AnchorItem Props"}]);return(u,p)=>(c(),o(n,{text:s(h),anchorList:r.value,isAnchor:""},null,8,["text","anchorList"]))}}),d=a(i,[["__scopeId","data-v-50429d90"]]);export{d as default};
