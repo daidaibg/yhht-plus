@@ -1,20 +1,29 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { copyVar } from "./util";
 import {
   brandArr,
+  brandArrDark,
   warningArr,
+  warningArrDark,
   errorArr,
+  errorArrDark,
   successArr,
+  successArrDark,
   grayArr,
   otherArr,
   bgArr,
   textArr,
   shadowArr,
-  borderwArr
+  borderwArr,
 } from "./css-vaeiable";
 import variableItem from "./variable-item.vue";
 import RightAnchor from "@/components/right-anchor/right-anchor.vue";
+
+import { userThemeStore } from "@/store";
+import { ThemeEnum } from "@/enums";
+
+const themeStore = userThemeStore();
 const source = ref<string>("");
 const anchorList = ref([
   {
@@ -22,6 +31,32 @@ const anchorList = ref([
     title: "功能色",
   },
 ]);
+
+const activetheme = computed(() => {
+  return themeStore.theme;
+});
+
+const getBrandCommon = (type: string) => {
+  const str = `[
+    {"name": "事件","val": ""},
+    {"val": "hover","name": " --yh-${type}-color-hover","iscolor": true,"isEvent": true},
+    {"val": "focus","name": " --yh-${type}-color-focus","isEvent": true},
+    {"val": "active","name": " --yh-${type}-color-active","iscolor": true,"isEvent": true},
+    {"val": "disabled","name": " --yh-${type}-color-disabled","iscolor": true,"isEvent": true},
+    {"val": "light","name": " --yh-${type}-color-light","isEvent": true}
+  ]`;
+    // {"val": "light-hover","name": " --yh-${type}-color-light-hover","isEvent": true}
+
+  return JSON.parse(str);
+};
+
+const formatBrandColor = (type: string) => {
+  const themeArray:any = activetheme.value === ThemeEnum.DARK
+    ? { brand: brandArrDark, warning: warningArrDark, error: errorArrDark, success: successArrDark }
+    : { brand: brandArr, warning: warningArr, error: errorArr, success: successArr };
+
+  return [...themeArray[type], ...getBrandCommon(type)];
+};
 
 const itemClick = (item: any) => {
   copyVar(item.name);
@@ -35,19 +70,19 @@ const itemClick = (item: any) => {
       功能色是指用于特定场景、表达特殊语义的颜色，例如成功、失败、警告、链接等状态。我们定义了4种功能色，在遵循色彩通用含义选取色相的基础上，从视觉一致性的角度选取了与品牌色更具一致关系的色调。
     </p>
     <div class="wrap">
-      <variable-item :list="brandArr" bg="--yh-brand-color">
+      <variable-item :list="formatBrandColor('brand')" bg="--yh-brand-color">
         <div>主色</div>
         <span>--yh-brand-color</span>
       </variable-item>
-      <variable-item :list="errorArr" bg="--yh-error-color">
+      <variable-item :list="formatBrandColor('error')" bg="--yh-error-color">
         <div>危险色</div>
         <span>--yh-error-color</span>
       </variable-item>
-      <variable-item :list="warningArr" bg="--yh-warning-color">
+      <variable-item :list="formatBrandColor('warning')" bg="--yh-warning-color">
         <div>告警色</div>
         <span>--yh-warning-color</span>
       </variable-item>
-      <variable-item :list="successArr" bg="--yh-success-color">
+      <variable-item :list="formatBrandColor('success')" bg="--yh-success-color">
         <div>成功色</div>
         <span>--yh-success-color</span>
       </variable-item>
@@ -66,24 +101,38 @@ const itemClick = (item: any) => {
       </variable-item>
       <div class="other_arr">
         <ul class="text_wrap">
-          <li v-for="item in textArr" :key="item.name" @click="itemClick(item)"
+          <li
+            v-for="item in textArr"
+            :key="item.name"
+            @click="itemClick(item)"
             :style="{ color: `var(${item.name})`, background: item.bg }"
-            class="flex justify-between items-end var_items">
+            class="flex justify-between items-end var_items"
+          >
             {{ item.name }}
           </li>
         </ul>
         <div class="border_wrap">
-          <div :style="{'border-color':`var( ${item.name})`}" class="var_items var_items_margin"
-            v-for="item in borderwArr" :key="item.name" @click="itemClick(item)"
+          <div
+            :style="{ 'border-color': `var( ${item.name})` }"
+            class="var_items var_items_margin"
+            v-for="item in borderwArr"
+            :key="item.name"
+            @click="itemClick(item)"
           >
-             {{item.name}}
+            {{ item.name }}
           </div>
         </div>
       </div>
       <div>
         <ul>
-          <li class="var_items var_items_margin_lg" @click="itemClick(item)" :style="{boxShadow: `var(${item.name})`}" v-for="item in shadowArr" :key="item.name">
-            {{item.name}}
+          <li
+            class="var_items var_items_margin_lg"
+            @click="itemClick(item)"
+            :style="{ boxShadow: `var(${item.name})` }"
+            v-for="item in shadowArr"
+            :key="item.name"
+          >
+            {{ item.name }}
           </li>
         </ul>
       </div>
@@ -106,8 +155,6 @@ const itemClick = (item: any) => {
       color: var(--yh-text-color-primary) !important;
     }
   }
-
- 
 }
 
 .var_items {
@@ -134,9 +181,8 @@ const itemClick = (item: any) => {
     margin: 12px 0;
     border-radius: 4px;
     color: var(--yh-text-color-primary);
-
   }
-  &.var_items_margin_lg{
+  &.var_items_margin_lg {
     margin-bottom: 24px;
     border-radius: 4px;
     color: var(--yh-text-color-primary);
@@ -144,15 +190,14 @@ const itemClick = (item: any) => {
 }
 
 .text_wrap {
-  li {}
+  li {
+  }
 }
 
 .border_wrap {
-  >div {
+  > div {
     border-width: 1px;
     border-style: solid;
-
-
   }
 }
 

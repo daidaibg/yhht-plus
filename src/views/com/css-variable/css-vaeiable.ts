@@ -8,321 +8,399 @@ export * from "./modules/text"
 let brandArr=[
     {
         "name": "--yh-brand-color-1",
-        "val": "#ECFEFF",
+        "val": "#f2f3ff",
     },
     {
         "name": "--yh-brand-color-2",
-        "val": "#D1F9F7"
+        "val": "#d9e1ff"
     },
     {
         "name": "--yh-brand-color-3",
-        "val": "#BCF3F0"
+        "val": "#b5c7ff"
     },
     {
         "name": "--yh-brand-color-4",
-        "val": " #ABEBE8"
+        "val": " #8eabff"
     },
     {
         "name": "--yh-brand-color-5",
-        "val": "#76D7D5"
+        "val": "#618dff"
     },
     {
         "name": "--yh-brand-color-6",
-        "val": "#48C0C2",
+        "val": "#366ef4",
         iscolor:true
 
     },
     {
-        "name": "--yh-brand-color-7",
-        "val": "#21A7AE",
+        "name": "--yh-brand-color",
+        "val": "#0052d9",
         iscolor:true
     },
     {
-        "name": "--yh-brand-color",
-        "val": "#018E9A",
+        "name": "--yh-brand-color-8",
+        "val": "#003cab",
         iscolor:true
     },
     {
         "name": "--yh-brand-color-9",
-        "val": " #017787",
+        "val": " #002a7c",
         iscolor:true
     },
     {
         "name": "--yh-brand-color-10",
-        "val": " #006273",
+        "val": " #001a57",
+        iscolor:true
+    },
+]
+
+
+let brandArrDark=[
+    {
+        "name": "--yh-brand-color-1",
+        "val": "#1b2f51",
+    },
+    {
+        "name": "--yh-brand-color-2",
+        "val": "#173463"
+    },
+    {
+        "name": "--yh-brand-color-3",
+        "val": "#143975"
+    },
+    {
+        "name": "--yh-brand-color-4",
+        "val": " #103d88"
+    },
+    {
+        "name": "--yh-brand-color-5",
+        "val": "#0d429a"
+    },
+    {
+        "name": "--yh-brand-color-6",
+        "val": "#054bbe",
         iscolor:true
     },
     {
-        "name": "事件",
-        "val": "",
-        
+        "name": "--yh-brand-color-7",
+        "val": "#2667d4",
+        iscolor:true
     },
     {
-        "val": "hover",
-        "name": "--yh-brand-color-hover",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-brand-color",
+        "val": "#4582e6",
+        iscolor:true
     },
     {
-        "val": "focus",
-        "name": " --yh-brand-color-focus",
-        isEvent:true
+        "name": "--yh-brand-color-9",
+        "val": " #699ef5",
+        iscolor:true
     },
     {
-        "val": "active",
-        "name": "--yh-brand-color-active",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-brand-color-10",
+        "val": " #96bbf8",
+        iscolor:true
     },
-    {
-        "val": "disabled",
-        "name": " --yh-brand-color-disabled",
-        isEvent:true
-    },
-    {
-        "val": "light",
-        "name": " --yh-brand-color-light",
-        isEvent:true
-    }
-]
-let warningArr=[
+
+] 
+export let warningArrDark=[
     {
         "name": "--yh-warning-color-1",
-        "val": " #fef3e6"
+        "val": " #4f2a1d"
     },
     {
         "name": "--yh-warning-color-2",
-        "val": " #f9e0c7"
+        "val": " #582f21"
     },
     {
         "name": "--yh-warning-color-3",
-        "val": " #f7c797"
+        "val": " #733c23"
     },
     {
         "name": "--yh-warning-color-4",
-        "val": " #f2995f"
+        "val": " #a75d2b"
     },
     {
         "name": "--yh-warning-color",
-        "val": " #ed7b2f"
+        "val": " #cf6e2d"
     },
     {
         "name": "--yh-warning-color-6",
-        "val": " #d35a21",
+        "val": " #dc7633",
         iscolor:true
     },
     {
         "name": "--yh-warning-color-7",
-        "val": " #ba431b",
+        "val": " #e8935c",
         iscolor:true
     },
     {
         "name": "--yh-warning-color-8",
-        "val": " #9e3610",
+        "val": " #ecbf91",
         iscolor:true
     },
     {
         "name": "--yh-warning-color-9",
-        "val": " #842b0b",
+        "val": " #eed7bf",
         iscolor:true
     },
     {
         "name": "--yh-warning-color-10",
-        "val": " #5a1907",
+        "val": " #f3e9dc",
+        iscolor:true
+    },
+
+]
+
+ const warningArr=[
+    {
+        "name": "--yh-warning-color-1",
+        "val": " #fff1e9"
+    },
+    {
+        "name": "--yh-warning-color-2",
+        "val": " #ffd9c2"
+    },
+    {
+        "name": "--yh-warning-color-3",
+        "val": " #ffb98c"
+    },
+    {
+        "name": "--yh-warning-color-4",
+        "val": " #fa9550"
+    },
+    {
+        "name": "--yh-warning-color",
+        "val": " #e37318"
+    },
+    {
+        "name": "--yh-warning-color-6",
+        "val": " #be5a00",
         iscolor:true
     },
     {
-        "name": "事件",
-        "val": "",
+        "name": "--yh-warning-color-7",
+        "val": " #954500",
+        iscolor:true
     },
     {
-        "val": "hover",
-        "name": " --yh-warning-color-hover",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-warning-color-8",
+        "val": " #713300",
+        iscolor:true
     },
     {
-        "val": "focus",
-        "name": " --yh-warning-color-focus",
-        isEvent:true
+        "name": "--yh-warning-color-9",
+        "val": " #532300",
+        iscolor:true
     },
     {
-        "val": "active",
-        "name": " --yh-warning-color-active",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-warning-color-10",
+        "val": " #3b1700",
+        iscolor:true
     },
-    {
-        "val": "disabled",
-        "name": " --yh-warning-color-disabled",
-        iscolor:true,
-        isEvent:true
-    },
-    {
-        "val": "light",
-        "name": " --yh-warning-color-light",
-        isEvent:true
-    }
+
 ]
 
 let errorArr:any =[
     {
         "name": "--yh-error-color-1",
-        "val": " #fdecee"
+        "val": " #fff0ed"
     },
     {
         "name": "--yh-error-color-2",
-        "val": " #f9d7d9"
+        "val": " #ffd8d2"
     },
     {
         "name": "--yh-error-color-3",
-        "val": " #f8b9be"
+        "val": " #ffb9b0"
     },
     {
         "name": "--yh-error-color-4",
-        "val": " #f78d94"
+        "val": " #ff9285"
     },
     {
         "name": "--yh-error-color-5",
-        "val": " #f36d78"
+        "val": " #f6685d"
     },
     {
         "name": "--yh-error-color",
-        "val": " #e34d59",
+        "val": " #d54941",
         iscolor:true
     },
     {
         "name": "--yh-error-color-7",
-        "val": " #c9353f",
+        "val": " #ad352f",
         iscolor:true
     },
     {
         "name": "--yh-error-color-8",
-        "val": " #b11f26",
+        "val": " #881f1c",
         iscolor:true
     },
     {
         "name": "--yh-error-color-9",
-        "val": " #951114",
+        "val": " #68070a",
         iscolor:true
     },
     {
         "name": "--yh-error-color-10",
-        "val": " #680506",
+        "val": " #490002",
         iscolor:true
     },
+
+]
+
+
+export let errorArrDark:any =[
     {
-        "name": "事件",
-        "val": "",
+        "name": "--yh-error-color-1",
+        "val": " #472324"
     },
     {
-        "val": "hover",
-        "name": " --yh-error-color-hover",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-error-color-2",
+        "val": " #5e2a2d"
     },
     {
-        "val": "focus",
-        "name": " --yh-error-color-focus",
-        isEvent:true
+        "name": "--yh-error-color-3",
+        "val": " #703439"
     },
     {
-        "val": "active",
-        "name": " --yh-error-color-active",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-error-color-4",
+        "val": " #83383e"
     },
     {
-        "val": "disabled",
-        "name": " --yh-error-color-disabled",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-error-color-5",
+        "val": " #a03f46"
     },
     {
-        "val": "light",
-        "name": " --yh-error-color-light",
-        isEvent:true
-    }
+        "name": "--yh-error-color",
+        "val": " #c64751",
+        iscolor:true
+
+    },
+    {
+        "name": "--yh-error-color-7",
+        "val": " #de6670",
+        iscolor:true
+
+    },
+    {
+        "name": "--yh-error-color-8",
+        "val": " #ec888e",
+        iscolor:true
+
+    },
+    {
+        "name": "--yh-error-color-9",
+        "val": " #edb1b6",
+        iscolor:true
+
+    },
+    {
+        "name": "--yh-error-color-10",
+        "val": " #eeced0",
+        iscolor:true
+
+    },
+
 ]
 
 let successArr:any =[
     {
         "name": "--yh-success-color-1",
-        "val": " #e8f8f2"
+        "val": " #e3f9e9"
     },
     {
         "name": "--yh-success-color-2",
-        "val": " #bcebdc"
+        "val": " #c6f3d7"
     },
     {
         "name": "--yh-success-color-3",
-        "val": " #85dbbe"
+        "val": " #92dab2"
     },
     {
         "name": "--yh-success-color-4",
-        "val": " #48c79c"
+        "val": " #56c08d"
     },
     {
         "name": "--yh-success-color",
-        "val": " #00a870"
+        "val": " #2ba471"
     },
     {
         "name": "--yh-success-color-6",
-        "val": " #078d5c",
+        "val": " #008858",
         iscolor:true
     },
     {
         "name": "--yh-success-color-7",
-        "val": " #067945",
+        "val": " #006c45",
         iscolor:true
     },
     {
         "name": "--yh-success-color-8",
-        "val": " #056334",
+        "val": " #005334",
         iscolor:true
     },
     {
         "name": "--yh-success-color-9",
-        "val": " #044f2a",
+        "val": " #003b23",
         iscolor:true
     },
     {
         "name": "--yh-success-color-10",
-        "val": " #033017",
+        "val": " #002515",
+        iscolor:true
+    },
+
+]
+
+export let successArrDark:any =[
+    {
+        "name": "--yh-success-color-1",
+        "val": " #193a2a"
+    },
+    {
+        "name": "--yh-success-color-2",
+        "val": " #1a4230"
+    },
+    {
+        "name": "--yh-success-color-3",
+        "val": " #17533d"
+    },
+    {
+        "name": "--yh-success-color-4",
+        "val": " #0d7a55"
+    },
+    {
+        "name": "--yh-success-color",
+        "val": " #059465"
+    },
+    {
+        "name": "--yh-success-color-6",
+        "val": " #43af8a",
         iscolor:true
     },
     {
-        "name": "事件",
-        "val": "",
+        "name": "--yh-success-color-7",
+        "val": " #46bf96",
+        iscolor:true
     },
     {
-        "val": "hover",
-        "name": " --yh-success-color-hover",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-success-color-8",
+        "val": " #80d2b6",
+        iscolor:true
     },
     {
-        "val": "focus",
-        "name": " --yh-success-color-focus",
-        isEvent:true
+        "name": "--yh-success-color-9",
+        "val": " #b4e1d3",
+        iscolor:true
     },
     {
-        "val": "active",
-        "name": " --yh-success-color-active",
-        iscolor:true,
-        isEvent:true
+        "name": "--yh-success-color-10",
+        "val": " #deede8",
+        iscolor:true
     },
-    {
-        "val": "disabled",
-        "name": " --yh-success-color-disabled",
-        iscolor:true,
-        isEvent:true
-    },
-    {
-        "val": "light",
-        "name": " --yh-success-color-light",
-        isEvent:true
-    }
+ 
 ]
 
 
@@ -345,4 +423,4 @@ let successArr:any =[
 //     }
 // })
 // console.log(str,JSON.stringify(str));
-export { brandArr,warningArr,errorArr ,successArr}
+export { brandArr,warningArr,errorArr ,successArr,brandArrDark}

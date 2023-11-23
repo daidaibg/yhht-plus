@@ -1,8 +1,8 @@
 <!--
  * @Author: daidai
  * @Date: 2021-09-09 17:19:05
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-03-01 15:55:44
+ * @LastEditors: 刘嘉威 daidaibg@163.com
+ * @LastEditTime: 2023-11-23 17:29:23
  * @FilePath: \yhht-ui\src\views\Header.vue
 -->
 <template>
@@ -91,10 +91,10 @@ const command = (type: string) => {
     p {
       font-size: 24px;
       font-weight: 900;
-      color: #018e9a;
+      color: var(--yh-brand-color);
       margin-left: 12px;
       color: transparent;
-      background-color: #018e9a;
+      background-color: var(--yh-brand-color);
       text-shadow: var(--header-logo-shadow);
       -webkit-background-clip: text;
       font-family: STXinwei, FZShuTi, "微软雅黑", "黑体", "宋体";
