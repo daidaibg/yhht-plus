@@ -99,7 +99,6 @@ export default defineComponent({
      */
     const handleScrollTo = async (link: string): Promise<void> => {
       const anchor = getAnchorTarget(link);
-
       setCurrentActiveLink(link);
       if (!anchor) return;
 
@@ -108,7 +107,6 @@ export default defineComponent({
       const scrollTop = getScroll(scrollContainer.value);
       const offsetTop = getOffsetTop(anchor, scrollContainer.value);
       const top = scrollTop + offsetTop - targetOffset;
-
       await scrollTo(top, {
         container: scrollContainer.value,
       });

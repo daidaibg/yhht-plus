@@ -33,7 +33,7 @@ const currentActive = ref("");
     <div id="基础锚点" style="height: 500px">
       <h2>基础锚点</h2>
       <yh-anchor
-        container=".anchor-test"
+        container=".main-box"
         :bounds="50"
         :currentActive="currentActive"
         noLink
@@ -49,7 +49,7 @@ const currentActive = ref("");
       <h2>基础锚点2</h2>
 
       <yh-anchor
-        container=".anchor-test"
+        container=".main-box"
         :bounds="50"
         :currentActive="currentActive"
         :hashRouter="route.path"
