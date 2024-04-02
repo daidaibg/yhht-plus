@@ -92,8 +92,8 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [vue(),
     dtsFlag && dts({
-      outputDir: 'lib',
-      tsConfigFilePath: './tsconfigBuild.json',
+      outDir: 'lib',
+      tsconfigPath: './tsconfigBuild.json',
       // beforeWriteFile: (filePath: string, content: string) => {
       //   const regex = /lib\\utils\\index\.d\.ts/;
       //   if (regex.test(filePath)) {
@@ -105,8 +105,8 @@ export default defineConfig(({ command, mode }) => {
       // }
     }),
     dtsFlag && dts({
-      outputDir: 'lib/cjs',
-      tsConfigFilePath: './tsconfigBuild.json'
+      outDir: 'lib/cjs',
+      tsconfigPath: './tsconfigBuild.json'
     })
     ],
     publicDir: "public",
