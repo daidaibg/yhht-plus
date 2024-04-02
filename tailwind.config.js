@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   // purge: [ './index.html', './src/**/*.vue', './src/**/*.jsx', ],
   // enabled: true,

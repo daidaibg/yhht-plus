@@ -1,15 +1,5 @@
 <script setup lang="ts">
-import {
-  reactive,
-  watch,
-  ref,
-  shallowRef,
-  defineAsyncComponent,
-  nextTick,
-  computed,
-  onMounted,
-  onUpdated,
-} from "vue";
+import { reactive, watch, ref, shallowRef, defineAsyncComponent, nextTick, computed, onMounted, onUpdated } from "vue";
 import type { PropType } from "vue";
 import { MdPreview } from "md-editor-v3";
 import "md-editor-v3/lib/preview.css";
@@ -57,7 +47,7 @@ const pattern = /^\/src\/([\w-]+\/)*[\w-]+\.vue$/;
 
 const docxModules = import.meta.glob("@/docs/**/*.vue");
 
-const docxModulesStr = import.meta.glob("@/docs/**/*.vue", { as: "raw" });
+const docxModulesStr = import.meta.glob("@/docs/**/*.vue", { query: "raw" });
 
 const loading = ref(true);
 
@@ -94,7 +84,7 @@ const onGetCatalog = async () => {
   await nextTick();
   catalogFlag.value = true;
   await nextTick();
-  const scrollEvent = new Event('scroll');
+  const scrollEvent = new Event("scroll");
   window.dispatchEvent(scrollEvent);
 };
 
@@ -108,7 +98,7 @@ const getComponent = (str: any): any => {
       // return new Promise((resolve, reject) => {
       //   resolve((docxModules[str] as any).default);
       // });
-      return (docxModules[str] as any)().then((module: any) => {
+      return docxModules[str]().then((module: any) => {
         return module.default;
       });
     },
@@ -117,15 +107,25 @@ const getComponent = (str: any): any => {
 };
 
 const getComponentStr = (str: string): any => {
-  return docxModulesStr[str]().then((str) => str);
+  return docxModulesStr[str]()
+    .then((str:any) => {
+      if(str){
+         return str.default;
+
+      }else{
+          return `缺少-${str}-组件`
+      } 
+    })
+    .catch((err:any) => {
+      console.error(err);
+    });
 };
 
 const initCom = () => {
-  const components = props.text.split(
-    /```\s*yhht-plus-demo\s*([\s\S]+?)\s*```/g
-  );
+  const components = props.text.split(/```\s*yhht-plus-demo\s*([\s\S]+?)\s*```/g);
 
   let componentList: any = [];
+  // console.log(components);
   loading.value = true;
   for (const item of components) {
     if (isDocxComponent(item)) {
@@ -191,20 +191,11 @@ onUpdated(() => {});
       id="yh-md"
       v-if="item.type == 'md'"
     />
-    <code-wrap
-      :asyncCodeText="item.code"
-      style="position: relative"
-      code-type="vue"
-      v-else
-    >
+    <code-wrap :asyncCodeText="item.code" style="position: relative" code-type="vue" v-else>
       <component :is="item.com"></component>
     </code-wrap>
   </template>
-  <right-anchor
-    :list="anchors"
-    :isNoTranslate="isNoTranslate"
-    v-if="isAnchor && loaded && catalogFlag"
-  ></right-anchor>
+  <right-anchor :list="anchors" :isNoTranslate="isNoTranslate" v-if="isAnchor && loaded && catalogFlag"></right-anchor>
 </template>
 
 <style scoped lang="scss"></style>
