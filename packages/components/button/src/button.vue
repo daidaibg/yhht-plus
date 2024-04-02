@@ -19,11 +19,7 @@
     ref="btnRef"
   >
     <!-- v-bind="$attrs" -->
-    <div
-      class="yh-icons-loading"
-      style="margin-right: 6px"
-      v-if="loading"
-    ></div>
+    <div class="yh-icons-loading" style="margin-right: 6px" v-if="loading"></div>
     <span class="yh-button__text">
       <slot></slot>
     </span>

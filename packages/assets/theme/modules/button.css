@@ -201,6 +201,23 @@ button,
 }
 
 /* 线框按钮 默认主题*/
+.yh-button--variant-outline.yh-button--theme-default,
+.yh-button--variant-dashed.yh-button--theme-default {
+  color: var(--yh-brand-color);
+  border-color: var(--yh-brand-color);
+}
+
+.yh-button--variant-outline.yh-button--theme-default:hover,
+.yh-button--variant-dashed.yh-button--theme-default:hover,
+.yh-button--variant-outline.yh-button--theme-default:focus-visible,
+.yh-button--variant-dashed.yh-button--theme-default:focus-visible {
+  border-color: var(--yh-brand-color-hover);
+  background-color: var(--yh-bg-color-specialcomponent);
+  color: var(--yh-brand-color-hover);
+}
+
+
+
 
 /***********************************button variant-base & theme-primary  主要颜色********************************************************************/
 .yh-button--variant-base.yh-button--theme-primary {

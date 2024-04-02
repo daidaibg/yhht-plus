@@ -1,27 +1,20 @@
 // default/primary/danger/warning/success
-import type {PropType} from "vue"
+import type { PropType } from "vue";
 
-export const buttonVariants = [
-  'base',
-  'outline',
-  'dashed',
-  'text',
-  '',
-] as const
+export const buttonVariants = ["base", "outline", "dashed", "text", ""] as const;
 export const ButtonProps = {
   theme: {
-    type: String,
+    type: String as PropType<"default" | "primary" | "danger" | "warning" | "success" | string>,
     default: "default",
   },
   //按钮形式，基础、线框、虚线、文字。可选项：base/outline/dashed/text
   variant: {
-    type: String,
-    values:buttonVariants,
+    type: String as PropType<"base" | "outline" | "dashed" | "text">,
+    values: buttonVariants,
     default: "base",
   },
-  // // small/medium/large
   size: {
-    type: String,
+    type: String as PropType<"small" | "medium" | "large">,
     default: () => "medium",
   },
   disabled: {
@@ -48,11 +41,7 @@ export const ButtonProps = {
   },
   //按钮类型 原生属性
   type: {
-    type: String as PropType<"button" | "submit" | "reset"|undefined>,
+    type: String as PropType<"button" | "submit" | "reset" | undefined>,
     default: () => "button",
-  }
-
-} as const
-
-
-
+  },
+} as const;

@@ -48,7 +48,7 @@ button,
   z-index: 1;
 }
 
-.#{$prefix-button}:not(.t-is-disabled):not(.t-button--ghost) {
+.#{$prefix-button}:not(.yh-is-disabled):not(.yh-button--ghost) {
   --ripple-color: var(--yh-bg-color-container-active);
 }
 
@@ -123,7 +123,7 @@ button,
   --ripple-color: var(--yh-bg-color-container-active);
 }
 
-/* 文字按钮 默认主题*/
+/************************ 文字按钮 默认主题*************************************/
 .#{$prefix-button}--variant-text.#{$prefix-button}--theme-default.yh-is-disabled {
   color: var(--yh-text-color-disabled);
 }
@@ -143,7 +143,7 @@ button,
   }
 }
 
-/* 虚线按钮 描边按钮 基础 */
+/************************* 虚线按钮、描边按钮 基础 **************************/
 
 .#{$prefix-button}--variant-dashed,
 .#{$prefix-button}--variant-outline {
@@ -151,9 +151,10 @@ button,
   background-color: var(--yh-bg-color-specialcomponent);
   border-color: var(--yh-border-level-2-color);
   &:hover ,&:focus-visible{
-    color: var(--yh-text-color-primary);
+    color:var(--yh-brand-color-hover);
     background-color: var(--yh-bg-color-specialcomponent);
-    border-color: var(--yh-border-level-2-color);
+    border-color: var(--yh-brand-color-hover);;
+    
   }
   &.yh-is-disabled {
     color: var(--yh-text-color-disabled);
@@ -191,7 +192,7 @@ button,
   }
 }
 
-/************************************************* button variant-default 默认主题 ******************************************************************************/
+/************************************************* button variant-default 默认主题  base形状******************************************************************************/
 .#{$prefix-button}--variant-base {
   &.#{$prefix-button}--theme-default {
     background-color: var(--yh-bg-color-component);
