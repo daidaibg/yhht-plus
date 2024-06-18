@@ -1,12 +1,5 @@
 <script lang="ts" setup>
-import {
-  defineComponent,
-  PropType,
-  watch,
-  onMounted,
-  onUnmounted,
-  inject,
-} from "vue";
+import { defineComponent, PropType, watch, onMounted, onUnmounted, inject } from "vue";
 import prop, { TdAnchorItemProps } from "./anchor-item";
 import { AnchorInjectionKey } from "./constants";
 
@@ -35,17 +28,17 @@ const handleClick = (e: MouseEvent) => {
 };
 
 //获取标签值
-const getHref=():string=>{
-  if(anchor.noLink&&anchor.hashRouter!==""){
-    return  "#"+anchor.hashRouter
-  }else if(!anchor.noLink&&anchor.hashRouter!==""){
-    return "#"+anchor.hashRouter+props.href!
-  }else if(!anchor.noLink&&anchor.hashRouter==""){
-    "#"+props.href
+const getHref = (): string => {
+  if (anchor.noLink && anchor.hashRouter !== "") {
+    return "#" + anchor.hashRouter;
+  } else if (!anchor.noLink && anchor.hashRouter !== "") {
+    return "#" + anchor.hashRouter + props.href;
+  } else if (!anchor.noLink && anchor.hashRouter == "") {
+    return props.href as string;
   }
 
-  return "#"
-}
+  return "#";
+};
 
 watch(
   () => props.href,
@@ -64,16 +57,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
-    class="yh-anchor__item"
-    :class="{ 'yh-is-active': anchor.active == href }"
-  >
-    <a
-      :href="getHref()"
-      :target="target"
-      class="yh-anchor__item-link"
-      @click="handleClick"
-    >
+  <div class="yh-anchor__item" :class="{ 'yh-is-active': anchor.active == href }">
+    <a :href="getHref()" :target="target" class="yh-anchor__item-link" @click="handleClick">
       <slot name="title"> {{ title }}</slot>
     </a>
     <!-- <span v-else class="yh-anchor__item-link" @click="handleClick" >

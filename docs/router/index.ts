@@ -8,7 +8,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/home',
-    name: RouterEnums.button.path,
+    name:"/home",
+    redirect: RouterEnums.button.path,
     component: () => import(/* webpackChunkName: "Components" */ '../view/home.vue'),
     meta: {
       title: "首页"
@@ -36,7 +37,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  // history: createWebHashHistory(),
+  history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes,
   // scrollBehavior(to, from, saveScrollPosition) {
   //   return { left: 0, top: 0 };

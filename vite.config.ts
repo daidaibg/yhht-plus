@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig,loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
 import externalGlobals from "rollup-plugin-external-globals";
@@ -89,6 +89,7 @@ export default defineConfig(({ command, mode }) => {
   console.log("mode", mode);
   let build: any = mode === "docs" ? docsBuild : yhhtPlusBuild
   const dtsFlag = mode !== "docs"
+  const env = loadEnv(mode, process.cwd()); 
   return {
     plugins: [vue(),
     dtsFlag && dts({
@@ -110,7 +111,8 @@ export default defineConfig(({ command, mode }) => {
     })
     ],
     publicDir: "public",
-    base: '/yhht-plus/',
+    // base: '/yhht-plus/',
+    base: env.VITE_BASE_URL,
     build: build,
     // base : './',
     server: {

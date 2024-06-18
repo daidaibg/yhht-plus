@@ -7,11 +7,12 @@ const currentActive = ref("");
 
 <template>
   <div id="container" class="anchor-demo anchor-container-demo">
+    <!-- :hashRouter="route.path" -->
     <yh-anchor
       id="default"
       container="#anchor-container"
       no-link
-      :hashRouter="route.path"
+    
       :targetOffset="0"
     >
       <yh-anchor-item href="#content-1" title="content-1" />
@@ -32,12 +33,13 @@ const currentActive = ref("");
   <div class="anchor-test">
     <div id="基础锚点" style="height: 500px">
       <h2>基础锚点</h2>
+      <!-- :hashRouter="route.path" -->
+
       <yh-anchor
         container=".main-box"
         :bounds="50"
         :currentActive="currentActive"
         noLink
-        :hashRouter="route.path"
       >
         <yh-anchor-item :href="`#基础锚点`" title="基础锚点"> </yh-anchor-item>
         <yh-anchor-item :href="`#基础锚点2`" title="基础锚点2" />
@@ -47,12 +49,12 @@ const currentActive = ref("");
     </div>
     <div id="基础锚点2" style="height: 500px">
       <h2>基础锚点2</h2>
-
+        
+        <!-- :hashRouter="route.path" -->
       <yh-anchor
         container=".main-box"
         :bounds="50"
         :currentActive="currentActive"
-        :hashRouter="route.path"
       >
         <yh-anchor-item :href="`#基础锚点`" title="基础锚点"> </yh-anchor-item>
         <yh-anchor-item :href="`#基础锚点2`" title="基础锚点2" />
