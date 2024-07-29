@@ -1,4 +1,4 @@
-import{_ as r}from"./marked.vue_vue_type_script_setup_true_lang-D5sQxMya.js";import{d as n,h as o,u as t,f as e}from"./index-D2vQz6CT.js";import"./right-anchor-Bysnxwxj.js";const l=`## on(绑定事件)\r
+import{_ as r}from"./marked.vue_vue_type_script_setup_true_lang-rhiC_ApK.js";import{d as n,h as o,u as t,f as e}from"./index-FWPEF01E.js";import"./right-anchor-fYbgrAub.js";const l=`## on(绑定事件)\r
 \r
 同原生的\`addEventListener\`只是简单做了优化\r
 \r
