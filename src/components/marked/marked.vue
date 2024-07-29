@@ -30,6 +30,10 @@ const props = defineProps({
     type: Boolean as PropType<boolean>,
     default: () => true,
   },
+  codeFoldable: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 mdEditorConfig();
@@ -108,15 +112,14 @@ const getComponent = (str: any): any => {
 
 const getComponentStr = (str: string): any => {
   return docxModulesStr[str]()
-    .then((str:any) => {
-      if(str){
-         return str.default;
-
-      }else{
-          return `缺少-${str}-组件`
-      } 
+    .then((str: any) => {
+      if (str) {
+        return str.default;
+      } else {
+        return `缺少-${str}-组件`;
+      }
     })
-    .catch((err:any) => {
+    .catch((err: any) => {
       console.error(err);
     });
 };
@@ -188,6 +191,7 @@ onUpdated(() => {});
       :code-theme="themeStore.codeTheme"
       showCodeRowNumber
       :mdHeadingId="mdHeadingId"
+      :codeFoldable="props.codeFoldable"
       id="yh-md"
       v-if="item.type == 'md'"
     />
