@@ -11,7 +11,7 @@
           v-if="!item.hidden && !item.line"
           :key="index"
           :class="['__menu__item', item.disabled && 'disabled', item.customClass]"
-          @[clickEventKey].stop="handleMenuItemClick(item, $event)"
+          @[clickEventKey].stop="(event:any)=>handleMenuItemClick(item, event)"
           @mouseenter="handleMenuMouseEnter($event,item)"
         >
           <div v-if="hasIcon" class="__menu__item-icon">
@@ -45,7 +45,7 @@
                 v-if="!subItem.hidden && !subItem.line"
                 :key="subIndex"
                 :class="['__menu__sub__item', subItem.disabled && 'disabled', subItem.customClass]"
-                @[clickEventKey].stop="handleSubMenuItemClick(subItem, $event)"
+                @[clickEventKey].stop="(event:any)=>handleSubMenuItemClick(subItem, event)"
               >
                 <span class="__menu__sub__item-label">{{ subItem.label }}</span>
                 <span class="__menu__sub__item-tips">{{ subItem.tips || '' }}</span>
