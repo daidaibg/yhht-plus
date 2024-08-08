@@ -70,6 +70,15 @@ const routes: Array<RouteRecordRaw> = [
             }
           },
           {
+            path: '/components/contextMenu',
+            name: 'contextMenu',
+            component: () => import(/* webpackChunkName: "Components" */ '../views/com/contextMenu/index.vue'),
+            meta: {
+              type: 'com',
+              title: "右键菜单"
+            }
+          },
+          {
             path: '/components/demo',
             name: 'demo',
             component: () => import(/* webpackChunkName: "Components" */ '../views/com/demo/demo.vue'),

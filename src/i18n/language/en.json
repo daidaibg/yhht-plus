@@ -15,6 +15,8 @@
         "anchor":"Anchor",
         "navigation":"Navigation",
         "basic":"Basic",
-        "commonMethod":"commonMethod"
+        "commonMethod":"commonMethod",
+        "others":"others",
+        "contextMenu":"contextMenu"
     }
 }

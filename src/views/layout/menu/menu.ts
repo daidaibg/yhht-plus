@@ -38,6 +38,15 @@ const comMenu = [
             },
         ],
     },
+    {
+        tip: "menu.others",
+        sub: [
+            {
+                name: "menu.contextMenu",
+                url: "/components/contextMenu",
+            },
+        ],
+    },
 
 ]
 const jsMenu = [

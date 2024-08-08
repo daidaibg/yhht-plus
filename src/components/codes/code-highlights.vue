@@ -47,12 +47,12 @@ ${props.asyncCodeText ? str.value : props.text}
 \`\`\`
 `;
 });
-watch(
-  () => codeText.value,
-  (val) => {
-    console.log(val);
-  }
-);
+// watch(
+//   () => codeText.value,
+//   (val) => {
+//     console.log(val);
+//   }
+// );
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <!--
  * @Author: daidai
  * @Date: 2021-09-09 17:19:05
- * @LastEditors: 刘嘉威 daidaibg@163.com
- * @LastEditTime: 2023-11-23 17:29:23
+ * @LastEditors: daidai daidaibg@163.com
+ * @LastEditTime: 2024-08-08 15:17:58
  * @FilePath: \yhht-ui\src\views\Header.vue
 -->
 <template>
@@ -121,7 +121,7 @@ const command = (type: string) => {
       margin: 0 10px;
       height: 100%;
       border-bottom: solid 2px rgba(25, 137, 250, 0);
-
+      cursor: pointer;
       a,
       .item-inner {
         height: 100%;
@@ -129,8 +129,6 @@ const command = (type: string) => {
         display: flex;
         align-items: center;
       }
-
-      cursor: pointer;
 
       &:hover {
         a,

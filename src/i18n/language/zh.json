@@ -15,6 +15,9 @@
         "anchor":"Anchor 锚点",
         "navigation":"Navigation 导航",
         "basic":"Basic",
-        "commonMethod":"通用方法"
+        "commonMethod":"通用方法",
+        "others":"others 其它",
+        "contextMenu":"右键菜单"
+
     }
 }
