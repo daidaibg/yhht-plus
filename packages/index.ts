@@ -3,13 +3,15 @@ import YhButton from './components/button'
 import YhAnchor from './components/anchor'
 import YhAnchorItem from './components/anchor-item'
 import YhAffix from './components/affix'
+import YhContextMenu,{ContextMenuDirective} from "./components/contextmenu"
 import  "./assets/theme/index.scss"
 
 const components = [
   YhButton,
   YhAnchor,
   YhAnchorItem,
-  YhAffix
+  YhAffix,
+  YhContextMenu
 ];
 // 定义 install 方法， App 作为参数
 const install = (app: App): void => {
@@ -19,7 +21,7 @@ const install = (app: App): void => {
 
 
 export default {
-  version: '1.0.1',
+  version: '1.1.0',
   install,
 };
 
@@ -27,6 +29,8 @@ export {
   YhButton,
   YhAnchor,
   YhAnchorItem,
-  YhAffix
+  YhAffix,
+  YhContextMenu,
+  ContextMenuDirective
 }
 

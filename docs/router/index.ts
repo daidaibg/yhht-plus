@@ -30,6 +30,14 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           title: RouterEnums.anchor.name
         },
+      },
+      {
+        path: RouterEnums.contextmenu.path,
+        name: RouterEnums.contextmenu.path,
+        component: () => import(/* webpackChunkName: "Components" */ '../view/packages/contextmenu/index.vue'),
+        meta: {
+          title: RouterEnums.contextmenu.name
+        },
       }
     ]
   }
