@@ -63,7 +63,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed, nextTick, PropType, Ref, watch, onUnmounted } from 'vue';
 import { MenuCallback, MenuSetting } from './types';
-import cloneDeep from "../../../utils/lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep";
 export default defineComponent({
   name: 'context-menu',
   props: {
