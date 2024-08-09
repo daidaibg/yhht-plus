@@ -4,7 +4,7 @@ import YhAnchor from './components/anchor'
 import YhAnchorItem from './components/anchor-item'
 import YhAffix from './components/affix'
 import YhContextMenu,{ContextMenuDirective} from "./components/contextmenu"
-import  "./assets/theme/index.scss"
+import  "./style.scss"
 
 const components = [
   YhButton,

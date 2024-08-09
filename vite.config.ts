@@ -51,7 +51,6 @@ const yhhtPlusBuild = {
           "lodash":"lodash",
           "raf":"raf",
           "performance-now":"performanceNow"
-
         },
       },
       {
@@ -66,8 +65,6 @@ const yhhtPlusBuild = {
           "lodash":"lodash",
           "raf":"raf",
           "performance-now":"performanceNow"
-
-
         }
       }
     ],

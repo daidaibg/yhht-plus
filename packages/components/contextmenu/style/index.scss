@@ -1,0 +1,170 @@
+.__menu__mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+  }
+  .__menu__wrapper {
+    --menu-background: var(--yh-bg-color-container);
+    --menu-boxShadow:var(--yh-shadow-1);
+    --menu-padding:8px 6px;
+    --menu-borderRadius: 6px;
+    --menu-lineColor:var(--yh-text-color-disabled);
+    --menu-lineMargin: 5px 10px;
+  
+    --menu-item-height: 30px;
+    --menu-item-padding: 0 10px;
+    --menu-item-iconSize: 20px;
+    --menu-item-iconFontSize: 14px;
+    --menu-item-iconColor: var(--yh-text-color-secondary);
+    --menu-item-labelColor: var(--yh-text-color-secondary);
+    --menu-item-labelFontSize: 14px;
+    --menu-item-tipsColor: var(--yh-text-color-placeholder);
+    --menu-item-tipsFontSize: 12px;
+    --menu-item-arrowColor: var(--yh-text-color-secondary);
+    --menu-item-disabledColor: var(--yh-text-color-disabled);
+    --menu-item-hoverBackground: var(--yh-bg-color-container-hover);
+    --menu-item-hoverIconColor:  var(--yh-text-color-primary);;
+    --menu-item-hoverLabelColor: var(--yh-text-color-primary);
+    --menu-item-hoverTipsColor:  var(--yh-text-color-secondary);
+    --menu-item-hoverArrowColor: var(--yh-text-color-primary);
+  }
+  .__menu__wrapper {
+    position: fixed;
+    width: 200px;
+    background: var(--menu-background);
+    box-shadow: var(--menu-boxShadow);
+    padding: var(--menu-padding);
+    border-radius: var(--menu-borderRadius);
+    z-index: 99999;
+  }
+  .__menu__line,
+  .__menu__sub__line {
+    height: 1px;
+    background-color: var(--menu-lineColor);
+    margin: var(--menu-lineMargin);
+  }
+  .__menu__item,
+  .__menu__sub__item {
+    display: flex;
+    height: var(--menu-item-height);
+    // line-height: var(--menu-item-height);
+    align-items: center;
+    cursor: pointer;
+    padding: var(--menu-item-padding);
+    .__menu__item-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--menu-item-iconColor);
+      width: var(--menu-item-iconSize);
+      height: var(--menu-item-iconSize);
+      i {
+        font-size: var(--menu-item-iconFontSize);
+      }
+      .__menu__item-icon-svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .__menu__item-label,
+    .__menu__sub__item-label {
+      width: 100%;
+      max-height: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+      font-size: var(--menu-item-labelFontSize);
+      color: var(--menu-item-labelColor);
+      margin-right: 5px;
+      overflow: hidden;
+    }
+    .__menu__item-tips,
+    .__menu__sub__item-tips {
+      font-size: var(--menu-item-tipsFontSize);
+      color: var(--menu-item-tipsColor);
+    }
+    .__menu__item-arrow {
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      position: relative;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      .__menu__item-icon,
+      .__menu__item-label,
+      .__menu__sub__item-label,
+      .__menu__item-tips,
+      .__menu__sub__item-tips {
+        color: var(--menu-item-disabledColor);
+      }
+      .__menu__item-arrow {
+        .__menu__item-arrow-after {
+          border-left: var(--menu-item-arrowRealSize) solid
+            var(--menu-item-disabledColor);
+        }
+      }
+    }
+  }
+  .__menu__item {
+    &:not(.disabled):hover {
+      background: var(--menu-item-hoverBackground);
+      .__menu__item-icon {
+        color: var(--menu-item-hoverIconColor);
+      }
+      .__menu__item-label {
+        color: var(--menu-item-hoverLabelColor);
+      }
+      .__menu__item-tips {
+        color: var(--menu-item-hoverTipsColor);
+      }
+      .__menu__item-arrow {
+        color: var(--menu-item-hoverArrowColor);
+      }
+    }
+  }
+  .__menu__sub__item {
+    &:not(.disabled):hover {
+      background: var(--menu-item-hoverBackground);
+      .__menu__sub__item-label {
+        color: var(--menu-item-hoverLabelColor);
+      }
+      .__menu__sub__item-tips {
+        color: var(--menu-item-hoverTipsColor);
+      }
+    }
+  }
+  .__menu__item-icon {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 4px;
+  }
+  .__menu__item-arrow.show .__menu__item-arrow-after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 8px;
+    border-left: var(--menu-item-arrowRealSize) solid var(--menu-item-arrowColor);
+    border-top: var(--menu-item-arrowRealSize) solid transparent;
+    border-bottom: var(--menu-item-arrowRealSize) solid transparent;
+  }
+  .__menu__sub__wrapper {
+    position: fixed;
+    visibility: hidden;
+    width: 200px;
+    background: var(--menu-background);
+    box-shadow: var(--menu-boxShadow);
+    padding: var(--menu-padding);
+    border-radius: var(--menu-borderRadius);
+  }
+  .__menu__item:hover .__menu__sub__wrapper {
+    visibility: visible;
+  }
