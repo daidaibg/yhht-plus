@@ -4,7 +4,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import { CustomMouseMenuOptions } from "yhht-plus/lib/components/contextmenu/src/types";
+import type { CustomMouseMenuOptions } from "yhht-plus/lib/components/contextmenu/index";
 
 const dom = ref<any>({});
 const mouseMenuEl = ref();

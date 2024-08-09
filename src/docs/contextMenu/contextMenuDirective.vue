@@ -4,7 +4,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { ContextMenuDirective as vContextMenu } from "yhht-plus";
-import { CustomMouseMenuOptions } from "yhht-plus/lib/components/contextmenu/src/types";
+import type { CustomMouseMenuOptions } from "yhht-plus/lib/components/contextmenu/index";
 
 const options: CustomMouseMenuOptions = {
   params: { a: 1 },

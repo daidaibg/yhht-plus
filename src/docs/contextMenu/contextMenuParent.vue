@@ -15,7 +15,7 @@
   import {
     ContextMenuDirective as vContextMenu,
   } from "yhht-plus";
-  import {CustomMouseMenuOptions} from "yhht-plus/lib/components/contextmenu/src/types"
+  import type {CustomMouseMenuOptions} from "yhht-plus/lib/components/contextmenu/index"
   const boxRef = ref();
   const options: CustomMouseMenuOptions = {
     menuHiddenFn: (params, el) => !el?.getAttribute("class")?.includes("box-listitem"),
